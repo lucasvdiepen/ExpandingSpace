@@ -8,38 +8,36 @@ public class movement : MonoBehaviour
     private Rigidbody2D rb;
     public float jumpPower = 8;
     [HideInInspector] public bool grounded = false;
-    //float horizontalInput;
 
     public void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
-        //float horizontalInput = Input.GetAxis("Horizontal");
     }
-    // Update is called once per frame
     void Update()
     {
+        float horizontalInput = Input.GetAxis("Horizontal");
         if (Input.GetKey(KeyCode.A))
         {
             transform.position += new Vector3(-movementSpeed, 0, 0) * Time.deltaTime;
         }
-        /*else if (horizontalInput < 0 && !Input.GetKey(KeyCode.A))
+        else if (horizontalInput < 0 && !Input.GetKey(KeyCode.A))
         {
             transform.position += new Vector3(-movementSpeed, 0, 0) * Time.deltaTime;
-        }*/
+        }
         if (Input.GetKey(KeyCode.D))
         {
             transform.position += new Vector3(movementSpeed, 0, 0) * Time.deltaTime;
         }
-        /*else if (horizontalInput > 0 && !Input.GetKey(KeyCode.D))
+        else if (horizontalInput > 0 && !Input.GetKey(KeyCode.D))
         {
             transform.position += new Vector3(movementSpeed, 0, 0) * Time.deltaTime;
-        }*/
+        }
         if (Input.GetKeyDown(KeyCode.Space) && grounded)
         {
             rb.velocity = new Vector3(0, jumpPower, 0);
             grounded = false;
         }
-        else if (Input.GetButtonDown("Jump") && !Input.GetKey(KeyCode.Space))
+        else if (Input.GetButtonDown("Jump") && grounded)
         {
             rb.velocity = new Vector3(0, jumpPower, 0);
             grounded = false;
