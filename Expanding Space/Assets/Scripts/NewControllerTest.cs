@@ -13,6 +13,13 @@ public class NewControllerTest : MonoBehaviour
         playerControls = new PlayerControls();
 
         playerControls.Gameplay.Jump.performed += ctx => Jump();
+
+        
+    }
+
+    private void Start()
+    {
+        Gamepad.current.SetMotorSpeeds(0.25f, 0.75f);
     }
 
     // Update is called once per frame
