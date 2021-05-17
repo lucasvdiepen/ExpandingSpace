@@ -58,7 +58,7 @@ public class Dig : MonoBehaviour
         if (isNear)
         {
             float distanceToDigPlace = Vector2.Distance(transform.position, digPosition);
-            if (maxDigDistance <= distanceToDigPlace)
+            if (distanceToDigPlace <= maxDigDistance)
             {
                 //Do dig here
                 Debug.Log("Dig");
