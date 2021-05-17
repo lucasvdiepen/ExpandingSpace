@@ -45,7 +45,7 @@ public class Dig : MonoBehaviour
 
             Debug.Log("Distance to dig place" + distanceToDigPlace);
 
-            float controllerVibrationStrength = Mathf.Lerp(0, 1, distanceToDigPlace / maxVibrationDistance);
+            float controllerVibrationStrength = Mathf.Lerp(1, 0, distanceToDigPlace / maxVibrationDistance);
 
             Debug.Log("Controller vibration strength: " + controllerVibrationStrength);
 
