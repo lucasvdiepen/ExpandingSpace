@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Dialog : MonoBehaviour
 {
@@ -22,13 +23,30 @@ public class Dialog : MonoBehaviour
 
     private float lastLetterTime = 0f;
 
-    // Start is called before the first frame update
+    PlayerControls playerControls;
+
+    private void Awake()
+    {
+        playerControls = new PlayerControls();
+
+        playerControls.Dialog.ContinueDialog.performed += ctx => ContinueDialog();
+    }
+
+    private void OnEnable()
+    {
+        playerControls.Dialog.Enable();
+    }
+
+    private void OnDisable()
+    {
+        playerControls.Dialog.Disable();
+    }
+
     void Start()
     {
         StartDialog();
     }
 
-    // Update is called once per frame
     void Update()
     {
         //Input
@@ -61,18 +79,31 @@ public class Dialog : MonoBehaviour
         dialogText.text = "";
     }
 
-    public void Continue()
+    public void ContinueDialog()
     {
         if (dialogEnded) DialogHolder.SetActive(false);
-        else { ResetText(); dialogContinue = true; }
+        else 
+        {
+            if(!dialogContinue)
+            {
+                ResetText();
+                sentenceLetterCount = 0;
+                dialogContinue = true;
+            }
+        }
     }
 
     public void StartDialog()
     {
-        dialogStarted = true;
-        dialogContinue = true;
-        dialogEnded = false;
-        DialogHolder.SetActive(true);
-        ResetText();
+        if(!dialogStarted)
+        {
+            dialogStarted = true;
+            dialogContinue = true;
+            dialogEnded = false;
+            sentenceCount = 0;
+            sentenceLetterCount = 0;
+            DialogHolder.SetActive(true);
+            ResetText();
+        }
     }
 }

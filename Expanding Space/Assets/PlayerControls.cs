@@ -78,6 +78,74 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Dialog"",
+            ""id"": ""e59c10bf-8d33-493f-b914-b8256a7e6cb7"",
+            ""actions"": [
+                {
+                    ""name"": ""StartDialog"",
+                    ""type"": ""Button"",
+                    ""id"": ""d3fbf028-2a76-41c3-8356-759335f3cda9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""ContinueDialog"",
+                    ""type"": ""Button"",
+                    ""id"": ""c8cd97ad-ecc1-451b-bc11-93d0c18934e7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""09bf6955-be72-43ff-bb6d-46f458ec3bed"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""StartDialog"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fcf7f223-fdf9-48e4-b5ee-111669da0438"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""StartDialog"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""60089fd6-4ac2-4937-805f-80157821ef1f"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ContinueDialog"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1674730a-586c-4fbc-ba30-600ebef29759"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ContinueDialog"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -87,6 +155,10 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Gameplay_Jump = m_Gameplay.FindAction("Jump", throwIfNotFound: true);
         m_Gameplay_Dig = m_Gameplay.FindAction("Dig", throwIfNotFound: true);
         m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
+        // Dialog
+        m_Dialog = asset.FindActionMap("Dialog", throwIfNotFound: true);
+        m_Dialog_StartDialog = m_Dialog.FindAction("StartDialog", throwIfNotFound: true);
+        m_Dialog_ContinueDialog = m_Dialog.FindAction("ContinueDialog", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -181,10 +253,56 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         }
     }
     public GameplayActions @Gameplay => new GameplayActions(this);
+
+    // Dialog
+    private readonly InputActionMap m_Dialog;
+    private IDialogActions m_DialogActionsCallbackInterface;
+    private readonly InputAction m_Dialog_StartDialog;
+    private readonly InputAction m_Dialog_ContinueDialog;
+    public struct DialogActions
+    {
+        private @PlayerControls m_Wrapper;
+        public DialogActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @StartDialog => m_Wrapper.m_Dialog_StartDialog;
+        public InputAction @ContinueDialog => m_Wrapper.m_Dialog_ContinueDialog;
+        public InputActionMap Get() { return m_Wrapper.m_Dialog; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(DialogActions set) { return set.Get(); }
+        public void SetCallbacks(IDialogActions instance)
+        {
+            if (m_Wrapper.m_DialogActionsCallbackInterface != null)
+            {
+                @StartDialog.started -= m_Wrapper.m_DialogActionsCallbackInterface.OnStartDialog;
+                @StartDialog.performed -= m_Wrapper.m_DialogActionsCallbackInterface.OnStartDialog;
+                @StartDialog.canceled -= m_Wrapper.m_DialogActionsCallbackInterface.OnStartDialog;
+                @ContinueDialog.started -= m_Wrapper.m_DialogActionsCallbackInterface.OnContinueDialog;
+                @ContinueDialog.performed -= m_Wrapper.m_DialogActionsCallbackInterface.OnContinueDialog;
+                @ContinueDialog.canceled -= m_Wrapper.m_DialogActionsCallbackInterface.OnContinueDialog;
+            }
+            m_Wrapper.m_DialogActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @StartDialog.started += instance.OnStartDialog;
+                @StartDialog.performed += instance.OnStartDialog;
+                @StartDialog.canceled += instance.OnStartDialog;
+                @ContinueDialog.started += instance.OnContinueDialog;
+                @ContinueDialog.performed += instance.OnContinueDialog;
+                @ContinueDialog.canceled += instance.OnContinueDialog;
+            }
+        }
+    }
+    public DialogActions @Dialog => new DialogActions(this);
     public interface IGameplayActions
     {
         void OnJump(InputAction.CallbackContext context);
         void OnDig(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
+    }
+    public interface IDialogActions
+    {
+        void OnStartDialog(InputAction.CallbackContext context);
+        void OnContinueDialog(InputAction.CallbackContext context);
     }
 }

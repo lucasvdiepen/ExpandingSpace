@@ -18,17 +18,17 @@
                     "type": "Button",
                     "id": "b93d2629-b853-4639-abfb-f6b64cb9fc72",
                     "expectedControlType": "Button",
-					"processors": "",
+                    "processors": "",
                     "interactions": ""
                 },
-				{
-					"name": "Move",
+                {
+                    "name": "Move",
                     "type": "Value",
                     "id": "6a56cf9e-2bd5-44a1-bc30-ceb29982a730",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
-				}
+                }
             ],
             "bindings": [
                 {
@@ -53,8 +53,9 @@
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
-				{
-					"id": "23617c4e-37a0-4743-be08-b22c837dc4c7",
+                {
+                    "name": "",
+                    "id": "23617c4e-37a0-4743-be08-b22c837dc4c7",
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
@@ -62,7 +63,75 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
-				}
+                }
+            ]
+        },
+        {
+            "name": "Dialog",
+            "id": "e59c10bf-8d33-493f-b914-b8256a7e6cb7",
+            "actions": [
+                {
+                    "name": "StartDialog",
+                    "type": "Button",
+                    "id": "d3fbf028-2a76-41c3-8356-759335f3cda9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "ContinueDialog",
+                    "type": "Button",
+                    "id": "c8cd97ad-ecc1-451b-bc11-93d0c18934e7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "09bf6955-be72-43ff-bb6d-46f458ec3bed",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "StartDialog",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fcf7f223-fdf9-48e4-b5ee-111669da0438",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "StartDialog",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "60089fd6-4ac2-4937-805f-80157821ef1f",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ContinueDialog",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1674730a-586c-4fbc-ba30-600ebef29759",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ContinueDialog",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
             ]
         }
     ],
