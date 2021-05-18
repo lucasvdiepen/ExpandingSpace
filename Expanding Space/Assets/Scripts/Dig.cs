@@ -5,8 +5,16 @@ using UnityEngine.InputSystem;
 
 public class Dig : MonoBehaviour
 {
-    public float maxVibrationDistance = 1f;
+    public Light lightSource;
+
+    public float maxIndicatorDistance = 1f;
     public float maxDigDistance = 0.5f;
+
+    public float minVibrationStrength = 0f;
+    public float maxVibrationStrength = 0.5f;
+
+    public float minLightSourceStrength = 0f;
+    public float maxLightSourceStrength = 1f;
 
     private bool isNear = false;
     private Vector2 digPosition;
@@ -41,15 +49,20 @@ public class Dig : MonoBehaviour
 
         if (isNear)
         {
+            //Get distance between player and dig place
             float distanceToDigPlace = Vector2.Distance(transform.position, digPosition);
 
-            Debug.Log("Distance to dig place" + distanceToDigPlace);
+            //Calculate vibration strength
+            float controllerVibrationStrength = Mathf.Lerp(maxVibrationStrength, minVibrationStrength, distanceToDigPlace / maxIndicatorDistance);
 
-            float controllerVibrationStrength = Mathf.Lerp(1, 0, distanceToDigPlace / maxVibrationDistance);
+            //Calculate light source strength
+            float lightSourceStrength = Mathf.Lerp(maxLightSourceStrength, minLightSourceStrength, distanceToDigPlace / maxIndicatorDistance);
 
-            Debug.Log("Controller vibration strength: " + controllerVibrationStrength);
+            //Set light source intensity
+            lightSource.intensity = lightSourceStrength;
 
-            Gamepad.current.SetMotorSpeeds(controllerVibrationStrength, controllerVibrationStrength);
+            //Set vibration
+            Gamepad.current.SetMotorSpeeds(controllerVibrationStrength, controllerVibrationStrength / 2);
         }
     }
 
@@ -74,6 +87,7 @@ public class Dig : MonoBehaviour
             digPosition = digPlaceTransform.position;
             isNear = true;
             InputSystem.ResumeHaptics();
+            lightSource.gameObject.SetActive(true);
         }
     }
 
@@ -83,6 +97,7 @@ public class Dig : MonoBehaviour
         {
             isNear = false;
             InputSystem.PauseHaptics();
+            lightSource.gameObject.SetActive(false);
         }
     }
 }

@@ -208,7 +208,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 383042769}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.852, z: 0}
+  m_LocalPosition: {x: -6.51, y: 0.65, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2022653261}
@@ -228,8 +228,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 776139a5a56d96a4a8e1053fb1cc7760, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxVibrationDistance: 2.5
+  lightSource: {fileID: 1223011600}
+  maxIndicatorDistance: 1
   maxDigDistance: 0.3
+  minVibrationStrength: 0
+  maxVibrationStrength: 0.5
+  minLightSourceStrength: 0
+  maxLightSourceStrength: 1
 --- !u!114 &383042772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -499,7 +504,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1223011599
 Transform:
   m_ObjectHideFlags: 0
@@ -508,7 +513,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1223011598}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.531, z: -1.94}
+  m_LocalPosition: {x: 0, y: 0.531, z: -1.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 383042770}
@@ -529,7 +534,7 @@ Light:
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 65
-  m_InnerSpotAngle: 6
+  m_InnerSpotAngle: 5.1263723
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
