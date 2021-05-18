@@ -43,6 +43,11 @@ public class Dig : MonoBehaviour
         
     }
 
+    private void OnApplicationQuit()
+    {
+        Gamepad.current.PauseHaptics();
+    }
+
     void Update()
     {
         if(Keyboard.current.fKey.wasPressedThisFrame) DigPlace();
