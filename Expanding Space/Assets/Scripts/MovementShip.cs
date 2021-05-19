@@ -71,14 +71,17 @@ public class MovementShip : MonoBehaviour
             transform.position -= new Vector3(0, speed, 0) * Time.deltaTime;
         }
 
+        // if player presses A, ship goes to the left
         if (Input.GetKey(KeyCode.A))
         {
+            // moves ship to the left
             transform.position -= new Vector3(speed, 0, 0) * Time.deltaTime;
-            
         }
 
+        // if player presses D, ship goes to the right
         if (Input.GetKey(KeyCode.D))
         {
+            // moves ship to the right
             transform.position += new Vector3(speed, 0, 0) * Time.deltaTime;
         }
     }

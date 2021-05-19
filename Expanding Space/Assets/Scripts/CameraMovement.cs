@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    // Setiing movementSpeed
+    // Setting movementSpeed an topMovementSpeed
     public float movementSpeed = 0;
     public float topMovementSpeed = 0;
     void FixedUpdate()
@@ -12,7 +12,7 @@ public class CameraMovement : MonoBehaviour
 
         transform.position += new Vector3(movementSpeed, 0, 0) * Time.deltaTime;
 
-        // this if statemen makes the camera slowely go to the speed 
+        // this if statement makes the camera slowely go to the top speed 
         if (movementSpeed <= topMovementSpeed)
         {
             movementSpeed += 0.01f;
