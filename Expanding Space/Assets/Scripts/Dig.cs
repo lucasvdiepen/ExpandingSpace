@@ -5,21 +5,58 @@ using UnityEngine.InputSystem;
 
 public class Dig : MonoBehaviour
 {
-    public Light lightSource;
-
     public float maxIndicatorDistance = 1f;
     public float maxDigDistance = 0.5f;
 
     public float minVibrationStrength = 0f;
     public float maxVibrationStrength = 0.5f;
 
-    public float minLightSourceStrength = 0f;
-    public float maxLightSourceStrength = 1f;
-
-    private bool isNear = false;
-    private Vector2 digPosition;
-
     PlayerControls playerControls;
+
+    private static AntenneLighting antenneLighting;
+
+    private class DigPlaceInfo
+    {
+        public bool isNear { get; private set; }
+        public Vector2 position { get; private set; }
+        private DigPlace script { get; set; }
+
+        public void SetDigPlace(Vector2 _position, DigPlace _script)
+        {
+            isNear = true;
+            position = _position;
+            script = _script;
+
+            antenneLighting.EnableLight();
+
+            if (IsControllerAvailable()) InputSystem.ResumeHaptics();
+        }
+
+        public bool isDug()
+        {
+            if (script != null) return script.isDug;
+
+            return false;
+        }
+
+        public void Reset()
+        {
+            isNear = false;
+            position = Vector2.zero;
+            script = null;
+
+            antenneLighting.DisableLight();
+
+            if (IsControllerAvailable()) InputSystem.ResumeHaptics();
+        }
+
+        public void Dig()
+        {
+            script.Dig();
+        }
+    }
+
+    private DigPlaceInfo digInfo = new DigPlaceInfo();
 
     private void Awake()
     {
@@ -40,48 +77,66 @@ public class Dig : MonoBehaviour
 
     void Start()
     {
-        
+        antenneLighting = GetComponent<AntenneLighting>();
     }
 
     private void OnApplicationQuit()
     {
-        Gamepad.current.PauseHaptics();
+        if (IsControllerAvailable()) Gamepad.current.PauseHaptics();
     }
 
     void Update()
     {
-        if(Keyboard.current.fKey.wasPressedThisFrame) DigPlace();
-
-        if (isNear)
+        if (digInfo.isNear)
         {
             //Get distance between player and dig place
-            float distanceToDigPlace = Vector2.Distance(transform.position, digPosition);
+            float distanceToDigPlace = Vector2.Distance(transform.position, digInfo.position);
 
             //Calculate vibration strength
             float controllerVibrationStrength = Mathf.Lerp(maxVibrationStrength, minVibrationStrength, distanceToDigPlace / maxIndicatorDistance);
 
             //Calculate light source strength
-            float lightSourceStrength = Mathf.Lerp(maxLightSourceStrength, minLightSourceStrength, distanceToDigPlace / maxIndicatorDistance);
+            float lightSourceStrength = Mathf.Lerp(1f, 0f, distanceToDigPlace / maxIndicatorDistance);
 
             //Set light source intensity
-            lightSource.intensity = lightSourceStrength;
+            antenneLighting.SetBrightness((int)(lightSourceStrength * 100));
 
             //Set vibration
-            Gamepad.current.SetMotorSpeeds(controllerVibrationStrength, controllerVibrationStrength / 2);
+            if(IsControllerAvailable())
+            {
+                Gamepad.current.SetMotorSpeeds(controllerVibrationStrength, controllerVibrationStrength / 2);
+            }
         }
     }
 
     private void DigPlace()
     {
-        if (isNear)
+        if (digInfo.isNear && !digInfo.isDug())
         {
-            float distanceToDigPlace = Vector2.Distance(transform.position, digPosition);
+            float distanceToDigPlace = Vector2.Distance(transform.position, digInfo.position);
             if (distanceToDigPlace <= maxDigDistance)
             {
                 //Do dig here
                 Debug.Log("Dig");
+                digInfo.Dig();
             }
         }
+    }
+
+    private void DigInRange(Vector2 digPlacePosition, DigPlace script)
+    {
+        digInfo.SetDigPlace(digPlacePosition, script);
+    }
+
+    private void DigOutRange()
+    {
+        digInfo.Reset();
+    }
+
+    private static bool IsControllerAvailable()
+    {
+        if (Gamepad.current == null) return false;
+        return true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -89,10 +144,7 @@ public class Dig : MonoBehaviour
         if(collision.tag == "DigPlace")
         {
             Transform digPlaceTransform = collision.GetComponent<Transform>();
-            digPosition = digPlaceTransform.position;
-            isNear = true;
-            InputSystem.ResumeHaptics();
-            lightSource.gameObject.SetActive(true);
+            DigInRange(digPlaceTransform.position, collision.GetComponent<DigPlace>());
         }
     }
 
@@ -100,9 +152,7 @@ public class Dig : MonoBehaviour
     {
         if(collision.tag == "DigPlace")
         {
-            isNear = false;
-            InputSystem.PauseHaptics();
-            lightSource.gameObject.SetActive(false);
+            DigOutRange();
         }
     }
 }

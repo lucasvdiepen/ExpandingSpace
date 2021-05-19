@@ -44,8 +44,30 @@
                 },
                 {
                     "name": "",
+                    "id": "b4327304-1fd1-479a-94d7-c4accccb0028",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "5783cd07-a6b2-4ae3-becc-f5118839537c",
                     "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dig",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dbc332c8-5bab-4bbb-ba85-d69d5c3f414b",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -63,25 +85,80 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "2D Vector",
+                    "id": "0f5d8c5f-6870-4275-9748-769a23a92e72",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Up",
+                    "id": "9939310a-2b7e-4e86-b338-6113f90e44ab",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Down",
+                    "id": "c91a2abc-ff68-4baf-803c-6e63b0b83ac2",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Left",
+                    "id": "02f6221c-ed0e-41d5-807f-1e5d2b11c613",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Right",
+                    "id": "6017683d-96c5-4421-801c-89efa69e548f",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         },
         {
             "name": "Dialog",
-            "id": "e59c10bf-8d33-493f-b914-b8256a7e6cb7",
+            "id": "268c1a13-ea11-476f-bd12-fa918fab1ff4",
             "actions": [
                 {
-                    "name": "StartDialog",
+                    "name": "ContinueDialog",
                     "type": "Button",
-                    "id": "d3fbf028-2a76-41c3-8356-759335f3cda9",
+                    "id": "986c66a5-9055-4f9f-a931-310c22690ed9",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 },
                 {
-                    "name": "ContinueDialog",
+                    "name": "StartDialog",
                     "type": "Button",
-                    "id": "c8cd97ad-ecc1-451b-bc11-93d0c18934e7",
+                    "id": "0e70b165-6c12-41ef-8717-86a8b10df83f",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -90,29 +167,18 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "09bf6955-be72-43ff-bb6d-46f458ec3bed",
-                    "path": "<Gamepad>/buttonWest",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "StartDialog",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "fcf7f223-fdf9-48e4-b5ee-111669da0438",
+                    "id": "ba0f9cfa-ecfe-4a47-9464-7b67aaa94967",
                     "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "StartDialog",
+                    "action": "ContinueDialog",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "60089fd6-4ac2-4937-805f-80157821ef1f",
+                    "id": "0e771fff-ad08-49d7-9d3f-36191d3dac88",
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
@@ -123,12 +189,23 @@
                 },
                 {
                     "name": "",
-                    "id": "1674730a-586c-4fbc-ba30-600ebef29759",
+                    "id": "1e1ffed3-7052-4bc2-b6cb-43c09189602e",
                     "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ContinueDialog",
+                    "action": "StartDialog",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1c62e604-5e26-4c2c-bce5-6be4c202f8d3",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "StartDialog",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
