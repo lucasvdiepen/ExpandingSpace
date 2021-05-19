@@ -11,9 +11,6 @@ public class Dig : MonoBehaviour
     public float minVibrationStrength = 0f;
     public float maxVibrationStrength = 0.5f;
 
-    public float minLightSourceStrength = 0f;
-    public float maxLightSourceStrength = 1f;
-
     PlayerControls playerControls;
 
     private static AntenneLighting antenneLighting;
@@ -92,7 +89,7 @@ public class Dig : MonoBehaviour
             float controllerVibrationStrength = Mathf.Lerp(maxVibrationStrength, minVibrationStrength, distanceToDigPlace / maxIndicatorDistance);
 
             //Calculate light source strength
-            float lightSourceStrength = Mathf.Lerp(maxLightSourceStrength, minLightSourceStrength, distanceToDigPlace / maxIndicatorDistance);
+            float lightSourceStrength = Mathf.Lerp(1f, 0f, distanceToDigPlace / maxIndicatorDistance);
 
             //Set light source intensity
             antenneLighting.SetBrightness((int)(lightSourceStrength * 100));
