@@ -19,7 +19,7 @@ public class Dig : MonoBehaviour
     {
         public bool isNear { get; private set; }
         public Vector2 position { get; private set; }
-        public DigPlace script { get; private set; }
+        private DigPlace script { get; set; }
 
         public void SetDigPlace(Vector2 _position, DigPlace _script)
         {
@@ -34,7 +34,9 @@ public class Dig : MonoBehaviour
 
         public bool isDug()
         {
-            return script.isDug;
+            if (script != null) return script.isDug;
+
+            return false;
         }
 
         public void Reset()
@@ -46,6 +48,11 @@ public class Dig : MonoBehaviour
             antenneLighting.DisableLight();
 
             if (IsControllerAvailable()) InputSystem.ResumeHaptics();
+        }
+
+        public void Dig()
+        {
+            script.Dig();
         }
     }
 
@@ -104,13 +111,14 @@ public class Dig : MonoBehaviour
 
     private void DigPlace()
     {
-        if (digInfo.isNear)
+        if (digInfo.isNear && !digInfo.isDug())
         {
             float distanceToDigPlace = Vector2.Distance(transform.position, digInfo.position);
             if (distanceToDigPlace <= maxDigDistance)
             {
                 //Do dig here
                 Debug.Log("Dig");
+                digInfo.Dig();
             }
         }
     }
