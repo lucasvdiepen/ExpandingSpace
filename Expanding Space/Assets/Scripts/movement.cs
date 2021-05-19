@@ -47,29 +47,7 @@ public class movement : MonoBehaviour
 
     void Update()
     {
-        Vector2 m = new Vector2(move.x * movementSpeed, rb.velocity.y) * Time.deltaTime;
-        
-        if (Keyboard.current.spaceKey.wasPressedThisFrame && grounded)
-        {
-            rb.velocity = new Vector3(rb.velocity.x, jumpPower, 0);
-            grounded = false;
-        }    
-
-        if (Keyboard.current.aKey.isPressed && !Keyboard.current.dKey.isPressed)
-        {
-            Move(-1);
-        }
-
-        else if (Keyboard.current.dKey.isPressed && !Keyboard.current.aKey.isPressed)
-        {
-            Move(1);
-        }
-
-        else if (Keyboard.current.aKey.isPressed && Keyboard.current.dKey.isPressed)
-        {
-            return;
-        }
-        else Move(move.x);
+        Move(move.x);
     }
 
     public void Move(float direction)

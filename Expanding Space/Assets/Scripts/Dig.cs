@@ -45,13 +45,11 @@ public class Dig : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        Gamepad.current.PauseHaptics();
+        if (IsControllerAvailable()) Gamepad.current.PauseHaptics();
     }
 
     void Update()
     {
-        if(Keyboard.current.fKey.wasPressedThisFrame) DigPlace();
-
         if (isNear)
         {
             //Get distance between player and dig place
@@ -67,7 +65,10 @@ public class Dig : MonoBehaviour
             lightSource.intensity = lightSourceStrength;
 
             //Set vibration
-            Gamepad.current.SetMotorSpeeds(controllerVibrationStrength, controllerVibrationStrength / 2);
+            if(IsControllerAvailable())
+            {
+                Gamepad.current.SetMotorSpeeds(controllerVibrationStrength, controllerVibrationStrength / 2);
+            }
         }
     }
 
@@ -84,15 +85,34 @@ public class Dig : MonoBehaviour
         }
     }
 
+    private void DigInRange(Vector2 digPlacePosition)
+    {
+        digPosition = digPlacePosition;
+        isNear = true;
+        lightSource.gameObject.SetActive(true);
+        if(IsControllerAvailable()) InputSystem.ResumeHaptics();
+    }
+
+    private void DigOutRange()
+    {
+        digPosition = Vector2.zero;
+        isNear = false;
+        lightSource.gameObject.SetActive(false);
+        if (IsControllerAvailable()) InputSystem.PauseHaptics();
+    }
+
+    private bool IsControllerAvailable()
+    {
+        if (Gamepad.current == null) return false;
+        return true;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "DigPlace")
         {
             Transform digPlaceTransform = collision.GetComponent<Transform>();
-            digPosition = digPlaceTransform.position;
-            isNear = true;
-            InputSystem.ResumeHaptics();
-            lightSource.gameObject.SetActive(true);
+            DigInRange(digPlaceTransform.position);
         }
     }
 
@@ -100,9 +120,7 @@ public class Dig : MonoBehaviour
     {
         if(collision.tag == "DigPlace")
         {
-            isNear = false;
-            InputSystem.PauseHaptics();
-            lightSource.gameObject.SetActive(false);
+            DigOutRange();
         }
     }
 }
