@@ -193,6 +193,7 @@ GameObject:
   - component: {fileID: 383042771}
   - component: {fileID: 383042774}
   - component: {fileID: 383042773}
+  - component: {fileID: 383042775}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -228,7 +229,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 776139a5a56d96a4a8e1053fb1cc7760, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightSource: {fileID: 1223011600}
   maxIndicatorDistance: 1
   maxDigDistance: 0.3
   minVibrationStrength: 0
@@ -297,6 +297,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.0048926}
   m_EdgeRadius: 0
+--- !u!114 &383042775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 383042769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fddf08384b2c33e46adee010a5759735, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  antenneLight: {fileID: 1223011600}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

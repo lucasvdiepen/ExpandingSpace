@@ -5,8 +5,6 @@ using UnityEngine.InputSystem;
 
 public class Dig : MonoBehaviour
 {
-    public Light lightSource;
-
     public float maxIndicatorDistance = 1f;
     public float maxDigDistance = 0.5f;
 
@@ -16,10 +14,45 @@ public class Dig : MonoBehaviour
     public float minLightSourceStrength = 0f;
     public float maxLightSourceStrength = 1f;
 
-    private bool isNear = false;
-    private Vector2 digPosition;
-
     PlayerControls playerControls;
+
+    private static AntenneLighting antenneLighting;
+
+    private class DigPlaceInfo
+    {
+        public bool isNear { get; private set; }
+        public Vector2 position { get; private set; }
+        public DigPlace script { get; private set; }
+
+        public void SetDigPlace(Vector2 _position, DigPlace _script)
+        {
+            isNear = true;
+            position = _position;
+            script = _script;
+
+            antenneLighting.EnableLight();
+
+            if (IsControllerAvailable()) InputSystem.ResumeHaptics();
+        }
+
+        public bool isDug()
+        {
+            return script.isDug;
+        }
+
+        public void Reset()
+        {
+            isNear = false;
+            position = Vector2.zero;
+            script = null;
+
+            antenneLighting.DisableLight();
+
+            if (IsControllerAvailable()) InputSystem.ResumeHaptics();
+        }
+    }
+
+    private DigPlaceInfo digInfo = new DigPlaceInfo();
 
     private void Awake()
     {
@@ -40,7 +73,7 @@ public class Dig : MonoBehaviour
 
     void Start()
     {
-        
+        antenneLighting = GetComponent<AntenneLighting>();
     }
 
     private void OnApplicationQuit()
@@ -50,10 +83,10 @@ public class Dig : MonoBehaviour
 
     void Update()
     {
-        if (isNear)
+        if (digInfo.isNear)
         {
             //Get distance between player and dig place
-            float distanceToDigPlace = Vector2.Distance(transform.position, digPosition);
+            float distanceToDigPlace = Vector2.Distance(transform.position, digInfo.position);
 
             //Calculate vibration strength
             float controllerVibrationStrength = Mathf.Lerp(maxVibrationStrength, minVibrationStrength, distanceToDigPlace / maxIndicatorDistance);
@@ -62,7 +95,7 @@ public class Dig : MonoBehaviour
             float lightSourceStrength = Mathf.Lerp(maxLightSourceStrength, minLightSourceStrength, distanceToDigPlace / maxIndicatorDistance);
 
             //Set light source intensity
-            lightSource.intensity = lightSourceStrength;
+            antenneLighting.SetBrightness((int)(lightSourceStrength * 100));
 
             //Set vibration
             if(IsControllerAvailable())
@@ -74,9 +107,9 @@ public class Dig : MonoBehaviour
 
     private void DigPlace()
     {
-        if (isNear)
+        if (digInfo.isNear)
         {
-            float distanceToDigPlace = Vector2.Distance(transform.position, digPosition);
+            float distanceToDigPlace = Vector2.Distance(transform.position, digInfo.position);
             if (distanceToDigPlace <= maxDigDistance)
             {
                 //Do dig here
@@ -85,23 +118,17 @@ public class Dig : MonoBehaviour
         }
     }
 
-    private void DigInRange(Vector2 digPlacePosition)
+    private void DigInRange(Vector2 digPlacePosition, DigPlace script)
     {
-        digPosition = digPlacePosition;
-        isNear = true;
-        lightSource.gameObject.SetActive(true);
-        if(IsControllerAvailable()) InputSystem.ResumeHaptics();
+        digInfo.SetDigPlace(digPlacePosition, script);
     }
 
     private void DigOutRange()
     {
-        digPosition = Vector2.zero;
-        isNear = false;
-        lightSource.gameObject.SetActive(false);
-        if (IsControllerAvailable()) InputSystem.PauseHaptics();
+        digInfo.Reset();
     }
 
-    private bool IsControllerAvailable()
+    private static bool IsControllerAvailable()
     {
         if (Gamepad.current == null) return false;
         return true;
@@ -112,7 +139,7 @@ public class Dig : MonoBehaviour
         if(collision.tag == "DigPlace")
         {
             Transform digPlaceTransform = collision.GetComponent<Transform>();
-            DigInRange(digPlaceTransform.position);
+            DigInRange(digPlaceTransform.position, collision.GetComponent<DigPlace>());
         }
     }
 
