@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class MovementShip : MonoBehaviour
 {
-    // Setting the starting position for the ship
+    
     float startingPositionX = -6.85f;
     float startingPositionY = 0f;
 
-    // Setting the speed of the speed
+   
     public float speed;
 
-    // Setting the booleans for ship movement
+    
     bool ableToMoveUp = true;
     bool ableToMoveDown = true;
 

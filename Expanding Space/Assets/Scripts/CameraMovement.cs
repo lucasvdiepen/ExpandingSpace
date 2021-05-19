@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    // Setting movementSpeed an topMovementSpeed
+    
     public float movementSpeed = 0;
     public float topMovementSpeed = 0;
     void FixedUpdate()

@@ -4,28 +4,34 @@ using UnityEngine;
 
 public class MeteoriteSpawner : MonoBehaviour
 {
-    // Declares meteorite prefab
+    public static bool canSpawnMeteorite;
+    
     public GameObject Meteorite;
 
-    // this variable is for the Y position of the meteorite (will be changed constantly from the randomizer)
+    
     float meteoriteSpawnPositionY;
 
-    // this variable is for the scale of the meteorite (will be changed constantly from the randomizer)
+    
     float meteoriteSpawnScale = 2.5f;
 
-    // these variables are for the randomizer
+    
     float topSpawnPostionNumber = 5;
     float lowSpawnPostionNumber = -5;
 
-    // these variables are for the randomizer
+    
     float topScaleNumber = 3;
     float lowScaleNumber = 2;
 
+    
     float spawnPositionMeterorite;
 
     void Start()
     {
-        StartCoroutine(SpawnMeteorite());  
+        // calls the spawnmeteorite function in the beginning
+        StartCoroutine(SpawnMeteorite());
+
+        // sets the spawn meteorite 
+        canSpawnMeteorite = true;
     }
     // Update is called once per frame
     void Update()
@@ -41,9 +47,21 @@ public class MeteoriteSpawner : MonoBehaviour
     // this function spawns a meteorite
     IEnumerator SpawnMeteorite()
     {
+        // sets the scale of the next meteorite
         Meteorite.transform.localScale = new Vector3(meteoriteSpawnScale, meteoriteSpawnScale, meteoriteSpawnScale);
+
+        // waits for seconds
         yield return new WaitForSeconds(3);
+
+        // makes the meteorite
         Instantiate(Meteorite, new Vector3(spawnPositionMeterorite, meteoriteSpawnPositionY, 0), Quaternion.identity);
-        StartCoroutine(SpawnMeteorite());
+
+        // chack if it can spwn a meteorite
+        if (canSpawnMeteorite)
+        {
+            //calls this function again so another meteorite will spawn
+            StartCoroutine(SpawnMeteorite());
+        }
+        
     }
 }
