@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class Dialog : MonoBehaviour
+public class DialogManager : MonoBehaviour
 {
     public TextMeshProUGUI dialogText;
+    public GameObject continueImage;
 
     public GameObject DialogHolder;
 
     public float letterDelay = 0.05f;
 
-    public string[] sentences;
+    private string[] sentences;
 
     private int sentenceCount = 0;
     private int sentenceLetterCount = 0;
@@ -25,8 +25,20 @@ public class Dialog : MonoBehaviour
 
     PlayerControls playerControls;
 
+    public static DialogManager dialogManager = null;
+
     private void Awake()
     {
+        if(dialogManager == null)
+        {
+            DontDestroyOnLoad(gameObject);
+            dialogManager = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         playerControls = new PlayerControls();
 
         playerControls.Dialog.ContinueDialog.performed += ctx => ContinueDialog();
@@ -42,27 +54,22 @@ public class Dialog : MonoBehaviour
         playerControls.Dialog.Disable();
     }
 
-    void Start()
-    {
-        StartDialog();
-    }
-
     void Update()
     {
         //Input
 
         //Dialog
-        if(dialogStarted && dialogContinue && !dialogEnded)
+        if (dialogStarted && dialogContinue && !dialogEnded)
         {
             float time = Time.time;
-            if(time >= (lastLetterTime + letterDelay))
+            if (time >= (lastLetterTime + letterDelay))
             {
                 lastLetterTime = time;
 
                 AddLetter(sentences[sentenceCount][sentenceLetterCount].ToString());
 
                 sentenceLetterCount++;
-                if (sentenceLetterCount >= sentences[sentenceCount].Length) { sentenceCount++; dialogContinue = false; }
+                if (sentenceLetterCount >= sentences[sentenceCount].Length) { sentenceCount++; dialogContinue = false; continueImage.SetActive(true); }
 
                 if (sentenceCount >= sentences.Length) dialogEnded = true;
             }
@@ -81,28 +88,31 @@ public class Dialog : MonoBehaviour
 
     public void ContinueDialog()
     {
-        if (dialogEnded) DialogHolder.SetActive(false);
-        else 
+        if (dialogEnded) { DialogHolder.SetActive(false); dialogStarted = false; }
+        else
         {
-            if(!dialogContinue)
+            if (!dialogContinue)
             {
                 ResetText();
                 sentenceLetterCount = 0;
                 dialogContinue = true;
+                continueImage.SetActive(false);
             }
         }
     }
 
-    public void StartDialog()
+    public void StartDialog(string[] _sentences)
     {
-        if(!dialogStarted)
+        if (!dialogStarted)
         {
+            sentences = _sentences;
             dialogStarted = true;
             dialogContinue = true;
             dialogEnded = false;
             sentenceCount = 0;
             sentenceLetterCount = 0;
             DialogHolder.SetActive(true);
+            continueImage.SetActive(false);
             ResetText();
         }
     }
