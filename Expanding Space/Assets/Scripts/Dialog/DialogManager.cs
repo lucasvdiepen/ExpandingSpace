@@ -56,8 +56,6 @@ public class DialogManager : MonoBehaviour
 
     void Update()
     {
-        //Input
-
         //Dialog
         if (dialogStarted && dialogContinue && !dialogEnded)
         {

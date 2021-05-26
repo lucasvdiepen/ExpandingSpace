@@ -28,7 +28,10 @@ public class DialogTrigger : MonoBehaviour
 
     private void StartDialog()
     {
-        FindObjectOfType<DialogManager>().StartDialog(sentencesInRange);
+        if(inRange)
+        {
+           FindObjectOfType<DialogManager>().StartDialog(sentencesInRange);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
