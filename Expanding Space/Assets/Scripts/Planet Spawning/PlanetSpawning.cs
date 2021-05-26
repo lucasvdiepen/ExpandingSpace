@@ -7,6 +7,7 @@ public class PlanetSpawning : MonoBehaviour
     public GameObject defaultPlanet, pluto, mercury, mars, venus, earth, neptune, uranus, saturn, jupiter;
     void Update()
     {
+        // this switch case checks the planet that needs to be loaded in
         switch (PlanetSelection.nameOfPlanet)
         {
             case "Earth":
@@ -46,7 +47,7 @@ public class PlanetSpawning : MonoBehaviour
                 break;
 
             default:
-                Debug.LogError("You didn't choose a planet");
+                
                 defaultPlanet.SetActive(true);
                 break;
         }

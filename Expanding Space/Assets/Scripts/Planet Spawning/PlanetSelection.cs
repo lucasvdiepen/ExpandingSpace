@@ -7,6 +7,7 @@ public class PlanetSelection : MonoBehaviour
 {
     static public string nameOfPlanet;
 
+    // if you call this function with a planet as parameter the travel game scene will load with the given planet
     static public void LoadTravelGame(string planet)
     {
         nameOfPlanet = planet;
