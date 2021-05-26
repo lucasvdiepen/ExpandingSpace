@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class ShipHit : MonoBehaviour
 {
      
@@ -11,7 +11,7 @@ public class ShipHit : MonoBehaviour
     public GameObject mainCamera;
     public GameObject meteorite;
 
-    public GameObject text;
+    public GameObject canvas;
     void OnTriggerEnter2D(Collider2D collision)
     {
         // compares if the ship hits a meteorite
@@ -36,7 +36,11 @@ public class ShipHit : MonoBehaviour
         dieParticle.Play();
 
         // shows the text
-        text.SetActive(true);
+        canvas.SetActive(true);
 
+    }
+    public void Retry()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
