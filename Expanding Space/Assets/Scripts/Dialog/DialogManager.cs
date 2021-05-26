@@ -27,6 +27,8 @@ public class DialogManager : MonoBehaviour
 
     public static DialogManager dialogManager = null;
 
+    SoundManager soundManager;
+
     private void Awake()
     {
         if(dialogManager == null)
@@ -42,6 +44,11 @@ public class DialogManager : MonoBehaviour
         playerControls = new PlayerControls();
 
         playerControls.Dialog.ContinueDialog.performed += ctx => ContinueDialog();
+    }
+
+    private void Start()
+    {
+        soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
     }
 
     private void OnEnable()
@@ -64,12 +71,27 @@ public class DialogManager : MonoBehaviour
             {
                 lastLetterTime = time;
 
+                if(!soundManager.dialogTickAudioSource.isPlaying)
+                {
+                    soundManager.PlayPopupTextSound();
+                }
+
                 AddLetter(sentences[sentenceCount][sentenceLetterCount].ToString());
 
                 sentenceLetterCount++;
-                if (sentenceLetterCount >= sentences[sentenceCount].Length) { sentenceCount++; dialogContinue = false; continueImage.SetActive(true); }
+                if (sentenceLetterCount >= sentences[sentenceCount].Length) 
+                { 
+                    sentenceCount++; 
+                    dialogContinue = false; 
+                    continueImage.SetActive(true); 
+                    soundManager.StopPopupTextSound();
+                }
 
-                if (sentenceCount >= sentences.Length) dialogEnded = true;
+                if (sentenceCount >= sentences.Length)
+                {
+                    dialogEnded = true;
+                    soundManager.StopPopupTextSound();
+                }
             }
         }
     }
@@ -112,6 +134,7 @@ public class DialogManager : MonoBehaviour
             DialogHolder.SetActive(true);
             continueImage.SetActive(false);
             ResetText();
+            soundManager.PlayPopupSound();
         }
     }
 }
