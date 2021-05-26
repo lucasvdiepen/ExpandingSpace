@@ -8,7 +8,7 @@ public class DialogManager : MonoBehaviour
     public TextMeshProUGUI dialogText;
     public GameObject continueImage;
 
-    public GameObject DialogHolder;
+    public GameObject dialogHolder;
 
     public float letterDelay = 0.05f;
 
@@ -108,7 +108,7 @@ public class DialogManager : MonoBehaviour
 
     public void ContinueDialog()
     {
-        if (dialogEnded) { DialogHolder.SetActive(false); dialogStarted = false; }
+        if (dialogEnded) { dialogHolder.SetActive(false); dialogStarted = false; }
         else
         {
             if (!dialogContinue)
@@ -131,7 +131,7 @@ public class DialogManager : MonoBehaviour
             dialogEnded = false;
             sentenceCount = 0;
             sentenceLetterCount = 0;
-            DialogHolder.SetActive(true);
+            dialogHolder.SetActive(true);
             continueImage.SetActive(false);
             ResetText();
             soundManager.PlayPopupSound();
