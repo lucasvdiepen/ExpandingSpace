@@ -9,11 +9,6 @@ public class SoundManager : MonoBehaviour
 
     public AudioClip dialogPopup;
 
-    void Start()
-    {
-        //audioSource = GetComponent<AudioSource>();
-    }
-
     public void PlayPopupSound()
     {
         sfxAudioSource.PlayOneShot(dialogPopup);
