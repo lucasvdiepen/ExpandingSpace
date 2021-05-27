@@ -8,6 +8,8 @@ TagManager:
   - BorderDown
   - BorderTop
   - Meteorite
+  - Ground
+  - DigPlace
   layers:
   - Default
   - TransparentFX
