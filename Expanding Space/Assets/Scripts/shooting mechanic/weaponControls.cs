@@ -17,6 +17,7 @@ public class weaponControls : MonoBehaviour
         playerControls = new PlayerControls();
 
         playerControls.Shooting.Shoot.performed += ctx => Shoot();
+        playerControls.Shooting.Aiming.performed += ctx => Aiming(ctx.ReadValue<Vector2>());
     }
 
     private void OnEnable()
@@ -29,11 +30,10 @@ public class weaponControls : MonoBehaviour
         playerControls.Shooting.Disable();
     }
 
-    public void FixedUpdate()
+    public void Update()
     {
-        Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
+        TimeBtwShots -= Time.deltaTime;
+
     }
 
     public void Shoot()
@@ -43,9 +43,12 @@ public class weaponControls : MonoBehaviour
             Instantiate(projectile, shotpoint.position, transform.rotation);
             TimeBtwShots = startTime;
         }
-        else
-        {
-            TimeBtwShots -= Time.deltaTime;
-        }
+    }
+
+    public void Aiming(Vector2 position)
+    {
+        Vector3 difference = Camera.main.ScreenToWorldPoint(position) - transform.position;
+                float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
     }
 }
