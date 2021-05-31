@@ -5,7 +5,6 @@ using UnityEngine;
 public class movementForWeapon : MonoBehaviour
 {
     public float offset;
-    public GameObject weapon;
     public bool movement;
     private float time;
     public float startTime;

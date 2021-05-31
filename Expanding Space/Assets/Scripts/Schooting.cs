@@ -3,37 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Schooting : MonoBehaviour
 {
-    public GameObject Cube;
     public GameObject Enemy;
-    public ParticleSystem myParticlesystem;
-    public GameObject weapon;
-    public GameObject bullet;
-
-
-    public float distance;
-    public float range;
-
-    public void Start()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        range = 30;
-    }
-
-    private void OnMouseDown()
-    {
-
-
-
-        Destroy(Enemy);
-        Instantiate(myParticlesystem, transform.position, transform.rotation);
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (collision.collider.tag == "bullet")
         {
-            Debug.Log("hallo");
+            Destroy(Enemy);
         }
     }
+
 
 
 }

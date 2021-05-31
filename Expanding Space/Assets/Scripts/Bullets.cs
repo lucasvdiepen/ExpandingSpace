@@ -6,7 +6,6 @@ public class Bullets : MonoBehaviour
 {
     public float speed;
     public float LifeTime;
-
     public GameObject destroyEffect;
 
     void Start()

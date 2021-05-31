@@ -6,6 +6,7 @@ TagManager:
   tags:
   - MovebleObject
   - bullet
+  - noneMovebleObject
   layers:
   - Default
   - TransparentFX

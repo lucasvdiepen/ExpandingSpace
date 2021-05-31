@@ -5,19 +5,18 @@ using UnityEngine;
 public class movementForObsticle : MonoBehaviour
 {
     public float offset;
-    public GameObject weapon;
     public bool movement;
     private float time;
     public float startTime;
-    WeaponMovement weaponScript;
-
+    public float speed;
+    weaponControls weaponScript;
+    public Rigidbody2D rigid;
     void Start()
     {
         time = 4;
         movement = false;
-       weaponScript = GameObject.Find("weapon").GetComponent<WeaponMovement>();
-        
-        
+        weaponScript = GameObject.Find("weapon").GetComponent<weaponControls>();
+        rigid.gravityScale = 1;
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
@@ -25,7 +24,6 @@ public class movementForObsticle : MonoBehaviour
         {
             movement = true;
             time = startTime;
-            
             weaponScript.enabled=false;
             
         }
@@ -37,12 +35,13 @@ public class movementForObsticle : MonoBehaviour
             Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
             float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
-
-
+            transform.Translate(Vector2.up * speed * Time.deltaTime);
+            rigid.gravityScale = 0;
         }
         if (time <= 0)
             {
-                movement = false;
+            rigid.gravityScale = 1;
+            movement = false;
             weaponScript.enabled = true;
         }
     }

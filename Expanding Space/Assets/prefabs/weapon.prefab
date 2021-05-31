@@ -41,7 +41,6 @@ GameObject:
   - component: {fileID: 5279542493004831975}
   - component: {fileID: 5279542493004831974}
   - component: {fileID: 5279542493004831973}
-  - component: {fileID: 5279542493004831979}
   m_Layer: 0
   m_Name: weapon
   m_TagString: Untagged
@@ -113,21 +112,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5279542493004831979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5279542493004831978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8665c32699522b548a5877b634af6083, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weapoon: {fileID: 5279542493004831978}
-  projectile: {fileID: 2386791131514253319, guid: ed62c5b2f775fb44abc3135cfe254987, type: 3}
-  shotpoint: {fileID: 5279542492090695580}
-  startTime: 0.5
-  offset: 0
-  speed: 5
