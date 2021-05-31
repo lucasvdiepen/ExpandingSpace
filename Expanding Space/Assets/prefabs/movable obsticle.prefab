@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 4957766540322488712}
   - component: {fileID: 4957766540322488716}
   m_Layer: 0
-  m_Name: moveble obsticle
-  m_TagString: MovebleObject
+  m_Name: movable obsticle
+  m_TagString: MovableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,3 +147,4 @@ MonoBehaviour:
   movement: 0
   startTime: 4
   speed: 4
+  rigid: {fileID: 0}

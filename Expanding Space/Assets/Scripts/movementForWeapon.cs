@@ -16,7 +16,7 @@ public class movementForWeapon : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.tag == "MovebleObject")
+        if (collision.collider.tag == "MovableObject")
         {
             movement = false;
             time = startTime;
@@ -26,7 +26,7 @@ public class movementForWeapon : MonoBehaviour
     public void Update()
     {
         time -= Time.deltaTime;
-        if (movement == true)
+        if (movement)
         {
             Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
             float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;

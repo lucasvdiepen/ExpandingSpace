@@ -566,7 +566,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5291842619050178887, guid: 9330da72dbfeb9f4daea7ce2bcd956b5, type: 3}
       propertyPath: m_TagString
-      value: noneMovebleObject
+      value: noneMovableObject
       objectReference: {fileID: 0}
     - target: {fileID: 5291842619050178891, guid: 9330da72dbfeb9f4daea7ce2bcd956b5, type: 3}
       propertyPath: m_RootOrder
@@ -668,7 +668,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6802985134136051513, guid: e3ad0fcaf2c321246858a5cb74ee0273, type: 3}
       propertyPath: m_TagString
-      value: noneMovebleObject
+      value: noneMovableObject
       objectReference: {fileID: 0}
     - target: {fileID: 6802985134136051517, guid: e3ad0fcaf2c321246858a5cb74ee0273, type: 3}
       propertyPath: m_RootOrder
@@ -704,6 +704,10 @@ PrefabInstance:
     - target: {fileID: 4957766540322488710, guid: 6e674dd45ac13394a9189d2c7b76d479, type: 3}
       propertyPath: m_Name
       value: moveble obsticle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4957766540322488710, guid: 6e674dd45ac13394a9189d2c7b76d479, type: 3}
+      propertyPath: m_TagString
+      value: MovableObject
       objectReference: {fileID: 0}
     - target: {fileID: 4957766540322488715, guid: 6e674dd45ac13394a9189d2c7b76d479, type: 3}
       propertyPath: m_RootOrder
@@ -777,6 +781,10 @@ PrefabInstance:
     - target: {fileID: 7825984317728987731, guid: 6450223486287e3449f7a50aa45a02a6, type: 3}
       propertyPath: m_Name
       value: Cube (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7825984317728987731, guid: 6450223486287e3449f7a50aa45a02a6, type: 3}
+      propertyPath: m_TagString
+      value: noneMovableObject
       objectReference: {fileID: 0}
     - target: {fileID: 7825984317728987743, guid: 6450223486287e3449f7a50aa45a02a6, type: 3}
       propertyPath: m_RootOrder
