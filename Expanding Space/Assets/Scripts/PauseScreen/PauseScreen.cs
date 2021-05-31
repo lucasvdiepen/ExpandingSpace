@@ -39,12 +39,12 @@ public class PauseScreen : MonoBehaviour
 
     public void ResumeButtonClicked()
     {
-
+        FindObjectOfType<GameManager>().ClosePauseScreen();
     }
 
     public void QuitButtonClicked()
     {
-
+        
     }
 
     public void OpenPauseScreen()
