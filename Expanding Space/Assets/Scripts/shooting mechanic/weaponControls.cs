@@ -10,6 +10,25 @@ public class weaponControls : MonoBehaviour
     public float startTime;
     public float offset;
 
+    PlayerControls playerControls;
+
+    private void Awake()
+    {
+        playerControls = new PlayerControls();
+
+        playerControls.Shooting.Shoot.performed += ctx => Shoot();
+    }
+
+    private void OnEnable()
+    {
+        playerControls.Shooting.Enable();
+    }
+
+    private void OnDisable()
+    {
+        playerControls.Shooting.Disable();
+    }
+
     public void FixedUpdate()
     {
         Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
@@ -17,15 +36,12 @@ public class weaponControls : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
     }
 
-    public void Update()
+    public void Shoot()
     {
         if (TimeBtwShots <= 0)
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                Instantiate(projectile, shotpoint.position, transform.rotation);
-                TimeBtwShots = startTime;
-            }
+            Instantiate(projectile, shotpoint.position, transform.rotation);
+            TimeBtwShots = startTime;
         }
         else
         {
