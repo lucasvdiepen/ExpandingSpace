@@ -48,7 +48,7 @@ public class weaponControls : MonoBehaviour
     public void Aiming(Vector2 position)
     {
         Vector3 difference = Camera.main.ScreenToWorldPoint(position) - transform.position;
-                float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-                transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
+        float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
     }
 }
