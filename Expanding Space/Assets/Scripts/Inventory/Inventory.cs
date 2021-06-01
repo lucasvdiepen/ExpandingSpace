@@ -6,8 +6,6 @@ public class Inventory : MonoBehaviour
 {
     private List<AllItems> items = new List<AllItems>();
 
-    public GameObject testItem;
-
     public enum AllItems
     {
         Diamond = 0,
