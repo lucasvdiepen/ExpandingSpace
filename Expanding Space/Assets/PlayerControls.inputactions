@@ -142,6 +142,74 @@
                     "isPartOfComposite": true
                 }
             ]
+        },
+        {
+            "name": "Dialog",
+            "id": "268c1a13-ea11-476f-bd12-fa918fab1ff4",
+            "actions": [
+                {
+                    "name": "ContinueDialog",
+                    "type": "Button",
+                    "id": "986c66a5-9055-4f9f-a931-310c22690ed9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "StartDialog",
+                    "type": "Button",
+                    "id": "0e70b165-6c12-41ef-8717-86a8b10df83f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "ba0f9cfa-ecfe-4a47-9464-7b67aaa94967",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ContinueDialog",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0e771fff-ad08-49d7-9d3f-36191d3dac88",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ContinueDialog",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1e1ffed3-7052-4bc2-b6cb-43c09189602e",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "StartDialog",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1c62e604-5e26-4c2c-bce5-6be4c202f8d3",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "StartDialog",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
