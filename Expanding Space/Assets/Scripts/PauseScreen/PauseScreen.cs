@@ -9,6 +9,8 @@ public class PauseScreen : MonoBehaviour
     public Button resumeButton;
     public Button quitButton;
 
+    public GameObject[] checkmarks;
+
     public static PauseScreen pauseScreen;
 
     // Start is called before the first frame update
@@ -50,6 +52,8 @@ public class PauseScreen : MonoBehaviour
     public void OpenPauseScreen()
     {
         pauseScreenHolder.SetActive(true);
+
+        //Set all checkmarks visibility here
     }
 
     public void ClosePauseScreen()
