@@ -6,6 +6,18 @@ public class Inventory : MonoBehaviour
 {
     private List<AllItems> items = new List<AllItems>();
 
+    public static Inventory inventoryScript;
+
+    private void Awake()
+    {
+        if (inventoryScript == null)
+        {
+            DontDestroyOnLoad(gameObject);
+            inventoryScript = this;
+        }
+        else Destroy(gameObject);
+    }
+
     public enum AllItems
     {
         Diamond = 0,
