@@ -243,6 +243,22 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""AimingMouse"",
+                    ""type"": ""Value"",
+                    ""id"": ""4b4e6729-0883-4a8c-9023-4606c978ae63"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""AimingController"",
+                    ""type"": ""Value"",
+                    ""id"": ""173006fd-a1eb-433a-9147-f7dd5bb12281"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -289,6 +305,28 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""Aiming"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e3fd9181-7c5a-4dc7-8644-2d7699106d35"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AimingMouse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f2ec3b40-144c-4749-8a4a-ff298f874aaa"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AimingController"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -308,6 +346,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Shooting = asset.FindActionMap("Shooting", throwIfNotFound: true);
         m_Shooting_Shoot = m_Shooting.FindAction("Shoot", throwIfNotFound: true);
         m_Shooting_Aiming = m_Shooting.FindAction("Aiming", throwIfNotFound: true);
+        m_Shooting_AimingMouse = m_Shooting.FindAction("AimingMouse", throwIfNotFound: true);
+        m_Shooting_AimingController = m_Shooting.FindAction("AimingController", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -449,12 +489,16 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private IShootingActions m_ShootingActionsCallbackInterface;
     private readonly InputAction m_Shooting_Shoot;
     private readonly InputAction m_Shooting_Aiming;
+    private readonly InputAction m_Shooting_AimingMouse;
+    private readonly InputAction m_Shooting_AimingController;
     public struct ShootingActions
     {
         private @PlayerControls m_Wrapper;
         public ShootingActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Shoot => m_Wrapper.m_Shooting_Shoot;
         public InputAction @Aiming => m_Wrapper.m_Shooting_Aiming;
+        public InputAction @AimingMouse => m_Wrapper.m_Shooting_AimingMouse;
+        public InputAction @AimingController => m_Wrapper.m_Shooting_AimingController;
         public InputActionMap Get() { return m_Wrapper.m_Shooting; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -470,6 +514,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Aiming.started -= m_Wrapper.m_ShootingActionsCallbackInterface.OnAiming;
                 @Aiming.performed -= m_Wrapper.m_ShootingActionsCallbackInterface.OnAiming;
                 @Aiming.canceled -= m_Wrapper.m_ShootingActionsCallbackInterface.OnAiming;
+                @AimingMouse.started -= m_Wrapper.m_ShootingActionsCallbackInterface.OnAimingMouse;
+                @AimingMouse.performed -= m_Wrapper.m_ShootingActionsCallbackInterface.OnAimingMouse;
+                @AimingMouse.canceled -= m_Wrapper.m_ShootingActionsCallbackInterface.OnAimingMouse;
+                @AimingController.started -= m_Wrapper.m_ShootingActionsCallbackInterface.OnAimingController;
+                @AimingController.performed -= m_Wrapper.m_ShootingActionsCallbackInterface.OnAimingController;
+                @AimingController.canceled -= m_Wrapper.m_ShootingActionsCallbackInterface.OnAimingController;
             }
             m_Wrapper.m_ShootingActionsCallbackInterface = instance;
             if (instance != null)
@@ -480,6 +530,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Aiming.started += instance.OnAiming;
                 @Aiming.performed += instance.OnAiming;
                 @Aiming.canceled += instance.OnAiming;
+                @AimingMouse.started += instance.OnAimingMouse;
+                @AimingMouse.performed += instance.OnAimingMouse;
+                @AimingMouse.canceled += instance.OnAimingMouse;
+                @AimingController.started += instance.OnAimingController;
+                @AimingController.performed += instance.OnAimingController;
+                @AimingController.canceled += instance.OnAimingController;
             }
         }
     }
@@ -499,5 +555,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     {
         void OnShoot(InputAction.CallbackContext context);
         void OnAiming(InputAction.CallbackContext context);
+        void OnAimingMouse(InputAction.CallbackContext context);
+        void OnAimingController(InputAction.CallbackContext context);
     }
 }

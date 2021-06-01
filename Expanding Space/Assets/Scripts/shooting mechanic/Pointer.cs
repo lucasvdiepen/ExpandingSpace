@@ -13,7 +13,8 @@ public class Pointer : MonoBehaviour
         playerControls = new PlayerControls();
 
         //playerControls.Shooting.Shoot.performed += ctx => Shoot();
-        playerControls.Shooting.Aiming.performed += ctx => Aiming(ctx.ReadValue<Vector2>());
+        playerControls.Shooting.AimingMouse.performed += ctx => AimingMouse(ctx.ReadValue<Vector2>());
+        playerControls.Shooting.AimingController.performed += ctx => AimingController(ctx.ReadValue<Vector2>());
     }
 
     private void OnEnable()
@@ -26,16 +27,22 @@ public class Pointer : MonoBehaviour
         playerControls.Shooting.Disable();
     }
 
-    public void Aiming(Vector2 position)
+    public void AimingMouse(Vector2 position) { Aiming(position, false); }
+
+    public void AimingController(Vector2 position) { Aiming(position, true); }
+
+    private void Aiming(Vector2 position, bool isController)
     {
-        //Debug.Log(position);
+        Vector2 newPosition;
 
-        Vector2 worldPosition = Camera.main.ScreenToWorldPoint(position);
+        if (!isController)
+        {
+            Vector2 worldPosition = Camera.main.ScreenToWorldPoint(position);
+            newPosition = worldPosition - new Vector2(transform.position.x, transform.position.y);
+        }
+        else newPosition = position;
 
-        Debug.Log("Mouse world position: " + worldPosition);
-
-        Vector2 difference = worldPosition - new Vector2(transform.position.x, transform.position.y);
-        float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
+        float rotZ = Mathf.Atan2(newPosition.y, newPosition.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, rotZ + offset);
     }
 }
