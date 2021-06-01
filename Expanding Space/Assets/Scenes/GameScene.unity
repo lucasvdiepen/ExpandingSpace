@@ -193,8 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc1c778322f1c3c40aefa2cc07eef344, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rewards:
-  - {fileID: 9134680269684726679, guid: 1859bf53728004b4caff422e8d94e6f9, type: 3}
+  rewards: []
   isDug: 0
 --- !u!1 &383042769
 GameObject:
@@ -210,7 +209,6 @@ GameObject:
   - component: {fileID: 383042774}
   - component: {fileID: 383042773}
   - component: {fileID: 383042775}
-  - component: {fileID: 383042776}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -327,19 +325,6 @@ MonoBehaviour:
   antenneLight: {fileID: 1223011600}
   minIntensity: 0
   maxIntensity: 50
---- !u!114 &383042776
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 383042769}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03a2a2fe8e2cd204b83944b6a1806a52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  testItem: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
