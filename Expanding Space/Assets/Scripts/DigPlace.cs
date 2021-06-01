@@ -12,5 +12,9 @@ public class DigPlace : MonoBehaviour
         isDug = true;
 
         //Give items to inventory here
+        foreach(GameObject reward in rewards)
+        {
+            FindObjectOfType<Inventory>().AddToInventory(reward);
+        }
     }
 }
