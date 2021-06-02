@@ -344,6 +344,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9167914381259909250, guid: 151e6298d73e1144e85d8a3def47a889, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 9167914381259909251, guid: 151e6298d73e1144e85d8a3def47a889, type: 3}
       propertyPath: jumpPower
       value: 10
