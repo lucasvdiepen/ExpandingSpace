@@ -4,45 +4,33 @@ using UnityEngine;
 
 public class MovementShip : MonoBehaviour
 {
-    
+    private Vector2 move;
     float startingPositionX = -6.85f;
     float startingPositionY = 0f;
 
    
-    public float speed;
+    public float speed; 
 
-    
-    bool ableToMoveUp = true;
-    bool ableToMoveDown = true;
-
-    void OnCollisionEnter2D(Collision2D collision)
+    PlayerControls playerControls;
+    void Awake()
     {
-        // if ship hits the top border ableToMoveUp becomes false
-        if (collision.collider.CompareTag("BorderTop"))
-        {
-            ableToMoveUp = false;
-        }
+        playerControls = new PlayerControls();
+        
+        playerControls.Gameplay.Move.performed += ctx => move = ctx.ReadValue<Vector2>();
 
-        // if ship hits the bottom border ableToMoveDown becomes false
-        if (collision.collider.CompareTag("BorderDown"))
-        {
-            ableToMoveDown = false; 
-        }
+        playerControls.Gameplay.Move.canceled += ctx => move = Vector2.zero;
+
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    void OnEnable()
     {
-        // if ship hits the top border ableToMoveUp becomes true
-        if (collision.collider.CompareTag("BorderTop"))
-        {
-            ableToMoveUp = true;
-        }
+        playerControls.Gameplay.Enable();
+        
+    }
 
-        // if ship hits the bottom border ableToMoveDown becomes true
-        if (collision.collider.CompareTag("BorderDown"))
-        {
-            ableToMoveDown = true;
-        }
+    void OnDisable()
+    {
+        playerControls.Gameplay.Disable();
     }
 
     // Start is called before the first frame update
@@ -55,34 +43,11 @@ public class MovementShip : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        
-        // if player presses W, ship goes up
-        if (Input.GetKey(KeyCode.W) && ableToMoveUp)
-        {
-            // moves ship up
-            transform.position += new Vector3(0, speed, 0) * Time.deltaTime;
-        }
+        Move(move);
+    }
 
-        // if player presses S, ship goes down
-        if (Input.GetKey(KeyCode.S) && ableToMoveDown)
-        {
-            // moves ship down
-            transform.position -= new Vector3(0, speed, 0) * Time.deltaTime;
-        }
-
-        // if player presses A, ship goes to the left
-        if (Input.GetKey(KeyCode.A))
-        {
-            // moves ship to the left
-            transform.position -= new Vector3(speed, 0, 0) * Time.deltaTime;
-        }
-
-        // if player presses D, ship goes to the right
-        if (Input.GetKey(KeyCode.D))
-        {
-            // moves ship to the right
-            transform.position += new Vector3(speed, 0, 0) * Time.deltaTime;
-        }
+    public void Move(Vector2 movePosition)
+    {
+        transform.position += new Vector3(movePosition.x, movePosition.y, 0) * speed * Time.deltaTime;
     }
 }
