@@ -12,7 +12,7 @@ public class PlanetSelection : MonoBehaviour
         Mars,
         Venus,
         Earth,
-        Neptue,
+        Neptune,
         Uranus,
         Saturn,
         Jupiter

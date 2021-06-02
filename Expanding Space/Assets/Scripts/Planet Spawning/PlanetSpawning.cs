@@ -42,12 +42,11 @@ public class PlanetSpawning : MonoBehaviour
                 uranus.SetActive(true);
                 break;
 
-            case PlanetSelection.Planets.Neptue:
+            case PlanetSelection.Planets.Neptune:
                 neptune.SetActive(true);
                 break;
 
             default:
-                
                 defaultPlanet.SetActive(true);
                 break;
         }
