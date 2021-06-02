@@ -6067,7 +6067,7 @@ GameObject:
   - component: {fileID: 1339573518}
   m_Layer: 0
   m_Name: BorderDown
-  m_TagString: BorderDown
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6929,7 +6929,7 @@ GameObject:
   - component: {fileID: 2111679942}
   m_Layer: 0
   m_Name: BorderAbove
-  m_TagString: BorderTop
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
