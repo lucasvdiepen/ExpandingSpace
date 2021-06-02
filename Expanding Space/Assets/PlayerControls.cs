@@ -284,7 +284,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""id"": ""8d2952d7-822d-4d48-b953-afd85e285aa2"",
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""StickDeadzone"",
                     ""groups"": """",
                     ""action"": ""Aiming"",
                     ""isComposite"": false,
