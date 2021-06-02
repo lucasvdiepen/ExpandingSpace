@@ -631,6 +631,63 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rewards: []
   isDug: 0
+--- !u!1001 &204793392
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1351990536850625248, guid: eae21578c307f074e9cac24114061a78, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1351990536850625248, guid: eae21578c307f074e9cac24114061a78, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.189388
+      objectReference: {fileID: 0}
+    - target: {fileID: 1351990536850625248, guid: eae21578c307f074e9cac24114061a78, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.7378658
+      objectReference: {fileID: 0}
+    - target: {fileID: 1351990536850625248, guid: eae21578c307f074e9cac24114061a78, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.8383819
+      objectReference: {fileID: 0}
+    - target: {fileID: 1351990536850625248, guid: eae21578c307f074e9cac24114061a78, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1351990536850625248, guid: eae21578c307f074e9cac24114061a78, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1351990536850625248, guid: eae21578c307f074e9cac24114061a78, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1351990536850625248, guid: eae21578c307f074e9cac24114061a78, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1351990536850625248, guid: eae21578c307f074e9cac24114061a78, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1351990536850625248, guid: eae21578c307f074e9cac24114061a78, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1351990536850625248, guid: eae21578c307f074e9cac24114061a78, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1351990536850625250, guid: eae21578c307f074e9cac24114061a78, type: 3}
+      propertyPath: m_Name
+      value: InventoryManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: eae21578c307f074e9cac24114061a78, type: 3}
 --- !u!1 &209564647
 GameObject:
   m_ObjectHideFlags: 0
@@ -3308,7 +3365,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Quit
+  m_text: Main Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5590,7 +5647,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2070634236
 MonoBehaviour:
   m_ObjectHideFlags: 0

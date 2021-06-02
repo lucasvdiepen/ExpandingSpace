@@ -25,17 +25,17 @@ public class Inventory : MonoBehaviour
         World2Emerald1,
         World2Emerald2,
         World3Emerald1,
-        Worl32Emerald2,
-        World2Emerald1,
-        World2Emerald2,
-        World2Emerald1,
-        World2Emerald2,
-        World2Emerald1,
-        World2Emerald2,
-        World2Emerald1,
-        World2Emerald2,
-        World2Emerald1,
-        World2Emerald2,
+        World3Emerald2,
+        World4Emerald1,
+        World4Emerald2,
+        World5Emerald1,
+        World5Emerald2,
+        World6Emerald1,
+        World6Emerald2,
+        World7Emerald1,
+        World7Emerald2,
+        World8Emerald1,
+        World8Emerald2
     }
 
     public void AddToInventory(GameObject item)
