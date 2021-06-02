@@ -7,6 +7,7 @@ public class CameraMovement : MonoBehaviour
     
     public float movementSpeed = 0;
     public float topMovementSpeed = 0;
+    public float movementSpeedIncreasement = 0.01f;
     void FixedUpdate()
     {
 
@@ -15,7 +16,7 @@ public class CameraMovement : MonoBehaviour
         // this if statement makes the camera slowely go to the top speed 
         if (movementSpeed <= topMovementSpeed)
         {
-            movementSpeed += 0.01f;
+            movementSpeed += movementSpeedIncreasement;
         }
     }
 }

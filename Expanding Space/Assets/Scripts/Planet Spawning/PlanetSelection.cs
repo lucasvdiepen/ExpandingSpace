@@ -5,10 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class PlanetSelection : MonoBehaviour
 {
-    static public string nameOfPlanet;
+    public enum Planets
+    {
+        Pluto,
+        Mercury,
+        Mars,
+        Venus,
+        Earth,
+        Neptue,
+        Uranus,
+        Saturn,
+        Jupiter
+    }
+
+    public static Planets nameOfPlanet;
 
     // if you call this function with a planet as parameter the travel game scene will load with the given planet
-    static public void LoadTravelGame(string planet)
+    static public void LoadTravelGame(Planets planet)
     {
         nameOfPlanet = planet;
         SceneManager.LoadScene("TravelGame");

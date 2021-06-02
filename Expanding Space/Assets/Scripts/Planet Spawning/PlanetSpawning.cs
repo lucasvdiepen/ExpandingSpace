@@ -10,39 +10,39 @@ public class PlanetSpawning : MonoBehaviour
         // this switch case checks the planet that needs to be loaded in
         switch (PlanetSelection.nameOfPlanet)
         {
-            case "Earth":
+            case PlanetSelection.Planets.Earth:
                 earth.SetActive(true);
                 break;
 
-            case "Pluto":
+            case PlanetSelection.Planets.Pluto:
                 pluto.SetActive(true);
                 break;
 
-            case "Mercury":
+            case PlanetSelection.Planets.Mercury:
                 mercury.SetActive(true);
                 break;
 
-            case "Venus":
+            case PlanetSelection.Planets.Venus:
                 venus.SetActive(true);
                 break;
 
-            case "Mars":
+            case PlanetSelection.Planets.Mars:
                 mars.SetActive(true);
                 break;
 
-            case "Jupiter":
+            case PlanetSelection.Planets.Jupiter:
                 jupiter.SetActive(true);
                 break;
 
-            case "Saturnus":
+            case PlanetSelection.Planets.Saturn:
                 saturn.SetActive(true);
                 break;
 
-            case "Uranus":
+            case PlanetSelection.Planets.Uranus:
                 uranus.SetActive(true);
                 break;
 
-            case "Nupetune":
+            case PlanetSelection.Planets.Neptue:
                 neptune.SetActive(true);
                 break;
 

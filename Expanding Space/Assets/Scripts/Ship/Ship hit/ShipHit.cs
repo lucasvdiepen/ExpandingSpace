@@ -51,7 +51,7 @@ public class ShipHit : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    void ShipEntersPlanet(string planet)
+    void ShipEntersPlanet(PlanetSelection.Planets planet)
     {
         // sets the scripts to false
         mainCamera.GetComponent<CameraMovement>().enabled = false;
@@ -59,48 +59,6 @@ public class ShipHit : MonoBehaviour
         gameObject.GetComponent<MovementShip>().enabled = false;
 
         // load scene
-
-        switch (planet)
-        {
-            case "Pluto":
-                SceneManager.LoadScene("Pluto");
-                break;
-
-            case "Mercury":
-                SceneManager.LoadScene("Mercury");
-                break;
-
-            case "Mars":
-                SceneManager.LoadScene("Mars");
-                break;
-
-            case "Venus":
-                SceneManager.LoadScene("Venus");
-                break;
-
-            case "Earth":
-                SceneManager.LoadScene("Earth");
-                break;
-
-            case "Neptune":
-                SceneManager.LoadScene("Neptune");
-                break;
-
-            case "Uranus":
-                SceneManager.LoadScene("Uranus");
-                break;
-
-            case "Saturn":
-                SceneManager.LoadScene("Saturn");
-                break;
-
-            case "Jupiter":
-                SceneManager.LoadScene("Jupiter");
-                break;
-
-            default:
-                Debug.LogError(planet + " is not a planet");
-                break;
-        }
+        SceneManager.LoadScene(planet.ToString());
     }
 }
