@@ -20,8 +20,22 @@ public class Inventory : MonoBehaviour
 
     public enum AllItems
     {
-        Diamond = 0,
-        Emerald = 1
+        World1Emerald1,
+        World1Emerald2,
+        World2Emerald1,
+        World2Emerald2,
+        World3Emerald1,
+        Worl32Emerald2,
+        World2Emerald1,
+        World2Emerald2,
+        World2Emerald1,
+        World2Emerald2,
+        World2Emerald1,
+        World2Emerald2,
+        World2Emerald1,
+        World2Emerald2,
+        World2Emerald1,
+        World2Emerald2,
     }
 
     public void AddToInventory(GameObject item)
