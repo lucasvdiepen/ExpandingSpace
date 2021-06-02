@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class movement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     public float movementSpeed = 4;
     private Rigidbody2D rb;
@@ -11,6 +10,8 @@ public class movement : MonoBehaviour
     [HideInInspector] public bool grounded = false;
     PlayerControls playerControls;
     Vector2 move;
+
+    private bool freezeMovement = false;
 
     void Awake()
     {
@@ -50,9 +51,27 @@ public class movement : MonoBehaviour
         Move(move.x);
     }
 
+    public void MoveToDigPlace(Transform digPlacePosition)
+    {
+        freezeMovement = true;
+
+        // Move down animation
+
+        //Move down
+
+        //Move sideways
+
+        //Move up animation
+
+        //Move up
+    }
+
     public void Move(float direction)
     {
-        transform.Translate(direction * movementSpeed * Time.deltaTime,0,0, Space.World);
+        if (!freezeMovement)
+        {
+            transform.Translate(direction * movementSpeed * Time.deltaTime, 0, 0, Space.World);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
