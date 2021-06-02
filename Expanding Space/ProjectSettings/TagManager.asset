@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Planet
   - Meteorite
+  - Ground
+  - DigPlace
+  - Dialog
   layers:
   - Default
   - TransparentFX
