@@ -223,6 +223,112 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Shooting"",
+            ""id"": ""16514041-f0a8-4eab-a9f3-bd98ee24a356"",
+            ""actions"": [
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""b797099d-e637-4750-bdc0-7752b0f7770f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Aiming"",
+                    ""type"": ""Value"",
+                    ""id"": ""b82f9725-429e-4c7b-aca9-f8bbcf48f0d0"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""AimingMouse"",
+                    ""type"": ""Value"",
+                    ""id"": ""4b4e6729-0883-4a8c-9023-4606c978ae63"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""AimingController"",
+                    ""type"": ""Value"",
+                    ""id"": ""173006fd-a1eb-433a-9147-f7dd5bb12281"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""139a8a90-2136-4a02-bc36-bfd599a187ae"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d2c4b737-14e2-4290-8e49-3988427597ba"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a5f0c0c6-9b83-405e-b2d5-35e665261b52"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Aiming"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8d2952d7-822d-4d48-b953-afd85e285aa2"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": ""StickDeadzone"",
+                    ""groups"": """",
+                    ""action"": ""Aiming"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e3fd9181-7c5a-4dc7-8644-2d7699106d35"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AimingMouse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f2ec3b40-144c-4749-8a4a-ff298f874aaa"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AimingController"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -236,6 +342,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Dialog = asset.FindActionMap("Dialog", throwIfNotFound: true);
         m_Dialog_ContinueDialog = m_Dialog.FindAction("ContinueDialog", throwIfNotFound: true);
         m_Dialog_StartDialog = m_Dialog.FindAction("StartDialog", throwIfNotFound: true);
+        // Shooting
+        m_Shooting = asset.FindActionMap("Shooting", throwIfNotFound: true);
+        m_Shooting_Shoot = m_Shooting.FindAction("Shoot", throwIfNotFound: true);
+        m_Shooting_Aiming = m_Shooting.FindAction("Aiming", throwIfNotFound: true);
+        m_Shooting_AimingMouse = m_Shooting.FindAction("AimingMouse", throwIfNotFound: true);
+        m_Shooting_AimingController = m_Shooting.FindAction("AimingController", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -371,6 +483,63 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         }
     }
     public DialogActions @Dialog => new DialogActions(this);
+
+    // Shooting
+    private readonly InputActionMap m_Shooting;
+    private IShootingActions m_ShootingActionsCallbackInterface;
+    private readonly InputAction m_Shooting_Shoot;
+    private readonly InputAction m_Shooting_Aiming;
+    private readonly InputAction m_Shooting_AimingMouse;
+    private readonly InputAction m_Shooting_AimingController;
+    public struct ShootingActions
+    {
+        private @PlayerControls m_Wrapper;
+        public ShootingActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Shoot => m_Wrapper.m_Shooting_Shoot;
+        public InputAction @Aiming => m_Wrapper.m_Shooting_Aiming;
+        public InputAction @AimingMouse => m_Wrapper.m_Shooting_AimingMouse;
+        public InputAction @AimingController => m_Wrapper.m_Shooting_AimingController;
+        public InputActionMap Get() { return m_Wrapper.m_Shooting; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(ShootingActions set) { return set.Get(); }
+        public void SetCallbacks(IShootingActions instance)
+        {
+            if (m_Wrapper.m_ShootingActionsCallbackInterface != null)
+            {
+                @Shoot.started -= m_Wrapper.m_ShootingActionsCallbackInterface.OnShoot;
+                @Shoot.performed -= m_Wrapper.m_ShootingActionsCallbackInterface.OnShoot;
+                @Shoot.canceled -= m_Wrapper.m_ShootingActionsCallbackInterface.OnShoot;
+                @Aiming.started -= m_Wrapper.m_ShootingActionsCallbackInterface.OnAiming;
+                @Aiming.performed -= m_Wrapper.m_ShootingActionsCallbackInterface.OnAiming;
+                @Aiming.canceled -= m_Wrapper.m_ShootingActionsCallbackInterface.OnAiming;
+                @AimingMouse.started -= m_Wrapper.m_ShootingActionsCallbackInterface.OnAimingMouse;
+                @AimingMouse.performed -= m_Wrapper.m_ShootingActionsCallbackInterface.OnAimingMouse;
+                @AimingMouse.canceled -= m_Wrapper.m_ShootingActionsCallbackInterface.OnAimingMouse;
+                @AimingController.started -= m_Wrapper.m_ShootingActionsCallbackInterface.OnAimingController;
+                @AimingController.performed -= m_Wrapper.m_ShootingActionsCallbackInterface.OnAimingController;
+                @AimingController.canceled -= m_Wrapper.m_ShootingActionsCallbackInterface.OnAimingController;
+            }
+            m_Wrapper.m_ShootingActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Shoot.started += instance.OnShoot;
+                @Shoot.performed += instance.OnShoot;
+                @Shoot.canceled += instance.OnShoot;
+                @Aiming.started += instance.OnAiming;
+                @Aiming.performed += instance.OnAiming;
+                @Aiming.canceled += instance.OnAiming;
+                @AimingMouse.started += instance.OnAimingMouse;
+                @AimingMouse.performed += instance.OnAimingMouse;
+                @AimingMouse.canceled += instance.OnAimingMouse;
+                @AimingController.started += instance.OnAimingController;
+                @AimingController.performed += instance.OnAimingController;
+                @AimingController.canceled += instance.OnAimingController;
+            }
+        }
+    }
+    public ShootingActions @Shooting => new ShootingActions(this);
     public interface IGameplayActions
     {
         void OnJump(InputAction.CallbackContext context);
@@ -381,5 +550,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     {
         void OnContinueDialog(InputAction.CallbackContext context);
         void OnStartDialog(InputAction.CallbackContext context);
+    }
+    public interface IShootingActions
+    {
+        void OnShoot(InputAction.CallbackContext context);
+        void OnAiming(InputAction.CallbackContext context);
+        void OnAimingMouse(InputAction.CallbackContext context);
+        void OnAimingController(InputAction.CallbackContext context);
     }
 }
