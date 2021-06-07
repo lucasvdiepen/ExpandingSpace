@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class movementForObsticle : MonoBehaviour
+public class MovementForObsticle : MonoBehaviour
 {
     public float offset;
     public bool movement;
     private float time;
     public float startTime;
     public float speed;
-    weaponControls weaponScript;
+    WeaponControls weaponScript;
     Pointer pointerScript;
     public Rigidbody2D rigid;
     PlayerControls playerControls;
@@ -38,7 +38,7 @@ public class movementForObsticle : MonoBehaviour
     {
         time = 4;
         movement = false;
-        weaponScript = GameObject.Find("weapon").GetComponent<weaponControls>();
+        weaponScript = GameObject.Find("weapon").GetComponent<WeaponControls>();
         pointerScript = GameObject.Find("PointerHolder").GetComponent<Pointer>();
         
         rigid.gravityScale = 1;

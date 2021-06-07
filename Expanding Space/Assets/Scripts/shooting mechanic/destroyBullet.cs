@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class destroyBullet : MonoBehaviour
+public class DestroyBullet : MonoBehaviour
 {
     public GameObject destroyEffect;
     public GameObject bullet;
