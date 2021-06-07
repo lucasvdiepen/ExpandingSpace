@@ -6,11 +6,11 @@ public class WeaponControls : MonoBehaviour
 {
     public GameObject projectile;
     public Transform shotpoint;
-    private float TimeBtwShots;
+    private float timeBtwShots;
     public float startTime;
     public float offset;
     PlayerControls playerControls;
-    public float LightTime;
+    public float lightTime;
     Collider2D playerCollider;
 
     private void Start()
@@ -37,18 +37,18 @@ public class WeaponControls : MonoBehaviour
 
     public void Update()
     {
-        TimeBtwShots -= Time.deltaTime;
+        timeBtwShots -= Time.deltaTime;
 
     }
 
     public void Shoot()
     {
-        if (TimeBtwShots <= 0)
+        if (timeBtwShots <= 0)
         {
             GameObject newBullet = Instantiate(projectile, shotpoint.position, transform.rotation);
             Physics2D.IgnoreCollision(playerCollider, newBullet.GetComponent<Collider2D>());
-            StartCoroutine(FindObjectOfType<AntenneLighting>().Shoot(LightTime));
-            TimeBtwShots = startTime;
+            StartCoroutine(FindObjectOfType<AntenneLighting>().Shoot(lightTime));
+            timeBtwShots = startTime;
             
         }
     }

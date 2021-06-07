@@ -5,12 +5,12 @@ using UnityEngine;
 public class Bullets : MonoBehaviour
 {
     public float speed;
-    public float LifeTime;
+    public float lifeTime;
     public GameObject destroyEffect;
 
     void Start()
     {
-        Invoke("Destroybullets", LifeTime);
+        Invoke("Destroybullets", lifeTime);
     }
 
     void Update()
