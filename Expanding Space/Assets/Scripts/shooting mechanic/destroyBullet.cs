@@ -20,6 +20,11 @@ public class destroyBullet : MonoBehaviour
             Destroy(bullet);
             Instantiate(destroyEffect, transform.position, Quaternion.identity);
         }
+        if (collision.collider.tag == "Ground")
+        {
+            Destroy(bullet);
+            Instantiate(destroyEffect, transform.position, Quaternion.identity);
+        }
     }
 
 }

@@ -11,8 +11,6 @@ public class Pointer : MonoBehaviour
     private void Awake()
     {
         playerControls = new PlayerControls();
-
-        //playerControls.Shooting.Shoot.performed += ctx => Shoot();
         playerControls.Shooting.AimingMouse.performed += ctx => AimingMouse(ctx.ReadValue<Vector2>());
         playerControls.Shooting.AimingController.performed += ctx => AimingController(ctx.ReadValue<Vector2>());
     }

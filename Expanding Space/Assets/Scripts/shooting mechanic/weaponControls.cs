@@ -9,15 +9,20 @@ public class weaponControls : MonoBehaviour
     private float TimeBtwShots;
     public float startTime;
     public float offset;
-
     PlayerControls playerControls;
+    public float LightTime;
+    Collider2D playerCollider;
 
+    private void Start()
+    {
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+        playerCollider = playerObject.GetComponent<Collider2D>();
+    }
     private void Awake()
     {
         playerControls = new PlayerControls();
 
         playerControls.Shooting.Shoot.performed += ctx => Shoot();
-        playerControls.Shooting.Aiming.performed += ctx => Aiming(ctx.ReadValue<Vector2>());
     }
 
     private void OnEnable()
@@ -40,16 +45,12 @@ public class weaponControls : MonoBehaviour
     {
         if (TimeBtwShots <= 0)
         {
-            Instantiate(projectile, shotpoint.position, transform.rotation);
+            GameObject newBullet = Instantiate(projectile, shotpoint.position, transform.rotation);
+            Physics2D.IgnoreCollision(playerCollider, newBullet.GetComponent<Collider2D>());
+            StartCoroutine(FindObjectOfType<AntenneLighting>().Shoot(LightTime));
             TimeBtwShots = startTime;
+            
         }
     }
 
-    public void Aiming(Vector2 position)
-    {
-
-        Vector3 difference = Camera.main.ScreenToWorldPoint(position) - transform.position;
-        float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
-    }
 }
