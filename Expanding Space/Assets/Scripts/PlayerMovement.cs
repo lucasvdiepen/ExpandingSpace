@@ -89,14 +89,14 @@ public class PlayerMovement : MonoBehaviour
             //Move to center
             MoveToPosition(digPlacePosition.position, 0.4f);
 
-            //Move down animation
+            //Move down animation here
 
             //Move down
             yield return new WaitUntil(() => !movingToPosition);
 
             MoveToPosition(new Vector3(digPlacePosition.position.x, digDownPosition, digPlacePosition.position.z), 1.5f);
 
-            //Move up animation
+            //Move up animation here
 
             //Move up
             yield return new WaitUntil(() => !movingToPosition);
@@ -124,7 +124,7 @@ public class PlayerMovement : MonoBehaviour
             //Move to center
             MoveToPosition(digPlacePosition.position, 0.4f);
 
-            // Move down animation
+            // Move down animation here
 
             //Move down
             yield return new WaitUntil(() => !movingToPosition);
@@ -136,7 +136,7 @@ public class PlayerMovement : MonoBehaviour
 
             MoveToPosition(new Vector3(digEndPlacePosition.position.x, digDownPosition, digPlacePosition.position.z), 2f);
 
-            //Move up animation
+            //Move up animation here
 
             //Move up
             yield return new WaitUntil(() => !movingToPosition);
