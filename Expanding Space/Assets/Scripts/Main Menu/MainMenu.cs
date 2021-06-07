@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public void Quit()
     {
-        // Quit game
+        // Quits game
         Application.Quit();
     }
 }
