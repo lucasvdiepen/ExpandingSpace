@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8458844025216466321}
   - component: {fileID: 8458844025216466320}
   - component: {fileID: 8458844025216466327}
+  - component: {fileID: 4715609158961392138}
   - component: {fileID: 8458844025216466326}
   - component: {fileID: 8458844025216466325}
-  - component: {fileID: 8458844025216466322}
   m_Layer: 0
   m_Name: MovebleObsticle
   m_TagString: MovableObject
@@ -84,6 +84,23 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4715609158961392138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8458844025216466324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d50eeeebfdfb2148b7ab504627561a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: -90
+  movement: 0
+  startTime: 4
+  speed: 4
+  rigid: {fileID: 8458844025216466325}
 --- !u!61 &8458844025216466326
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -131,20 +148,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8458844025216466322
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8458844025216466324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d50eeeebfdfb2148b7ab504627561a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offset: -90
-  movement: 0
-  startTime: 4
-  speed: 4
-  rigid: {fileID: 8458844025216466325}

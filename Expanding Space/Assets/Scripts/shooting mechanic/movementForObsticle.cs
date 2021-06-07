@@ -38,7 +38,7 @@ public class MovementForObsticle : MonoBehaviour
     {
         time = 4;
         movement = false;
-        weaponScript = GameObject.Find("weapon").GetComponent<WeaponControls>();
+        weaponScript = GameObject.Find("Weapon").GetComponent<WeaponControls>();
         pointerScript = GameObject.Find("PointerHolder").GetComponent<Pointer>();
         
         rigid.gravityScale = 1;

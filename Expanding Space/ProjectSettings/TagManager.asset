@@ -7,6 +7,8 @@ TagManager:
   - bullet
   - MovableObject
   - noneMovableObject
+  - Planet
+  - Meteorite
   - Ground
   - DigPlace
   - Dialog
