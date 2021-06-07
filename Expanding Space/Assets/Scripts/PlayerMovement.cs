@@ -11,7 +11,18 @@ public class PlayerMovement : MonoBehaviour
     PlayerControls playerControls;
     Vector2 move;
 
+    public float digDownPosition = -6.5f;
+
+    private bool movingToPosition = false;
+    private Vector3 digOldPosition = Vector3.zero;
+    private Vector3 digPosition = Vector3.zero;
+    private float digMoveTime = 0f;
+
+    private float timeElapsed = 0;
+
     private bool freezeMovement = false;
+
+    private bool isDigging = false;
 
     void Awake()
     {
@@ -48,22 +59,104 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        Move(move.x);
+        if(movingToPosition)
+        {
+            transform.position = Vector3.Lerp(digOldPosition, digPosition, timeElapsed / digMoveTime);
+
+            if(timeElapsed >= digMoveTime)
+            {
+                movingToPosition = false;
+                timeElapsed = 0;
+            }
+
+            timeElapsed += Time.deltaTime;
+        }
+
+        if(!freezeMovement)
+        {
+            Move(move.x);
+        }
     }
 
-    public void MoveToDigPlace(Transform digPlacePosition)
+    public IEnumerator DigLoot(Transform digPlacePosition)
     {
-        freezeMovement = true;
+        if(!isDigging)
+        {
+            isDigging = true;
 
-        // Move down animation
+            freezeMovement = true;
 
-        //Move down
+            //Move to center
+            MoveToPosition(digPlacePosition.position, 0.4f);
 
-        //Move sideways
+            //Move down animation
 
-        //Move up animation
+            //Move down
+            yield return new WaitUntil(() => !movingToPosition);
 
-        //Move up
+            MoveToPosition(new Vector3(digPlacePosition.position.x, digDownPosition, digPlacePosition.position.z), 1.5f);
+
+            //Move up animation
+
+            //Move up
+            yield return new WaitUntil(() => !movingToPosition);
+
+            MoveToPosition(digPlacePosition.position, 1f);
+
+            yield return new WaitUntil(() => !movingToPosition);
+
+            freezeMovement = false;
+            
+            isDigging = false;
+        }
+
+
+    }
+
+    public IEnumerator DigTeleport(Transform digPlacePosition, Transform digEndPlacePosition)
+    {
+        if(!isDigging)
+        {
+            isDigging = true;
+
+            freezeMovement = true;
+
+            //Move to center
+            MoveToPosition(digPlacePosition.position, 0.4f);
+
+            // Move down animation
+
+            //Move down
+            yield return new WaitUntil(() => !movingToPosition);
+
+            MoveToPosition(new Vector3(digPlacePosition.position.x, digDownPosition, digPlacePosition.position.z), 1f);
+
+            //Move sideways
+            yield return new WaitUntil(() => !movingToPosition);
+
+            MoveToPosition(new Vector3(digEndPlacePosition.position.x, digDownPosition, digPlacePosition.position.z), 2f);
+
+            //Move up animation
+
+            //Move up
+            yield return new WaitUntil(() => !movingToPosition);
+
+            MoveToPosition(new Vector3(digEndPlacePosition.position.x, digEndPlacePosition.position.y, digEndPlacePosition.position.z), 1f);
+
+            yield return new WaitUntil(() => !movingToPosition);
+            freezeMovement = false;
+
+            isDigging = false;
+        }
+    }
+
+    public void MoveToPosition(Vector3 position, float moveTime)
+    {
+        timeElapsed = 0;
+        movingToPosition = true;
+        digPosition = position;
+        digOldPosition = transform.position;
+        digMoveTime = moveTime;
     }
 
     public void Move(float direction)
