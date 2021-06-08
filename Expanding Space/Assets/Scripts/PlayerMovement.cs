@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     PlayerControls playerControls;
     Vector2 move;
 
+    public float groundDistance = 1f;
+
     public float digDownPosition = -6.5f;
 
     private bool movingToPosition = false;
@@ -48,9 +50,19 @@ public class PlayerMovement : MonoBehaviour
         playerControls.Gameplay.Disable();
     }
 
+    public bool IsGrounded()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, groundDistance);
+        if (hit.transform.tag == "Ground") return true;
+
+        return false;
+    }
+
     public void Jump()
     {
-        if (grounded)
+        //Check if grounded
+
+        if (IsGrounded())
         {
             rb.velocity = new Vector3(rb.velocity.x, jumpPower, 0);
             grounded = false;
@@ -59,7 +71,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if(movingToPosition)
+        Debug.DrawRay(transform.position, Vector2.down, Color.green);
+
+        if (movingToPosition)
         {
             transform.position = Vector3.Lerp(digOldPosition, digPosition, timeElapsed / digMoveTime);
 
@@ -72,10 +86,12 @@ public class PlayerMovement : MonoBehaviour
             timeElapsed += Time.deltaTime;
         }
 
-        if(!freezeMovement)
-        {
-            Move(move.x);
-        }
+        //Move(move.x);
+    }
+
+    private void FixedUpdate()
+    {
+        Move(move.x);
     }
 
     public IEnumerator DigLoot(Transform digPlacePosition)
@@ -161,10 +177,16 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move(float direction)
     {
-        if (!freezeMovement)
+        /*if (!freezeMovement)
         {
             transform.Translate(direction * movementSpeed * Time.deltaTime, 0, 0, Space.World);
+        }*/
+
+        if (!freezeMovement)
+        {
+            rb.velocity = new Vector2(direction * movementSpeed * Time.fixedDeltaTime, rb.velocity.y);
         }
+        else rb.velocity = Vector2.zero;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
