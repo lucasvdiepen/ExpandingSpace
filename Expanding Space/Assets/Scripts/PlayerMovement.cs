@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
     {
         //Check if grounded
 
-        if (IsGrounded())
+        if (grounded)
         {
             rb.velocity = new Vector3(rb.velocity.x, jumpPower, 0);
             grounded = false;
