@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 1121613efffa201449a312610b9840dd
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - sfxAudioSource: {instanceID: 0}
+  - dialogTickAudioSource: {instanceID: 0}
+  - laser: {fileID: 8300000, guid: 5262adab29d27c24c8a86cbb63c536ff, type: 3}
+  - dialogPopup: {instanceID: 0}
+  - explosion: {fileID: 8300000, guid: 18b773fb0f2aad14c860002c5954455a, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
