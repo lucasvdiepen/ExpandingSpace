@@ -47,6 +47,7 @@ public class WeaponControls : MonoBehaviour
         {
             GameObject newBullet = Instantiate(projectile, shotpoint.position, transform.rotation);
             Physics2D.IgnoreCollision(playerCollider, newBullet.GetComponent<Collider2D>());
+            FindObjectOfType<SoundManager>().PlayLaserSound();
             StartCoroutine(FindObjectOfType<AntenneLighting>().Shoot(lightTime));
             timeBtwShots = startTime;
             

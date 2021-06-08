@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
-  LifeTime: 2
+  lifeTime: 2
   destroyEffect: {fileID: 8691950381993094047, guid: 74409a8d1d9426e42ba7f014f5e23049, type: 3}
 --- !u!58 &7816048863902266119
 CircleCollider2D:
