@@ -632,6 +632,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1591779488306212327, guid: 151e6298d73e1144e85d8a3def47a889, type: 3}
+      propertyPath: lightTime
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 9167914381259909253, guid: 151e6298d73e1144e85d8a3def47a889, type: 3}
       propertyPath: m_RootOrder
       value: 3
