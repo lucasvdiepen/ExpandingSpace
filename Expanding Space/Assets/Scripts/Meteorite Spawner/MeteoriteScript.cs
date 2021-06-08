@@ -5,6 +5,8 @@ using UnityEngine;
 public class MeteoriteScript : MonoBehaviour
 {
     public float meteoriteMovementSpeed;
+
+    public float timeBeforeDestroy;
     // Update is called once per frame
     void Update()
     {
@@ -12,6 +14,6 @@ public class MeteoriteScript : MonoBehaviour
         transform.position -= new Vector3(meteoriteMovementSpeed, 0, 0) * Time.deltaTime;
 
         // destroys the meteorite in 10 seconds
-        Destroy(gameObject, 10f);
+        Destroy(gameObject, timeBeforeDestroy);
     }
 }

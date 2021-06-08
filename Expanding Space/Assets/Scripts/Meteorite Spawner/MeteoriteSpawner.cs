@@ -12,15 +12,15 @@ public class MeteoriteSpawner : MonoBehaviour
     float meteoriteSpawnPositionY;
 
     
-    float meteoriteSpawnScale = 2.5f;
+    float meteoriteSpawnScale;
 
     
     float topSpawnPostionNumber = 5;
     float lowSpawnPostionNumber = -5;
 
     
-    float topScaleNumber = 3;
-    float lowScaleNumber = 2;
+    float topScaleNumber = 0.46f;
+    float lowScaleNumber = 0.17f;
 
     
     float spawnPositionMeterorite;
@@ -32,6 +32,9 @@ public class MeteoriteSpawner : MonoBehaviour
 
         // sets the spawn meteorite 
         canSpawnMeteorite = true;
+
+        // calls the spawnmeteorite function in the beginning
+        StartCoroutine(StopSpawningMeteorite());
     }
     // Update is called once per frame
     void Update()
@@ -47,21 +50,31 @@ public class MeteoriteSpawner : MonoBehaviour
     // this function spawns a meteorite
     IEnumerator SpawnMeteorite()
     {
-        // sets the scale of the next meteorite
-        meteorite.transform.localScale = new Vector3(meteoriteSpawnScale, meteoriteSpawnScale, meteoriteSpawnScale);
+        
 
         // waits for seconds
         yield return new WaitForSeconds(3);
 
+        // sets the scale of the next meteorite
+        meteorite.transform.localScale = new Vector3(meteoriteSpawnScale, meteoriteSpawnScale, meteoriteSpawnScale);
+
         // makes the meteorite
         Instantiate(meteorite, new Vector3(spawnPositionMeterorite, meteoriteSpawnPositionY, 0), Quaternion.identity);
 
-        // chack if it can spwn a meteorite
+        // chack if it can spawn a meteorite
         if (canSpawnMeteorite)
         {
             //calls this function again so another meteorite will spawn
             StartCoroutine(SpawnMeteorite());
         }
         
+    }
+    IEnumerator StopSpawningMeteorite()
+    {
+        // waits for seconds
+        yield return new WaitForSeconds(25);
+        
+        // sets this bool to false so there wont spawn any meteorites anymore
+        canSpawnMeteorite = false;
     }
 }
