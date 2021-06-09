@@ -38,6 +38,9 @@ public class PlayerMovement : MonoBehaviour
     public void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
+
+        //particle system setup
+        dirt = GetComponent<ParticleSystem>();
     }
 
     private void OnEnable()
@@ -78,6 +81,15 @@ public class PlayerMovement : MonoBehaviour
         {
             Move(move.x);
         }
+
+        //particle system color
+        var main = dirt.main;
+
+        if (GetComponent<DigPlace>().digPlaceColor == "red")
+        {
+            main.startColor = new Color(255, 0, 0, 255);
+        }
+
     }
 
     public IEnumerator DigLoot(Transform digPlacePosition)
