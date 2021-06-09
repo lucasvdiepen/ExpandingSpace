@@ -25,7 +25,6 @@ public class DigPlace : MonoBehaviour
             isDug = true;
 
             StartCoroutine(FindObjectOfType<PlayerMovement>().DigLoot(transform));
-
             //Give items to inventory here
             foreach (GameObject reward in rewards)
             {

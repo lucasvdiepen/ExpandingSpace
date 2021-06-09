@@ -24,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isDigging = false;
 
+    public ParticleSystem dirt;
+
     void Awake()
     {
         playerControls = new PlayerControls();
@@ -82,6 +84,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if(!isDigging)
         {
+            dirt.Play();
+
             isDigging = true;
 
             freezeMovement = true;
@@ -95,6 +99,7 @@ public class PlayerMovement : MonoBehaviour
             yield return new WaitUntil(() => !movingToPosition);
 
             MoveToPosition(new Vector3(digPlacePosition.position.x, digDownPosition, digPlacePosition.position.z), 1.5f);
+            dirt.Stop();
 
             //Move up animation here
 
@@ -102,12 +107,14 @@ public class PlayerMovement : MonoBehaviour
             yield return new WaitUntil(() => !movingToPosition);
 
             MoveToPosition(digPlacePosition.position, 1f);
+            dirt.Play();
 
             yield return new WaitUntil(() => !movingToPosition);
 
             freezeMovement = false;
             
             isDigging = false;
+            dirt.Stop();
         }
 
 
@@ -117,6 +124,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if(!isDigging)
         {
+            dirt.Play();
+
             isDigging = true;
 
             freezeMovement = true;
@@ -131,6 +140,8 @@ public class PlayerMovement : MonoBehaviour
 
             MoveToPosition(new Vector3(digPlacePosition.position.x, digDownPosition, digPlacePosition.position.z), 1f);
 
+            dirt.Stop();
+
             //Move sideways
             yield return new WaitUntil(() => !movingToPosition);
 
@@ -141,12 +152,15 @@ public class PlayerMovement : MonoBehaviour
             //Move up
             yield return new WaitUntil(() => !movingToPosition);
 
+            dirt.Play();
+
             MoveToPosition(new Vector3(digEndPlacePosition.position.x, digEndPlacePosition.position.y, digEndPlacePosition.position.z), 1f);
 
             yield return new WaitUntil(() => !movingToPosition);
             freezeMovement = false;
 
             isDigging = false;
+            dirt.Stop();
         }
     }
 
