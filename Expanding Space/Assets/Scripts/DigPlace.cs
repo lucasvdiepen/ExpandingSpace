@@ -17,7 +17,9 @@ public class DigPlace : MonoBehaviour
     public Transform endTeleportPoint;
 
     //string voor in de inspector
-    public string digPlaceColor;
+    public int rgb1;
+    public int rgb2;
+    public int rgb3;
 
     [HideInInspector] public bool isDug = false;
 

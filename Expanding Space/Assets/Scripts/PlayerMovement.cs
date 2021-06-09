@@ -85,9 +85,9 @@ public class PlayerMovement : MonoBehaviour
         //particle system color
         var main = dirt.main;
 
-        if (GetComponent<DigPlace>().digPlaceColor == "red")
+        if (dirt.isPlaying)
         {
-            main.startColor = new Color(255, 0, 0, 255);
+            main.startColor = new Color(GetComponent<DigPlace>().rgb1, GetComponent<DigPlace>().rgb2, GetComponent<DigPlace>().rgb3, 255);
         }
 
     }
