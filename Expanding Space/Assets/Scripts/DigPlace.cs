@@ -24,7 +24,7 @@ public class DigPlace : MonoBehaviour
         {
             isDug = true;
 
-            StartCoroutine(FindObjectOfType<PlayerMovement>().DigLoot(transform));
+            StartCoroutine(FindObjectOfType<Dig>().DigLoot(transform));
 
             //Give items to inventory here
             foreach (GameObject reward in rewards)
@@ -34,8 +34,9 @@ public class DigPlace : MonoBehaviour
         }
         else if(digAction == DigAction.Teleport)
         {
-            FindObjectOfType<PlayerMovement>().DigTeleport(transform, endTeleportPoint);
-            StartCoroutine(FindObjectOfType<PlayerMovement>().DigTeleport(transform, endTeleportPoint));
+            Debug.Log("Digging teleport");
+            //FindObjectOfType<Dig>().DigTeleport(transform, endTeleportPoint);
+            StartCoroutine(FindObjectOfType<Dig>().DigTeleport(transform, endTeleportPoint));
         }
     }
 }

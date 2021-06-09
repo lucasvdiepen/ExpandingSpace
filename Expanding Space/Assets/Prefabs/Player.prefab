@@ -364,7 +364,7 @@ MonoBehaviour:
   shotpoint: {fileID: 8271489949233216718}
   startTime: 0.5
   offset: 0
-  LightTime: 0.2
+  lightTime: 0
 --- !u!114 &3982328435725369120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -703,6 +703,9 @@ MonoBehaviour:
   maxDigDistance: 0.3
   minVibrationStrength: 0
   maxVibrationStrength: 0.5
+  rotationTime: 0.75
+  digDownDepth: 2
+  digMovingTime: 2
 --- !u!61 &9167914381259909249
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -749,7 +752,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &9167914381259909248
 MonoBehaviour:
   m_ObjectHideFlags: 0
