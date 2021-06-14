@@ -7,7 +7,19 @@ public class SoundManager : MonoBehaviour
     public AudioSource sfxAudioSource;
     public AudioSource dialogTickAudioSource;
 
+    public AudioClip laser;
     public AudioClip dialogPopup;
+    public AudioClip explosion;
+
+    public void PlayLaserSound()
+    {
+        sfxAudioSource.PlayOneShot(laser);
+    }
+
+    public void PlayExplosionSound()
+    {
+        sfxAudioSource.PlayOneShot(explosion);
+    }
 
     public void PlayPopupSound()
     {

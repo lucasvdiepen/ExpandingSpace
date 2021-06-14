@@ -4,6 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - bullet
+  - MovableObject
+  - noneMovableObject
   - Planet
   - Meteorite
   - Ground
