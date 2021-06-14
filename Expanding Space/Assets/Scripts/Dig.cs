@@ -22,14 +22,14 @@ public class Dig : MonoBehaviour
         private DigPlace script { get; set; }
 
         public void SetDigPlace(Vector2 _position, DigPlace _script)
-        {
-            isNear = true;
-            position = _position;
-            script = _script;
+        { 
+                isNear = true;
+                position = _position;
+                script = _script;
 
-            antenneLighting.EnableLight();
+                antenneLighting.EnableLight();
 
-            if (IsControllerAvailable()) InputSystem.ResumeHaptics();
+                if (IsControllerAvailable()) InputSystem.ResumeHaptics();
         }
 
         public bool isDug()

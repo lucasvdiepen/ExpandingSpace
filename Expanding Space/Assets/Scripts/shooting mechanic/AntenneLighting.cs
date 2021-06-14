@@ -20,9 +20,9 @@ public class AntenneLighting : MonoBehaviour
 
     public void SetBrightness(int brightness)
     {
-        float intensity = Mathf.Lerp(minIntensity, maxIntensity, brightness * 0.01f);
+            float intensity = Mathf.Lerp(minIntensity, maxIntensity, brightness * 0.01f);
 
-        antenneLight.intensity = intensity;
+            antenneLight.intensity = intensity;
     }
 
     public void EnableLight()

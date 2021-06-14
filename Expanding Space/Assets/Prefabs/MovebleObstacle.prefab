@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8458844025216466326}
   - component: {fileID: 8458844025216466325}
   m_Layer: 0
-  m_Name: MovebleObsticle
+  m_Name: MovebleObstacle
   m_TagString: MovableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
