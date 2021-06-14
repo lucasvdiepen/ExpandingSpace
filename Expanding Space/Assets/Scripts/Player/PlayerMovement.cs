@@ -187,11 +187,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move(float direction)
     {
-        /*if (!freezeMovement)
-        {
-            transform.Translate(direction * movementSpeed * Time.deltaTime, 0, 0, Space.World);
-        }*/
-
         if (!freezeMovement)
         {
             rb.velocity = new Vector2(direction * movementSpeed * Time.fixedDeltaTime, rb.velocity.y);
