@@ -16,6 +16,13 @@ public class DigPlace : MonoBehaviour
 
     public Transform endTeleportPoint;
 
+    //string voor in de inspector
+    public int rgb1;
+    public int rgb2;
+    public int rgb3;
+
+    public ParticleSystem dirt;
+
     [HideInInspector] public bool isDug = false;
 
     public void Dig()
@@ -25,7 +32,6 @@ public class DigPlace : MonoBehaviour
             isDug = true;
 
             StartCoroutine(FindObjectOfType<PlayerMovement>().DigLoot(transform));
-
             //Give items to inventory here
             foreach (GameObject reward in rewards)
             {
@@ -36,6 +42,13 @@ public class DigPlace : MonoBehaviour
         {
             FindObjectOfType<PlayerMovement>().DigTeleport(transform, endTeleportPoint);
             StartCoroutine(FindObjectOfType<PlayerMovement>().DigTeleport(transform, endTeleportPoint));
+        }
+    //particle system color
+    var main = dirt.main;
+
+        if (dirt)
+        {
+            main.startColor = new Color(rgb1, rgb2, rgb3, 255);
         }
     }
 }
