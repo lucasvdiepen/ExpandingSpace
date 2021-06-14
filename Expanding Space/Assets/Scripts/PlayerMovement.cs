@@ -38,9 +38,6 @@ public class PlayerMovement : MonoBehaviour
     public void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
-
-        //particle system setup
-        dirt = GetComponent<ParticleSystem>();
     }
 
     private void OnEnable()
@@ -64,11 +61,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if(movingToPosition)
+        if (movingToPosition)
         {
             transform.position = Vector3.Lerp(digOldPosition, digPosition, timeElapsed / digMoveTime);
 
-            if(timeElapsed >= digMoveTime)
+            if (timeElapsed >= digMoveTime)
             {
                 movingToPosition = false;
                 timeElapsed = 0;
@@ -77,19 +74,10 @@ public class PlayerMovement : MonoBehaviour
             timeElapsed += Time.deltaTime;
         }
 
-        if(!freezeMovement)
+        if (!freezeMovement)
         {
             Move(move.x);
         }
-
-        //particle system color
-        var main = dirt.main;
-
-        if (dirt.isPlaying)
-        {
-            main.startColor = new Color(GetComponent<DigPlace>().rgb1, GetComponent<DigPlace>().rgb2, GetComponent<DigPlace>().rgb3, 255);
-        }
-
     }
 
     public IEnumerator DigLoot(Transform digPlacePosition)

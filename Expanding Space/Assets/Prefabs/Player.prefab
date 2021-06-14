@@ -684,7 +684,7 @@ Transform:
   - {fileID: 502083125789935857}
   - {fileID: 7155595169633997764}
   - {fileID: 1673067979204736028}
-  - {fileID: 8409384848331453487}
+  - {fileID: 2752045127783773144}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -795,7 +795,7 @@ MonoBehaviour:
   grounded: 0
   digDownPosition: -6.5
   dirt: {fileID: 3583459681998921649, guid: 8f51768fb9bfb8442a697680370bf900, type: 3}
---- !u!1001 &7335239866888368607
+--- !u!1001 &3983743155820721704
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -852,8 +852,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f51768fb9bfb8442a697680370bf900, type: 3}
---- !u!4 &8409384848331453487 stripped
+--- !u!4 &2752045127783773144 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1258794842502399472, guid: 8f51768fb9bfb8442a697680370bf900, type: 3}
-  m_PrefabInstance: {fileID: 7335239866888368607}
+  m_PrefabInstance: {fileID: 3983743155820721704}
   m_PrefabAsset: {fileID: 0}
