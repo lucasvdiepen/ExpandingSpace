@@ -8,6 +8,7 @@ public class MeteoriteSpawner : MonoBehaviour
     
     public GameObject meteorite;
 
+    public Vector3 meteoriteScale;
     
     float meteoriteSpawnPositionY;
 
@@ -24,6 +25,8 @@ public class MeteoriteSpawner : MonoBehaviour
 
     
     float spawnPositionMeterorite;
+
+    public float secondsToStopSpawning;
 
     void Start()
     {
@@ -45,6 +48,8 @@ public class MeteoriteSpawner : MonoBehaviour
 
         // calculates the position of where the meteorite will spawn
         spawnPositionMeterorite = GameObject.Find("BorderRight").transform.position.x + 10;
+
+        meteoriteScale = new Vector3(meteoriteSpawnScale, meteoriteSpawnScale, meteoriteSpawnScale);
     }
 
     // this function spawns a meteorite
@@ -56,7 +61,7 @@ public class MeteoriteSpawner : MonoBehaviour
         yield return new WaitForSeconds(3);
 
         // sets the scale of the next meteorite
-        meteorite.transform.localScale = new Vector3(meteoriteSpawnScale, meteoriteSpawnScale, meteoriteSpawnScale);
+        meteorite.transform.localScale = meteoriteScale;
 
         // makes the meteorite
         Instantiate(meteorite, new Vector3(spawnPositionMeterorite, meteoriteSpawnPositionY, 0), Quaternion.identity);
@@ -72,7 +77,7 @@ public class MeteoriteSpawner : MonoBehaviour
     IEnumerator StopSpawningMeteorite()
     {
         // waits for seconds
-        yield return new WaitForSeconds(25);
+        yield return new WaitForSeconds(secondsToStopSpawning);
         
         // sets this bool to false so there wont spawn any meteorites anymore
         canSpawnMeteorite = false;
