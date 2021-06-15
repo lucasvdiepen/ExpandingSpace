@@ -827,6 +827,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meteorite: {fileID: 403843916406287493, guid: da4a88f64e6eb624d88616cdb5e078e9, type: 3}
+  meteoriteScale: {x: 0, y: 0, z: 0}
+  secondsToStopSpawning: 25
 --- !u!212 &573266015
 SpriteRenderer:
   m_ObjectHideFlags: 0
