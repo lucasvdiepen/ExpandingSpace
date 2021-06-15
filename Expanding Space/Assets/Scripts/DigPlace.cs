@@ -16,6 +16,13 @@ public class DigPlace : MonoBehaviour
 
     public Transform endTeleportPoint;
 
+    //values voor in de inspector
+    public int rgb1;
+    public int rgb2;
+    public int rgb3;
+
+    public ParticleSystem dirt;
+
     [HideInInspector] public bool isDug = false;
 
     public void Dig()
@@ -35,8 +42,16 @@ public class DigPlace : MonoBehaviour
         else if(digAction == DigAction.Teleport)
         {
             Debug.Log("Digging teleport");
-            //FindObjectOfType<Dig>().DigTeleport(transform, endTeleportPoint);
+
             StartCoroutine(FindObjectOfType<Dig>().DigTeleport(transform, endTeleportPoint));
+        }
+
+        //particle system color
+        var main = dirt.main;
+
+        if (dirt)
+        {
+            main.startColor = new Color(rgb1, rgb2, rgb3, 255);
         }
     }
 }

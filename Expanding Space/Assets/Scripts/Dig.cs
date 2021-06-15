@@ -30,6 +30,8 @@ public class Dig : MonoBehaviour
 
     private bool isDigging = false;
 
+    public ParticleSystem dirt;
+
     PlayerControls playerControls;
 
     private Collider2D collider;
@@ -169,6 +171,8 @@ public class Dig : MonoBehaviour
     {
         if (!isDigging)
         {
+            dirt.Play();
+
             isDigging = true;
 
             FindObjectOfType<PlayerMovement>().FreezeMovement(true);
@@ -199,6 +203,8 @@ public class Dig : MonoBehaviour
             FindObjectOfType<PlayerMovement>().FreezeMovement(false);
 
             isDigging = false;
+
+            dirt.Stop();
         }
     }
 
@@ -206,6 +212,8 @@ public class Dig : MonoBehaviour
     {
         if (!isDigging)
         {
+            dirt.Play();
+
             isDigging = true;
 
             FindObjectOfType<PlayerMovement>().FreezeMovement(true);
@@ -227,6 +235,8 @@ public class Dig : MonoBehaviour
 
             yield return new WaitUntil(() => !movingToPosition);
 
+            dirt.Stop();
+
             //Set position of player to end dig place
             transform.position = new Vector3(digEndPlacePosition.position.x, digEndPlacePosition.position.y - digDownDepth, digEndPlacePosition.position.z);
 
@@ -238,6 +248,8 @@ public class Dig : MonoBehaviour
             //Move up
             yield return new WaitForSeconds(digMovingTime);
 
+            dirt.Play();
+
             MoveToPosition(new Vector3(digEndPlacePosition.position.x, digEndPlacePosition.position.y, digEndPlacePosition.position.z), 1f);
 
             yield return new WaitUntil(() => !movingToPosition);
@@ -247,6 +259,8 @@ public class Dig : MonoBehaviour
             FindObjectOfType<PlayerMovement>().FreezeMovement(false);
 
             isDigging = false;
+
+            dirt.Stop();
         }
     }
 

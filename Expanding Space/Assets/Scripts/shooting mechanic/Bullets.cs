@@ -19,7 +19,8 @@ public class Bullets : MonoBehaviour
     }
 
     void Destroybullets()
-    {
+    {   
+        FindObjectOfType<SoundManager>().PlayExplosionSound();
         Instantiate(destroyEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }

@@ -13,6 +13,17 @@ public class PlayerMovement : MonoBehaviour
 
     private bool freezeMovement = false;
 
+    public float groundDistance = 1f;
+
+    public float digDownPosition = -6.5f;
+
+    private bool movingToPosition = false;
+    private Vector3 digOldPosition = Vector3.zero;
+    private Vector3 digPosition = Vector3.zero;
+    private float digMoveTime = 0f;
+
+    private float timeElapsed = 0;
+
     void Awake()
     {
         playerControls = new PlayerControls();
@@ -37,8 +48,18 @@ public class PlayerMovement : MonoBehaviour
         playerControls.Gameplay.Disable();
     }
 
+    public bool IsGrounded()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, groundDistance);
+        if (hit.transform.tag == "Ground") return true;
+
+        return false;
+    }
+
     public void Jump()
     {
+        //Check if grounded
+
         if (grounded)
         {
             rb.velocity = new Vector3(rb.velocity.x, jumpPower, 0);
@@ -48,18 +69,32 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if(!freezeMovement)
+        if (movingToPosition)
         {
-            Move(move.x);
+            transform.position = Vector3.Lerp(digOldPosition, digPosition, timeElapsed / digMoveTime);
+
+            if (timeElapsed >= digMoveTime)
+            {
+                movingToPosition = false;
+                timeElapsed = 0;
+            }
+
+            timeElapsed += Time.deltaTime;
         }
+    }
+
+    private void FixedUpdate()
+    {
+        Move(move.x);
     }
 
     public void Move(float direction)
     {
         if (!freezeMovement)
         {
-            transform.Translate(direction * movementSpeed * Time.deltaTime, 0, 0, Space.World);
+            rb.velocity = new Vector2(direction * movementSpeed * Time.fixedDeltaTime, rb.velocity.y);
         }
+        else rb.velocity = Vector2.zero;
     }
 
     public void FreezeMovement(bool freeze)

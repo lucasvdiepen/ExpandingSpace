@@ -98,8 +98,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
-  LifeTime: 2
-  destroyEffect: {fileID: 8691950381993094047, guid: 74409a8d1d9426e42ba7f014f5e23049, type: 3}
+  lifeTime: 2
+  destroyEffect: {fileID: 2932539514152982183, guid: 2789edc6475da9d48b4fdd25d714f4e1, type: 3}
 --- !u!58 &7816048863902266119
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -149,5 +149,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e56596a7be51ac84b9defa77b1c06d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyEffect: {fileID: 8691950381993094047, guid: 74409a8d1d9426e42ba7f014f5e23049, type: 3}
+  destroyEffect: {fileID: 2932539514152982183, guid: 2789edc6475da9d48b4fdd25d714f4e1, type: 3}
   bullet: {fileID: 4769039730548899530}
