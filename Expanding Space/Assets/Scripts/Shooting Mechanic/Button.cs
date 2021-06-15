@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Button : MonoBehaviour
 {
-    public GameObject Buttons;
+    public GameObject buttons;
     public GameObject apearingBlock1;
     public GameObject apearingBlock2;
     private float time;
@@ -24,7 +24,7 @@ public class Button : MonoBehaviour
             time -= Time.deltaTime;
             if (time <= 0)
             {
-                Destroy(Buttons);
+                Destroy(buttons);
             }
         }
         
