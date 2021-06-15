@@ -701,7 +701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 776139a5a56d96a4a8e1053fb1cc7760, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointer: {fileID: 0}
+  pointer: {fileID: 516363935861735194}
   maxIndicatorDistance: 1
   maxDigDistance: 0.3
   minVibrationStrength: 0
@@ -709,7 +709,7 @@ MonoBehaviour:
   rotationTime: 0.75
   digDownDepth: 1
   digMovingTime: 2
-  dirt: {fileID: 0}
+  dirt: {fileID: 500489804642560409}
 --- !u!50 &9167914381259909250
 Rigidbody2D:
   serializedVersion: 4
@@ -865,5 +865,10 @@ PrefabInstance:
 --- !u!4 &2752045127783773144 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1258794842502399472, guid: 8f51768fb9bfb8442a697680370bf900, type: 3}
+  m_PrefabInstance: {fileID: 3983743155820721704}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &500489804642560409 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3583459681998921649, guid: 8f51768fb9bfb8442a697680370bf900, type: 3}
   m_PrefabInstance: {fileID: 3983743155820721704}
   m_PrefabAsset: {fileID: 0}
