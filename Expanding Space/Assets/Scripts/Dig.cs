@@ -231,7 +231,9 @@ public class Dig : MonoBehaviour
             //Move down
             yield return new WaitUntil(() => !movingToPosition && !isRotating);
 
-            MoveToPosition(new Vector3(digPlacePosition.position.x, digPlacePosition.position.y - digDownDepth, digPlacePosition.position.z), 1f);
+            Vector3 newDownPosition = digPlacePosition.position + (Vector3.down * digDownDepth);
+
+            MoveToPosition(newDownPosition, 1f);
 
             yield return new WaitUntil(() => !movingToPosition);
 
