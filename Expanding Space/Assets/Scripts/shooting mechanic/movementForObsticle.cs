@@ -59,14 +59,13 @@ public class MovementForObsticle : MonoBehaviour
         if (movement)
         {
             if (!isController)
-                    {
-                        Vector2 worldPosition = Camera.main.ScreenToWorldPoint(position);
-                        newPosition = worldPosition - new Vector2(transform.position.x, transform.position.y);
-            }
-                    
-                    else newPosition = position;
+            {
+                Vector2 worldPosition = Camera.main.ScreenToWorldPoint(position);
+                newPosition = worldPosition - new Vector2(transform.position.x, transform.position.y);
+            }     
+            else newPosition = position;
             float rotZ = Mathf.Atan2(newPosition.y, newPosition.x) * Mathf.Rad2Deg;
-                    transform.rotation = Quaternion.Euler(0, 0, rotZ + offset);
+            transform.rotation = Quaternion.Euler(0, 0, rotZ + offset);
             rigid.gravityScale = 0;
             if (time <= 0)
             {

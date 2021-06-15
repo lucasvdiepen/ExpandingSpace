@@ -12,6 +12,7 @@ TagManager:
   - Ground
   - DigPlace
   - Dialog
+  - ShootThroughWall
   layers:
   - Default
   - TransparentFX
