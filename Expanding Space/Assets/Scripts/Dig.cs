@@ -231,7 +231,21 @@ public class Dig : MonoBehaviour
             //Move down
             yield return new WaitUntil(() => !movingToPosition && !isRotating);
 
-            Vector3 newDownPosition = digPlacePosition.position + (Vector3.down * digDownDepth);
+            Vector3 newDownPosition = Vector3.zero;
+
+            if(digPlacePosition.eulerAngles.z == 0)
+            {
+                newDownPosition = digPlacePosition.position + (Vector3.down * digDownDepth);
+            }
+            else
+            {
+                /*float newX = Mathf.Cos(digPlacePosition.rotation.eulerAngles.z) * digDownDepth;
+                float newY = Mathf.Sin(digPlacePosition.rotation.eulerAngles.z) * digDownDepth;
+
+                newDownPosition = digPlacePosition.position + new Vector3(newX, newY, 0);*/
+
+                newDownPosition = digPlacePosition.position + Quaternion.AngleAxis(digPlacePosition.eulerAngles.z, Vector3.down) * digPlacePosition.localPosition * digDownDepth;
+            }
 
             MoveToPosition(newDownPosition, 1f);
 
