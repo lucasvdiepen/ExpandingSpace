@@ -7,16 +7,26 @@ public class DestroyBullet : MonoBehaviour
     public GameObject destroyEffect;
     public GameObject bullet;
 
-    public float particleDestroyTime = 1f;
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider)
+        if (collision.collider.tag == "MovableObject")
         {   
             FindObjectOfType<SoundManager>().PlayExplosionSound();
             Destroy(bullet);
-            GameObject particle = Instantiate(destroyEffect, transform.position, Quaternion.identity);
-            Destroy(particle, particleDestroyTime);
+            Instantiate(destroyEffect, transform.position, Quaternion.identity);
+        }
+
+        if (collision.collider.tag == "noneMovableObject")
+        {   
+            FindObjectOfType<SoundManager>().PlayExplosionSound();
+            Destroy(bullet);
+            Instantiate(destroyEffect, transform.position, Quaternion.identity);
+        }
+        if (collision.collider.tag == "Ground")
+        {
+            FindObjectOfType<SoundManager>().PlayExplosionSound();
+            Destroy(bullet);
+            Instantiate(destroyEffect, transform.position, Quaternion.identity);
         }
     }
 

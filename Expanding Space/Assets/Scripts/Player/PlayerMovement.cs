@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     PlayerControls playerControls;
     Vector2 move;
 
+    public float groundDistance = 1f;
+
     public float digDownPosition = -6.5f;
 
     private bool movingToPosition = false;
@@ -23,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
     private bool freezeMovement = false;
 
     private bool isDigging = false;
+
+    public ParticleSystem dirt;
 
     void Awake()
     {
@@ -48,8 +52,18 @@ public class PlayerMovement : MonoBehaviour
         playerControls.Gameplay.Disable();
     }
 
+    public bool IsGrounded()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, groundDistance);
+        if (hit.transform.tag == "Ground") return true;
+
+        return false;
+    }
+
     public void Jump()
     {
+        //Check if grounded
+
         if (grounded)
         {
             rb.velocity = new Vector3(rb.velocity.x, jumpPower, 0);
@@ -59,11 +73,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if(movingToPosition)
+        if (movingToPosition)
         {
             transform.position = Vector3.Lerp(digOldPosition, digPosition, timeElapsed / digMoveTime);
 
-            if(timeElapsed >= digMoveTime)
+            if (timeElapsed >= digMoveTime)
             {
                 movingToPosition = false;
                 timeElapsed = 0;
@@ -71,17 +85,19 @@ public class PlayerMovement : MonoBehaviour
 
             timeElapsed += Time.deltaTime;
         }
+    }
 
-        if(!freezeMovement)
-        {
-            Move(move.x);
-        }
+    private void FixedUpdate()
+    {
+        Move(move.x);
     }
 
     public IEnumerator DigLoot(Transform digPlacePosition)
     {
         if(!isDigging)
         {
+            dirt.Play();
+
             isDigging = true;
 
             freezeMovement = true;
@@ -95,6 +111,7 @@ public class PlayerMovement : MonoBehaviour
             yield return new WaitUntil(() => !movingToPosition);
 
             MoveToPosition(new Vector3(digPlacePosition.position.x, digDownPosition, digPlacePosition.position.z), 1.5f);
+            dirt.Stop();
 
             //Move up animation here
 
@@ -102,12 +119,14 @@ public class PlayerMovement : MonoBehaviour
             yield return new WaitUntil(() => !movingToPosition);
 
             MoveToPosition(digPlacePosition.position, 1f);
+            dirt.Play();
 
             yield return new WaitUntil(() => !movingToPosition);
 
             freezeMovement = false;
             
             isDigging = false;
+            dirt.Stop();
         }
 
 
@@ -117,6 +136,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if(!isDigging)
         {
+            dirt.Play();
+
             isDigging = true;
 
             freezeMovement = true;
@@ -131,6 +152,8 @@ public class PlayerMovement : MonoBehaviour
 
             MoveToPosition(new Vector3(digPlacePosition.position.x, digDownPosition, digPlacePosition.position.z), 1f);
 
+            dirt.Stop();
+
             //Move sideways
             yield return new WaitUntil(() => !movingToPosition);
 
@@ -141,12 +164,15 @@ public class PlayerMovement : MonoBehaviour
             //Move up
             yield return new WaitUntil(() => !movingToPosition);
 
+            dirt.Play();
+
             MoveToPosition(new Vector3(digEndPlacePosition.position.x, digEndPlacePosition.position.y, digEndPlacePosition.position.z), 1f);
 
             yield return new WaitUntil(() => !movingToPosition);
             freezeMovement = false;
 
             isDigging = false;
+            dirt.Stop();
         }
     }
 
@@ -163,8 +189,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!freezeMovement)
         {
-            transform.Translate(direction * movementSpeed * Time.deltaTime, 0, 0, Space.World);
+            rb.velocity = new Vector2(direction * movementSpeed * Time.fixedDeltaTime, rb.velocity.y);
         }
+        else rb.velocity = Vector2.zero;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
