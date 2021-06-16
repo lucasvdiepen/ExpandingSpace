@@ -28,6 +28,8 @@ public class MeteoriteSpawner : MonoBehaviour
 
     public float secondsToStopSpawning;
 
+    public float secondsToNewMeteorite;
+
     void Start()
     {
         // calls the spawnmeteorite function in the beginning
@@ -58,7 +60,7 @@ public class MeteoriteSpawner : MonoBehaviour
         
 
         // waits for seconds
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(secondsToNewMeteorite);
 
         // sets the scale of the next meteorite
         meteorite.transform.localScale = meteoriteScale;
