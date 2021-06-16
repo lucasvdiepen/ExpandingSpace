@@ -3602,7 +3602,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   volume: {fileID: 1629500044}
   quality: {fileID: 520901293}
-  resolutionDropDown: {fileID: 0}
+  fullScreen: {fileID: 637652282}
+  resolution: {fileID: 1698528552}
   backgroundVolume: {fileID: 1518984320}
 --- !u!1 &1990320372
 GameObject:
