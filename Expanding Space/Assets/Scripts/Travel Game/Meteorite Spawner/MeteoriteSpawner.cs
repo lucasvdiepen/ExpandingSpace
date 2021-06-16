@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MeteoriteSpawner : MonoBehaviour
 {
+    public SoundManager soundManager;
     public static bool canSpawnMeteorite;
     
     public GameObject meteorite;
@@ -73,6 +74,7 @@ public class MeteoriteSpawner : MonoBehaviour
         {
             //calls this function again so another meteorite will spawn
             StartCoroutine(SpawnMeteorite());
+
         }
         
     }
