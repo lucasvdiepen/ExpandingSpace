@@ -12,7 +12,7 @@ public class WeaponControls : MonoBehaviour
     PlayerControls playerControls;
     public float lightTime;
     Collider2D playerCollider;
-    List<Collider2D> shootThroughWallColliders;
+    List<Collider2D> shootThroughWallColliders = new List<Collider2D>();
     private void Start()
     {
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
@@ -21,7 +21,6 @@ public class WeaponControls : MonoBehaviour
         Debug.Log("shoot through wall " + shootThroughWall.Length);
         foreach (GameObject wall in shootThroughWall)
         {
-
             shootThroughWallColliders.Add(wall.GetComponent<Collider2D>());
         }
     }
