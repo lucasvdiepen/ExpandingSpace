@@ -1,0 +1,572 @@
+[33mcommit 8c2c449ec956e60cacef6df28ee9f9aaacf12df8[m[33m ([m[1;36mHEAD -> [m[1;32mfeature/TravelGame[m[33m, [m[1;31morigin/feature/TravelGame[m[33m)[m
+Author: Scott van den Broek <you@example.com>
+Date:   Wed Jun 9 11:30:01 2021 +0200
+
+    Added Meteorite as a Prefab
+
+[33mcommit 0840c1bea66204e83dd6c3129eb7d617b410b5ba[m
+Author: Scott van den Broek <you@example.com>
+Date:   Tue Jun 8 12:32:45 2021 +0200
+
+    Fixed some bugs and added the meteorite texture
+
+[33mcommit a501e073e60072a3c13fdba82d731d353b0d4c2d[m
+Author: Scott van den Broek <you@example.com>
+Date:   Mon Jun 7 13:54:25 2021 +0200
+
+    Added the ufo and background Textures for the Travel Game
+
+[33mcommit 85135fd0cb0cc46d53b777824dae198e0a94a76a[m
+Merge: 1b2f460 053546c
+Author: Scott van den Broek <you@example.com>
+Date:   Wed Jun 2 14:08:13 2021 +0200
+
+    Merge branch 'feature/TravelGame' of https://github.com/lucasvdiepen/ExpandingSpace into feature/TravelGame
+
+[33mcommit 1b2f460f28c40f38af397aba59ba07f6a8636b04[m
+Author: Scott van den Broek <you@example.com>
+Date:   Wed Jun 2 14:07:57 2021 +0200
+
+    Changed Neptue to Neptune
+
+[33mcommit 053546ca40d2757e9f6068c8ae508f7cf47fe572[m
+Merge: f21b737 75a4efb
+Author: lucasvdiepen <49072755+lucasvdiepen@users.noreply.github.com>
+Date:   Wed Jun 2 14:04:46 2021 +0200
+
+    Merge branch 'development' into feature/TravelGame
+
+[33mcommit f21b73708937e5dcb9eaa6e106e7b58ab4cd7d2b[m
+Author: Scott van den Broek <you@example.com>
+Date:   Wed Jun 2 14:03:44 2021 +0200
+
+    Added some lost tags
+
+[33mcommit 7b419c46ac480b156decc29b2201c7d1b58783c8[m
+Author: Scott van den Broek <you@example.com>
+Date:   Wed Jun 2 14:01:04 2021 +0200
+
+    Fixed Tag glitch
+
+[33mcommit 3f82c4525fed053c260f98565f15295700ee99f1[m
+Author: Scott van den Broek <you@example.com>
+Date:   Wed Jun 2 13:54:56 2021 +0200
+
+    Added new input
+
+[33mcommit 47604e070fd8fa1ba432675bcfd0c909ee90ae4f[m
+Merge: 4eb55ad 906b267
+Author: Scott van den Broek <you@example.com>
+Date:   Wed Jun 2 13:03:45 2021 +0200
+
+    Merged with development
+
+[33mcommit 4eb55ad1135af00880a190637cf3bde5d4d8988f[m
+Author: Scott van den Broek <you@example.com>
+Date:   Wed Jun 2 12:53:50 2021 +0200
+
+    Changed nameOfPlanet string to a Enum
+
+[33mcommit 75a4efbcbb20f7b76828fe183012414fc6570c39[m[33m ([m[1;32mdevelopment[m[33m)[m
+Author: Lucas <lucascool@ziggo.nl>
+Date:   Wed Jun 2 12:43:35 2021 +0200
+
+    Updated player prefab and fixed dialog errors
+
+[33mcommit e34b3241c52e6b8292ef48ac959c06f3651723f8[m
+Author: Lucas <lucascool@ziggo.nl>
+Date:   Wed Jun 2 12:23:17 2021 +0200
+
+    Added player prefab
+
+[33mcommit 906b26789acdd7f281fe2625264ca4c9ba5218a8[m
+Author: lucasvdiepen <49072755+lucasvdiepen@users.noreply.github.com>
+Date:   Tue Jun 1 15:19:40 2021 +0200
+
+    Prefab merge
+
+[33mcommit 5f2ec90e8fed4c4a9fd3ce2a46215da46d22d18e[m
+Merge: a1c89c2 50df09e
+Author: BartdeBoer2001 <70643398+BartdeBoer2001@users.noreply.github.com>
+Date:   Tue Jun 1 15:09:43 2021 +0200
+
+    Merge pull request #6 from lucasvdiepen/feature/LoopingMusic
+    
+    Looped music
+
+[33mcommit a1c89c29ef80ccc2197f4a159721f91f8a279a35[m
+Merge: 12689a2 df55c1e
+Author: BartdeBoer2001 <70643398+BartdeBoer2001@users.noreply.github.com>
+Date:   Tue Jun 1 15:08:33 2021 +0200
+
+    Merge pull request #7 from lucasvdiepen/feature/inventory
+    
+    Feature/inventory
+
+[33mcommit df55c1e2d4a5ef2dbe022fd24934494e225124dc[m[33m ([m[1;31morigin/feature/inventory[m[33m)[m
+Merge: b9b0935 12689a2
+Author: lucasvdiepen <49072755+lucasvdiepen@users.noreply.github.com>
+Date:   Tue Jun 1 12:54:47 2021 +0200
+
+    Merge branch 'development' into feature/inventory
+
+[33mcommit b9b09358262ab0e16c9d8da11a138896bcb5f051[m
+Author: lucasvdiepen <49072755+lucasvdiepen@users.noreply.github.com>
+Date:   Tue Jun 1 12:51:55 2021 +0200
+
+    Removed all tests
+
+[33mcommit 2c0e610711e53f370ad712c1b29199fdf7b2bcd3[m
+Author: lucasvdiepen <49072755+lucasvdiepen@users.noreply.github.com>
+Date:   Tue Jun 1 12:50:23 2021 +0200
+
+    Removed test item
+
+[33mcommit 5849236508da888aacb006e873bc1f81cdb077cc[m
+Author: lucasvdiepen <49072755+lucasvdiepen@users.noreply.github.com>
+Date:   Tue Jun 1 12:46:37 2021 +0200
+
+    Added inventory manager and dont destroy on load
+
+[33mcommit 07015fc0485ba3f7b5110a855d9ad2fa290bac9a[m
+Author: lucasvdiepen <49072755+lucasvdiepen@users.noreply.github.com>
+Date:   Tue Jun 1 12:42:23 2021 +0200
+
+    Removed test item
+
+[33mcommit 091a9740f7e0c495e070f0048af7a406c24d010f[m
+Author: lucasvdiepen <49072755+lucasvdiepen@users.noreply.github.com>
+Date:   Tue Jun 1 12:40:00 2021 +0200
+
+    Changed the list type
+
+[33mcommit 50df09e6ad499f57af297c623732f30e5617f5bd[m
+Author: BartdeBoer2001 <bartdb2001@gmail.com>
+Date:   Mon May 31 13:01:40 2021 +0200
+
+    Looped music
+
+[33mcommit 3d4bd22113ce5bd7d7cc1118ecc7d20d58bef779[m
+Merge: 33dd058 12689a2
+Author: lucasvdiepen <49072755+lucasvdiepen@users.noreply.github.com>
+Date:   Mon May 31 10:43:24 2021 +0200
+
+    Merge branch 'development' into feature/TravelGame
+
+[33mcommit 12689a2f5e430f202ebdd97a8465ef7251f38256[m
+Merge: d7445dc 97df9db
+Author: lucasvdiepen <49072755+lucasvdiepen@users.noreply.github.com>
+Date:   Mon May 31 10:40:23 2021 +0200
+
+    Merge pull request #3 from lucasvdiepen/feature/dialog
+    
+    Feature/dialog
+
+[33mcommit 33dd0580e5dbda8372707e0e1cdf6ac761a2ae9c[m
+Merge: c76b54c d7445dc
+Author: lucasvdiepen <49072755+lucasvdiepen@users.noreply.github.com>
+Date:   Thu May 27 09:11:43 2021 +0200
+
+    Merge branch 'development' into feature/TravelGame
+
+[33mcommit c76b54ce21911592ab6c4b536adafaf8856dfda2[m
+Author: Scott van den Broek <you@example.com>
+Date:   Wed May 26 15:05:51 2021 +0200
+
+    Added the end of the Travel Game, if you come close to a planet you go to the next scene
+
+[33mcommit 97df9db15d3198328530948b40069b38b8296240[m[33m ([m[1;31morigin/feature/dialog[m[33m)[m
+Author: Lucas <lucascool@ziggo.nl>
+Date:   Wed May 26 15:02:20 2021 +0200
+
+    Changed capital letter to small letter
+
+[33mcommit c4b60ad6f5ce044a1161c22c8b698fc1568b187e[m
+Author: Lucas <lucascool@ziggo.nl>
+Date:   Wed May 26 14:35:11 2021 +0200
+
+    Removed comment
+
+[33mcommit 62abab6bf280f5b327892d12a6fbc4d54c631052[m
+Merge: 94d12a1 d7445dc
+Author: Lucas <lucascool@ziggo.nl>
+Date:   Wed May 26 14:30:03 2021 +0200
+
+    Merge branch 'development' into feature/dialog
+
+[33mcommit d7445dc165e68316e3cd56043791edbc7f890958[m
+Author: Lucas <lucascool@ziggo.nl>
+Date:   Wed May 26 14:28:58 2021 +0200
+
+    Added git attributes
+
+[33mcommit 94d12a1e9b35a3aa8126849efd6ec237374019a4[m
+Author: Lucas <lucascool@ziggo.nl>
+Date:   Wed May 26 14:01:22 2021 +0200
+
+    Added dialog prefab
+
+[33mcommit dc259208cf8783491bef49988f4915d23ca4b369[m
+Author: Lucas <lucascool@ziggo.nl>
+Date:   Wed May 26 13:02:38 2021 +0200
+
+    Made dialog text sound louder
+
+[33mcommit 34dd5c4c0e021f93a2a9863b0ae8772a31799865[m
+Merge: 941bfb7 6084f6c
+Author: Lucas <lucascool@ziggo.nl>
+Date:   Wed May 26 13:00:49 2021 +0200
+
+    Merge branch 'feature/dialog' of https://github.com/lucasvdiepen/ExpandingSpace into feature/dialog
+
+[33mcommit 6084f6cfd71bd50567ae8e9866c0e090fc082e40[m
+Author: BartdeBoer2001 <bartdb2001@gmail.com>
+Date:   Wed May 26 13:00:44 2021 +0200
+
+    louder sfx
+
+[33mcommit 941bfb7d397d8c1cd31da94a9cf0d5303e6dcc67[m
+Author: Lucas <lucascool@ziggo.nl>
+Date:   Wed May 26 13:00:41 2021 +0200
+
+    Added sound manager
+
+[33mcommit bd69ba7e741dbc681f8177adc755315e60d3aa02[m
+Author: Scott van den Broek <you@example.com>
+Date:   Wed May 26 13:00:36 2021 +0200
+
+    orderd the scripts in maps and added an temporary retry button if you get hit
+
+[33mcommit 390e216ce3f756285b8ad556a632ebbbba966432[m
+Author: Scott van den Broek <you@example.com>
+Date:   Wed May 26 12:32:31 2021 +0200
+
+    Added a static function to load the TravelGame scene with a parameter (string) as the planet
+
+[33mcommit 5fcc2ac9ab76aa6995cb0b62a72d9ff8dacc1462[m
+Author: Lucas <lucascool@ziggo.nl>
+Date:   Wed May 26 12:06:02 2021 +0200
+
+    Removed test file
+
+[33mcommit 6557ba35cfeed25a483859c515d5df69294400f4[m
+Author: Lucas <lucascool@ziggo.nl>
+Date:   Wed May 26 12:03:14 2021 +0200
+
+    Updated test file
+
+[33mcommit f7cad6cd8b39a828cf78c8f266528f4f4696218f[m
+Author: BartdeBoer2001 <bartdb2001@gmail.com>
+Date:   Wed May 26 12:00:36 2021 +0200
+
+    h
+
+[33mcommit 5afc87283ed3a2f01d9213de3a9842927a7ee088[m
+Author: Lucas <lucascool@ziggo.nl>
+Date:   Wed May 26 11:57:45 2021 +0200
+
+    Test commit
+
+[33mcommit e2b663b0f633cdae1ec396a2d35a07f189d59d8d[m
+Merge: e0c3040 bc4bb5d
+Author: Lucas <lucascool@ziggo.nl>
+Date:   Wed May 26 11:53:06 2021 +0200
+
+    Merge branch 'development' into feature/dialog
+
+[33mcommit bc4bb5d61d2b0de545b5645a8b7fd22cd792ca0b[m
+Author: BartdeBoer2001 <bartdb2001@gmail.com>
+Date:   Wed May 26 11:50:13 2021 +0200
+
+    SFX
+
+[33mcommit e0c3040842e306591bde4ba097456aa4bc840df4[m
+Author: Lucas <lucascool@ziggo.nl>
+Date:   Wed May 26 11:47:13 2021 +0200
+
+    Added dont destroy on load and repositioned dialogholder
+
+[33mcommit 3698bad32d2327165dc28e1fc832140f3c91f8b9[m
+Author: lucasvdiepen <49072755+lucasvdiepen@users.noreply.github.com>
+Date:   Tue May 25 15:28:26 2021 +0200
+
+    Added dialog manager and dont destroy on load
+
+[33mcommit 5b94833a37801dbb1195ce698adb5b6c4b48e231[m
+Author: lucasvdiepen <49072755+lucasvdiepen@users.noreply.github.com>
+Date:   Tue May 25 12:01:35 2021 +0200
+
+    Added to game scene
+
+[33mcommit 8b12f31ced9a98aee70e9a0b0fbcc214a3dd3479[m
+Author: lucasvdiepen <49072755+lucasvdiepen@users.noreply.github.com>
+Date:   Tue May 25 11:59:43 2021 +0200
+
+    Giving items when dug
+
+[33mcommit 02d4cc21f551005ed7ccb4f781c2c907262c8c3c[m
+Author: lucasvdiepen <49072755+lucasvdiepen@users.noreply.github.com>
+Date:   Tue May 25 11:57:21 2021 +0200
+
+    Added basic inventory functions
+
+[33mcommit 0a3662cc715a600e6c3528a761b7dd43599160fa[m
+Author: Lucas <lucascool@ziggo.nl>
+Date:   Wed May 19 15:43:18 2021 +0200
+
+    Added inventory scripts
+
+[33mcommit fa68cc3b96bacaf5432ab8f2474c657449a966a0[m
+Merge: 9a6b253 b6031b2
+Author: Lucas <lucascool@ziggo.nl>
+Date:   Wed May 19 14:51:12 2021 +0200
+
+    Merge with development
+
+[33mcommit 850ea456215048e7957bc796a9f6b3eeba60135d[m
+Author: Scott van den Broek <you@example.com>
+Date:   Wed May 19 14:50:20 2021 +0200
+
+    Added a temporary hit animtion if ship collides with a meteoride
+
+[33mcommit b6031b22bbddc4c378191cde2203991db8f23233[m
+Merge: 299bd84 da36b61
+Author: BartdeBoer2001 <70643398+BartdeBoer2001@users.noreply.github.com>
+Date:   Wed May 19 14:30:32 2021 +0200
+
+    Merge pull request #1 from lucasvdiepen/feature/dig
+    
+    Feature/dig
+
+[33mcommit da36b612ed814cdc1bce6d0a0d4a1714d83d7f36[m
+Author: Lucas <lucascool@ziggo.nl>
+Date:   Wed May 19 14:05:48 2021 +0200
+
+    Dig place can only be claimed once now
+
+[33mcommit 98706abe569b07ad8d73c8dec9f5a535af8ab3d6[m
+Author: Lucas <lucascool@ziggo.nl>
+Date:   Wed May 19 13:54:40 2021 +0200
+
+    Replace cube with sprite and tweaked light settings
+
+[33mcommit ed2bf1828d73dacf2628a46a5f1fd294a62614c9[m
+Merge: df7a730 299bd84
+Author: Lucas <lucascool@ziggo.nl>
+Date:   Wed May 19 13:08:47 2021 +0200
+
+    Merge branch 'development' into feature/dig
+
+[33mcommit 299bd84995a13cb742b182b86efc21d0bb06e147[m
+Author: Lucas <lucascool@ziggo.nl>
+Date:   Wed May 19 13:08:24 2021 +0200
+
+    Added mol sprite
+
+[33mcommit df7a730a5cd606599f8959f7727917953efd2a4e[m
+Author: Lucas <lucascool@ziggo.nl>
+Date:   Wed May 19 13:05:12 2021 +0200
+
+    Added class for dig info and a antenne lighting script
+
+[33mcommit 4fcac7fec628be17cd15093265ee3522bff3f74f[m
+Author: BartdeBoer2001 <bartdb2001@gmail.com>
+Date:   Wed May 19 13:05:03 2021 +0200
+
+    jump, dig, menuclick, gamestart and explosion sfx
+
+[33mcommit 0bf89a01b9d791468f5743ada79ff807f9c290d2[m
+Author: BartdeBoer2001 <bartdb2001@gmail.com>
+Date:   Wed May 19 12:41:18 2021 +0200
+
+    meta fiiiiiiiiiiiles
+
+[33mcommit 02cc27acbe29a94570f16c40f61373b42ebc6a83[m
+Author: BartdeBoer2001 <bartdb2001@gmail.com>
+Date:   Wed May 19 12:38:07 2021 +0200
+
+    Item obtained, Important item obtained and Laser SFX
+
+[33mcommit 3168bc5c6bf1afc6773c1cca33d42212fc403200[m
+Author: BartdeBoer2001 <bartdb2001@gmail.com>
+Date:   Wed May 19 12:29:42 2021 +0200
+
+    sfx removed, better ideas
+
+[33mcommit a89dbb5efb5aa757ea68a58ab95225291d96a9f1[m
+Author: BartdeBoer2001 <bartdb2001@gmail.com>
+Date:   Wed May 19 12:24:01 2021 +0200
+
+    item obtained + textbox tick
+
+[33mcommit 1f76ac287e626af6fc538cf2448667844211d8be[m
+Author: BartdeBoer2001 <bartdb2001@gmail.com>
+Date:   Wed May 19 12:06:57 2021 +0200
+
+    Dialogue pop up sfx (kiezen aub)
+
+[33mcommit 9797b82c274af277142c5e33268553503fb8f767[m
+Author: Lucas <lucascool@ziggo.nl>
+Date:   Wed May 19 12:04:12 2021 +0200
+
+    Added keyboard controls to Input System
+
+[33mcommit e6eec0416dfdc88300ffcb916dd0d70f1a54d325[m
+Author: BartdeBoer2001 <bartdb2001@gmail.com>
+Date:   Wed May 19 11:56:09 2021 +0200
+
+    Meerdere jump sfx (nog kiezen welke we gaan gebruiken)
+
+[33mcommit 15be1d0bf9086621b43d5e9c1fa2b74e985f65e9[m
+Author: BartdeBoer2001 <bartdb2001@gmail.com>
+Date:   Wed May 19 11:49:09 2021 +0200
+
+    dig sfx
+
+[33mcommit 81cc63945e0b20ace216a3c415506574d19af79a[m
+Author: Scott van den Broek <you@example.com>
+Date:   Wed May 19 11:45:43 2021 +0200
+
+    Meterorite spawner added
+
+[33mcommit f7ebd022775d516a30c0646d3ef4dc423b3a544c[m
+Author: BartdeBoer2001 <bartdb2001@gmail.com>
+Date:   Wed May 19 11:37:09 2021 +0200
+
+    laser sfx
+
+[33mcommit 9a6b253a37d49367b03f6d7907c879577c25f604[m
+Author: lucasvdiepen <49072755+lucasvdiepen@users.noreply.github.com>
+Date:   Tue May 18 15:03:41 2021 +0200
+
+    Finished basic dialog
+
+[33mcommit 77cf29280d0e47dc4e40e42e7555a0bb7a97bb36[m
+Merge: 5bd637c 8c7a886
+Author: lucasvdiepen <49072755+lucasvdiepen@users.noreply.github.com>
+Date:   Tue May 18 14:44:24 2021 +0200
+
+    Merge branch 'feature/dig' into feature/dialog
+
+[33mcommit 5bd637c3dd39340536d2263d036ded73800f8320[m
+Author: lucasvdiepen <49072755+lucasvdiepen@users.noreply.github.com>
+Date:   Tue May 18 14:42:00 2021 +0200
+
+    Added basic dialog
+
+[33mcommit 8c7a886170f9f8d4e56931afcaba20fc7ef86b4d[m
+Author: lucasvdiepen <49072755+lucasvdiepen@users.noreply.github.com>
+Date:   Tue May 18 12:30:37 2021 +0200
+
+    Controller vibration stop on exit
+
+[33mcommit 8d891d9999759c50825b0b2f6ac3f980bd3be7eb[m
+Author: lucasvdiepen <49072755+lucasvdiepen@users.noreply.github.com>
+Date:   Tue May 18 11:53:58 2021 +0200
+
+    Added a light source
+
+[33mcommit 7c73a1dffd4a225ebe9aa8de8d41058acb1a3858[m
+Author: Lucas <lucascool@ziggo.nl>
+Date:   Mon May 17 15:31:09 2021 +0200
+
+    Experimenting with spotlights
+
+[33mcommit 29af2289716338edc5d875249c65833275b6ea8f[m
+Author: Lucas <lucascool@ziggo.nl>
+Date:   Mon May 17 15:15:13 2021 +0200
+
+    Controller vibration when near dig place
+
+[33mcommit 317b2822bfb70e9684cb865edb6d48ad4ee1cae7[m
+Merge: d388a4f f138548
+Author: Lucas <lucascool@ziggo.nl>
+Date:   Mon May 17 14:55:55 2021 +0200
+
+    Merge with playermovement
+
+[33mcommit d388a4f36ae9c2b30abe810b3f42c92b24473057[m
+Author: Lucas <lucascool@ziggo.nl>
+Date:   Mon May 17 14:34:09 2021 +0200
+
+    Removed test files
+
+[33mcommit f138548b345d858691faa6136de66d5b92d6b434[m[33m ([m[1;31morigin/feature/playermovement[m[33m)[m
+Author: BartdeBoer2001 <bartdb2001@gmail.com>
+Date:   Mon May 17 14:30:08 2021 +0200
+
+    Keyboard movement hack die Lucas niet begrijpt
+
+[33mcommit f8cbd1b3f69fc4db84163a6a915e9181fa4b5208[m
+Author: Lucas <lucascool@ziggo.nl>
+Date:   Mon May 17 14:10:13 2021 +0200
+
+    Added controller vibration when near a digplace
+
+[33mcommit 011876eb626fde2192004fa7aeb84dea7a57077a[m
+Author: BartdeBoer2001 <bartdb2001@gmail.com>
+Date:   Mon May 17 14:07:58 2021 +0200
+
+    New inputsystem, working controls
+
+[33mcommit fd88ad04e616cc40b5c355236d1d20b53292cbed[m
+Author: Scott van den Broek <you@example.com>
+Date:   Mon May 17 13:53:55 2021 +0200
+
+    Space Ship movement and camera movement added
+
+[33mcommit cc544c80d1e1837f4f4d1d965bd2ff3ecf21cc96[m
+Merge: b0b2402 cc36a43
+Author: Lucas <lucascool@ziggo.nl>
+Date:   Mon May 17 12:43:10 2021 +0200
+
+    Merge branch 'feature/playermovement' into feature/dig
+
+[33mcommit b0b2402b6c30649835bd4fd67d93fbd5596dedd7[m
+Author: Lucas <lucascool@ziggo.nl>
+Date:   Mon May 17 12:41:58 2021 +0200
+
+    Added controller vibration
+
+[33mcommit cc36a43caf6a7453c830c838ca3d04f878e91376[m
+Author: Lucas <lucascool@ziggo.nl>
+Date:   Mon May 17 12:28:55 2021 +0200
+
+    Added new input system to playermovement
+
+[33mcommit b0dfd2952a9b7a5f370d33d6a90174e0d7680290[m
+Merge: baaae84 77cdd07
+Author: Lucas <lucascool@ziggo.nl>
+Date:   Mon May 17 12:27:45 2021 +0200
+
+    Merge branch 'feature/dig' into feature/playermovement
+
+[33mcommit 77cdd0766ab8e8328fcb19319772b7653b3e6c71[m
+Author: Lucas <lucascool@ziggo.nl>
+Date:   Mon May 17 12:18:33 2021 +0200
+
+    new input system added
+
+[33mcommit baaae8478fbc0f68a9374c61aeca10371effb8ad[m
+Author: BartdeBoer2001 <bartdb2001@gmail.com>
+Date:   Mon May 17 11:54:44 2021 +0200
+
+    Controller support
+
+[33mcommit a3ee032058e1a293b91b1ced33f79c4d79840bc5[m
+Author: BartdeBoer2001 <bartdb2001@gmail.com>
+Date:   Wed May 12 14:53:57 2021 +0200
+
+    Standard player movement
+
+[33mcommit 85ccd42f44ce59ebf172f5eb323c628ef24668ab[m[33m ([m[1;31morigin/artists[m[33m)[m
+Author: Lucas <lucascool@ziggo.nl>
+Date:   Wed May 12 13:27:08 2021 +0200
+
+    Added ground and player with colliders and rigidbody
+
+[33mcommit f56b838a59a98772af268c5bab05c6c549228c31[m[33m ([m[1;32mmaster[m[33m)[m
+Author: Lucas <lucascool@ziggo.nl>
+Date:   Mon Apr 26 12:52:18 2021 +0200
+
+    First commit
