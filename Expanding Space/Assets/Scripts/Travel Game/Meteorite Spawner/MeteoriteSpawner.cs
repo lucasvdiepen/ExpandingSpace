@@ -74,7 +74,6 @@ public class MeteoriteSpawner : MonoBehaviour
         {
             //calls this function again so another meteorite will spawn
             StartCoroutine(SpawnMeteorite());
-
         }
         
     }
