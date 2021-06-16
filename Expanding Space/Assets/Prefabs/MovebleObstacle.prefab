@@ -96,10 +96,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d50eeeebfdfb2148b7ab504627561a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: -90
+  offset: 0
   movement: 0
   startTime: 4
-  speed: 4
+  speed: 1
   rigid: {fileID: 8458844025216466325}
 --- !u!61 &8458844025216466326
 BoxCollider2D:

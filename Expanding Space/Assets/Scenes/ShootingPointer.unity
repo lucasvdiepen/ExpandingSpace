@@ -123,6 +123,28 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &142851426 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5327780361412924477, guid: 151e6298d73e1144e85d8a3def47a889, type: 3}
+  m_PrefabInstance: {fileID: 1774075374}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &142851428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 142851426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68b7ca947c9e3054e8c122579a7eae57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 4769039730548899530, guid: ed62c5b2f775fb44abc3135cfe254987, type: 3}
+  shotpoint: {fileID: 1330864897}
+  startTime: 1.5
+  offset: 0
+  lightTime: 0
 --- !u!1 &486645619
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,7 +160,7 @@ GameObject:
   - component: {fileID: 486645620}
   m_Layer: 0
   m_Name: apearingBlock1
-  m_TagString: Untagged
+  m_TagString: ShootThroughWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -286,6 +308,10 @@ MonoBehaviour:
   digAction: 0
   rewards: []
   endTeleportPoint: {fileID: 0}
+  rgb1: 0
+  rgb2: 0
+  rgb3: 0
+  dirt: {fileID: 0}
   isDug: 0
 --- !u!61 &682224935
 BoxCollider2D:
@@ -731,6 +757,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1330864897 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8271489949233216718, guid: 151e6298d73e1144e85d8a3def47a889, type: 3}
+  m_PrefabInstance: {fileID: 1774075374}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1389160631
 GameObject:
   m_ObjectHideFlags: 0
@@ -832,6 +863,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4715609158961392138, guid: 8a40a227c6e451e4e8266b9dbe45e6e4, type: 3}
+      propertyPath: rigid
+      value: 
+      objectReference: {fileID: 1251285171}
+    - target: {fileID: 4715609158961392138, guid: 8a40a227c6e451e4e8266b9dbe45e6e4, type: 3}
       propertyPath: speed
       value: 1
       objectReference: {fileID: 0}
@@ -883,7 +918,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: MovebleObsticle
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4715609158961392138, guid: 8a40a227c6e451e4e8266b9dbe45e6e4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8a40a227c6e451e4e8266b9dbe45e6e4, type: 3}
 --- !u!1 &1729351777
 GameObject:
@@ -1041,6 +1077,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6779906891368038010, guid: 151e6298d73e1144e85d8a3def47a889, type: 3}
+    - {fileID: 1591779488306212327, guid: 151e6298d73e1144e85d8a3def47a889, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 151e6298d73e1144e85d8a3def47a889, type: 3}
 --- !u!1001 &644959089951239234
 PrefabInstance:

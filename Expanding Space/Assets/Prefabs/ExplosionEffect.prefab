@@ -115,11 +115,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-<<<<<<< HEAD:Expanding Space/Assets/particle system/myParticlesystem.prefab
-      scalar: 0.1
-=======
       scalar: 0.05
->>>>>>> development:Expanding Space/Assets/Prefabs/ExplosionEffect.prefab
       minScalar: 5
       maxCurve:
         serializedVersion: 2

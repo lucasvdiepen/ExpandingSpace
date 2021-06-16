@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 644959090254529016}
   - component: {fileID: 644959090254529021}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143,4 +143,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c77e920b065e75147ad9075b14c7adf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Buttons: {fileID: 644959090254529019}
+  buttons: {fileID: 644959090254529019}
+  apearingBlock1: {fileID: 0}
+  apearingBlock2: {fileID: 0}
+  startTime: 0
+  minTime: 0
