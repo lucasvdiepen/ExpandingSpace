@@ -190,7 +190,7 @@ PrefabInstance:
     - target: {fileID: 7768975159740133175, guid: bfd1cf73e02a80b47a8f32be3a2ac317, type: 3}
       propertyPath: endTeleportPoint
       value: 
-      objectReference: {fileID: 1746079380}
+      objectReference: {fileID: 248291624}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfd1cf73e02a80b47a8f32be3a2ac317, type: 3}
 --- !u!1001 &473046042
