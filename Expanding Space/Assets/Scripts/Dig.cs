@@ -136,7 +136,7 @@ public class Dig : MonoBehaviour
 
         if(isRotating)
         {
-            transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, Mathf.Lerp(oldRotation.z, newRotation.z, rotatingTimeElapsed / rotationTime));
+            transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, Mathf.LerpAngle(oldRotation.z, newRotation.z, rotatingTimeElapsed / rotationTime));
 
             if(rotatingTimeElapsed >= rotationTime)
             {
@@ -159,7 +159,7 @@ public class Dig : MonoBehaviour
         }
     }
 
-    public void RotatePlayerWithDigPlace(Vector3 rotation)
+    public void RotatePlayerTo(Vector3 rotation)
     {
         oldRotation = transform.rotation.eulerAngles;
         newRotation = rotation;
@@ -224,37 +224,14 @@ public class Dig : MonoBehaviour
             MoveToPosition(digPlacePosition.position, 0.4f);
 
             //Rotate
-            RotatePlayerWithDigPlace(digPlacePosition.rotation.eulerAngles);
+            RotatePlayerTo(digPlacePosition.rotation.eulerAngles);
 
             // Move down animation here
 
             //Move down
             yield return new WaitUntil(() => !movingToPosition && !isRotating);
 
-            float newX = Mathf.Cos((digPlacePosition.rotation.eulerAngles.z + -90) * Mathf.Deg2Rad) * digDownDepth;
-            float newY = Mathf.Sin((digPlacePosition.rotation.eulerAngles.z + -90) * Mathf.Deg2Rad) * digDownDepth;
-
-            Vector3 newDownPosition = digPlacePosition.position + new Vector3(newX, newY, 0);
-
-            Debug.Log(digPlacePosition.rotation.eulerAngles.z);
-            Debug.Log(newDownPosition);
-
-            /*if(digPlacePosition.eulerAngles.z == 0)
-            {
-                newDownPosition = digPlacePosition.position + (Vector3.down * digDownDepth);
-            }
-            else
-            {
-                float newX = Mathf.Cos((digPlacePosition.rotation.eulerAngles.z + -90) * Mathf.Deg2Rad) * digDownDepth;
-                float newY = Mathf.Sin((digPlacePosition.rotation.eulerAngles.z + -90) * Mathf.Deg2Rad) * digDownDepth;
-
-                newDownPosition = digPlacePosition.position + new Vector3(newX, newY, 0);
-
-                //newDownPosition = digPlacePosition.position + Quaternion.AngleAxis(digPlacePosition.eulerAngles.z, Vector3.down) * digPlacePosition.localPosition * digDownDepth;
-
-                Debug.Log(digPlacePosition.rotation.eulerAngles.z);
-                Debug.Log(newDownPosition);
-            }*/
+            Vector3 newDownPosition = CalculatePositionDown(digPlacePosition);
 
             MoveToPosition(newDownPosition, 1f);
 
@@ -263,7 +240,8 @@ public class Dig : MonoBehaviour
             dirt.Stop();
 
             //Set position of player to end dig place
-            transform.position = new Vector3(digEndPlacePosition.position.x, digEndPlacePosition.position.y - digDownDepth, digEndPlacePosition.position.z);
+            //transform.position = new Vector3(digEndPlacePosition.position.x, digEndPlacePosition.position.y - digDownDepth, digEndPlacePosition.position.z);
+            transform.position = CalculatePositionDown(digEndPlacePosition);
 
             //Set rotation to end dig place
             transform.rotation = digEndPlacePosition.rotation;
@@ -279,6 +257,10 @@ public class Dig : MonoBehaviour
 
             yield return new WaitUntil(() => !movingToPosition);
 
+            RotatePlayerTo(Vector3.zero);
+
+            yield return new WaitUntil(() => !isRotating);
+
             collider.enabled = true;
             pointer.SetActive(true);
             FindObjectOfType<PlayerMovement>().FreezeMovement(false);
@@ -287,6 +269,14 @@ public class Dig : MonoBehaviour
 
             dirt.Stop();
         }
+    }
+
+    private Vector3 CalculatePositionDown(Transform digPlace)
+    {
+        float newX = Mathf.Cos((digPlace.rotation.eulerAngles.z + -90) * Mathf.Deg2Rad) * digDownDepth;
+        float newY = Mathf.Sin((digPlace.rotation.eulerAngles.z + -90) * Mathf.Deg2Rad) * digDownDepth;
+
+        return digPlace.position + new Vector3(newX, newY, 0);
     }
 
     public void MoveToPosition(Vector3 position, float moveTime)
