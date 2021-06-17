@@ -707,7 +707,7 @@ MonoBehaviour:
   minVibrationStrength: 0
   maxVibrationStrength: 0.5
   rotationTime: 0.75
-  digDownDepth: 1
+  digDownDepth: 2.2
   digMovingTime: 2
   dirt: {fileID: 500489804642560409}
 --- !u!50 &9167914381259909250
