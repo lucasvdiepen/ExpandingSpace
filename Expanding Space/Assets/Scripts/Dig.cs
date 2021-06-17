@@ -173,28 +173,26 @@ public class Dig : MonoBehaviour
         {
             isDigging = true;
 
-            FindObjectOfType<PlayerMovement>().FreezeMovement(true);
-            collider.enabled = false;
-            pointer.SetActive(false);
+            PlayerDig(true);
 
-            //Move to center
+            //Move to center and rotate
             MoveToPosition(digPlacePosition.position, 0.4f);
             RotatePlayerTo(digPlacePosition.rotation.eulerAngles);
 
             //Move down animation here
 
-            //Move down
             yield return new WaitUntil(() => !movingToPosition && !isRotating);
 
             dirt.Play();
 
+            //Move down
             MoveToPosition(CalculatePositionDown(digPlacePosition), 1.5f);
 
             //Move up animation here
 
-            //Move up
             yield return new WaitUntil(() => !movingToPosition);
 
+            //Move up
             MoveToPosition(digPlacePosition.position, 1f);
 
             yield return new WaitUntil(() => !movingToPosition);
@@ -204,14 +202,19 @@ public class Dig : MonoBehaviour
 
             yield return new WaitUntil(() => !isRotating);
 
-            collider.enabled = true;
-            pointer.SetActive(true);
-            FindObjectOfType<PlayerMovement>().FreezeMovement(false);
+            PlayerDig(false);
 
             isDigging = false;
 
             dirt.Stop();
         }
+    }
+
+    private void PlayerDig(bool dig)
+    {
+        FindObjectOfType<PlayerMovement>().FreezeMovement(dig);
+        collider.enabled = !dig;
+        pointer.SetActive(!dig);
     }
 
     public IEnumerator DigTeleport(Transform digPlacePosition, Transform digEndPlacePosition)
@@ -220,23 +223,19 @@ public class Dig : MonoBehaviour
         {
             isDigging = true;
 
-            FindObjectOfType<PlayerMovement>().FreezeMovement(true);
-            collider.enabled = false;
-            pointer.SetActive(false);
+            PlayerDig(true);
 
-            //Move to center
+            //Move to center and rotate
             MoveToPosition(digPlacePosition.position, 0.4f);
-
-            //Rotate
             RotatePlayerTo(digPlacePosition.rotation.eulerAngles);
 
             // Move down animation here
 
-            //Move down
             yield return new WaitUntil(() => !movingToPosition && !isRotating);
 
             dirt.Play();
 
+            //Move down
             MoveToPosition(CalculatePositionDown(digPlacePosition), 1f);
 
             yield return new WaitUntil(() => !movingToPosition);
@@ -251,22 +250,21 @@ public class Dig : MonoBehaviour
 
             //Move up animation here
 
-            //Move up
             yield return new WaitForSeconds(digMovingTime);
 
             dirt.Play();
 
+            //Move up
             MoveToPosition(new Vector3(digEndPlacePosition.position.x, digEndPlacePosition.position.y, digEndPlacePosition.position.z), 1f);
 
             yield return new WaitUntil(() => !movingToPosition);
 
+            //Rotate back
             RotatePlayerTo(Vector3.zero);
 
             yield return new WaitUntil(() => !isRotating);
 
-            collider.enabled = true;
-            pointer.SetActive(true);
-            FindObjectOfType<PlayerMovement>().FreezeMovement(false);
+            PlayerDig(false);
 
             isDigging = false;
 
