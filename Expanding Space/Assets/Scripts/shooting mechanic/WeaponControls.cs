@@ -50,7 +50,6 @@ public class WeaponControls : MonoBehaviour
             FindObjectOfType<SoundManager>().PlayLaserSound();
             StartCoroutine(FindObjectOfType<AntenneLighting>().Shoot(lightTime));
             timeBtwShots = startTime;
-            
         }
     }
 

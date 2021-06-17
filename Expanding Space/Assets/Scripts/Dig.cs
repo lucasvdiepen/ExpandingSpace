@@ -34,7 +34,7 @@ public class Dig : MonoBehaviour
 
     PlayerControls playerControls;
 
-    private Collider2D collider;
+    private Collider2D playerCollider;
 
     private static AntenneLighting antenneLighting;
 
@@ -103,7 +103,7 @@ public class Dig : MonoBehaviour
     void Start()
     {
         antenneLighting = GetComponent<AntenneLighting>();
-        collider = GetComponent<Collider2D>();
+        playerCollider = GetComponent<Collider2D>();
     }
 
     private void OnApplicationQuit()
@@ -213,7 +213,7 @@ public class Dig : MonoBehaviour
     private void PlayerDig(bool dig)
     {
         FindObjectOfType<PlayerMovement>().FreezeMovement(dig);
-        collider.enabled = !dig;
+        playerCollider.enabled = !dig;
         pointer.SetActive(!dig);
     }
 
