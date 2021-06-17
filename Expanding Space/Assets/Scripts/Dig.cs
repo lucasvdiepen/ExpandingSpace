@@ -171,8 +171,6 @@ public class Dig : MonoBehaviour
     {
         if (!isDigging)
         {
-            dirt.Play();
-
             isDigging = true;
 
             FindObjectOfType<PlayerMovement>().FreezeMovement(true);
@@ -181,13 +179,16 @@ public class Dig : MonoBehaviour
 
             //Move to center
             MoveToPosition(digPlacePosition.position, 0.4f);
+            RotatePlayerTo(digPlacePosition.rotation.eulerAngles);
 
             //Move down animation here
 
             //Move down
-            yield return new WaitUntil(() => !movingToPosition);
+            yield return new WaitUntil(() => !movingToPosition && !isRotating);
 
-            MoveToPosition(new Vector3(digPlacePosition.position.x, digPlacePosition.position.y - digDownDepth, digPlacePosition.position.z), 1.5f);
+            dirt.Play();
+
+            MoveToPosition(CalculatePositionDown(digPlacePosition), 1.5f);
 
             //Move up animation here
 
@@ -197,6 +198,11 @@ public class Dig : MonoBehaviour
             MoveToPosition(digPlacePosition.position, 1f);
 
             yield return new WaitUntil(() => !movingToPosition);
+
+            //Rotate back
+            RotatePlayerTo(Vector3.zero);
+
+            yield return new WaitUntil(() => !isRotating);
 
             collider.enabled = true;
             pointer.SetActive(true);
@@ -212,8 +218,6 @@ public class Dig : MonoBehaviour
     {
         if (!isDigging)
         {
-            dirt.Play();
-
             isDigging = true;
 
             FindObjectOfType<PlayerMovement>().FreezeMovement(true);
@@ -231,20 +235,19 @@ public class Dig : MonoBehaviour
             //Move down
             yield return new WaitUntil(() => !movingToPosition && !isRotating);
 
-            Vector3 newDownPosition = CalculatePositionDown(digPlacePosition);
+            dirt.Play();
 
-            MoveToPosition(newDownPosition, 1f);
+            MoveToPosition(CalculatePositionDown(digPlacePosition), 1f);
 
             yield return new WaitUntil(() => !movingToPosition);
 
             dirt.Stop();
 
-            //Set position of player to end dig place
-            //transform.position = new Vector3(digEndPlacePosition.position.x, digEndPlacePosition.position.y - digDownDepth, digEndPlacePosition.position.z);
-            transform.position = CalculatePositionDown(digEndPlacePosition);
-
             //Set rotation to end dig place
             transform.rotation = digEndPlacePosition.rotation;
+
+            //Set position of player to end dig place
+            transform.position = CalculatePositionDown(digEndPlacePosition);
 
             //Move up animation here
 
