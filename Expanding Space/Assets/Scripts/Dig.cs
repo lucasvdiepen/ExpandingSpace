@@ -52,16 +52,19 @@ public class Dig : MonoBehaviour
             rotation = _rotation;
             script = _script;
 
-            antenneLighting.EnableLight();
+            if(!isDug())
+            {
+                antenneLighting.EnableLight();
 
-            if (IsControllerAvailable()) InputSystem.ResumeHaptics();
+                if (IsControllerAvailable()) InputSystem.ResumeHaptics();
+            }
         }
 
         public bool isDug()
         {
             if (script != null) return script.isDug;
 
-            return false;
+            return true;
         }
 
         public void Reset()
