@@ -50,7 +50,6 @@ MonoBehaviour:
   laser: {fileID: 8300000, guid: 5262adab29d27c24c8a86cbb63c536ff, type: 3}
   dialogPopup: {fileID: 8300000, guid: 8647c9359d140fe4784e67bc8436e06e, type: 3}
   explosion: {fileID: 8300000, guid: 18b773fb0f2aad14c860002c5954455a, type: 3}
-  meteoriteFlyBy: {fileID: 8300000, guid: 9303d1990c50fb84b8aa99918aef23ed, type: 3}
 --- !u!82 &2578770224232794218
 AudioSource:
   m_ObjectHideFlags: 0
