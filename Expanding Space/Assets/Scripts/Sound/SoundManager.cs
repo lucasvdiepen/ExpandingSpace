@@ -11,6 +11,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip laser;
     public AudioClip dialogPopup;
     public AudioClip explosion;
+    public AudioClip buttonclick;
 
     public void PlayLaserSound()
     {
@@ -37,6 +38,10 @@ public class SoundManager : MonoBehaviour
         dialogTickAudioSource.Stop();
     }
 
+    public void PlayButtonClickSound()
+    {
+        sfxAudioSource.PlayOneShot(buttonclick);
+    }
     public void SetBackgroundVolume(float volume)
     {
         
