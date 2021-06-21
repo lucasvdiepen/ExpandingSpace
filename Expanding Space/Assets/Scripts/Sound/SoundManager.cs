@@ -42,9 +42,5 @@ public class SoundManager : MonoBehaviour
     {
         sfxAudioSource.PlayOneShot(buttonclick);
     }
-    public void SetBackgroundVolume(float volume)
-    {
-        
-        backgroundSource.volume = volume;
-    }
+    
 }
