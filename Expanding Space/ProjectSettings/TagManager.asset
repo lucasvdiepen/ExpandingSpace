@@ -13,6 +13,7 @@ TagManager:
   - DigPlace
   - Dialog
   - GameManager
+  - ShootThroughWall
   layers:
   - Default
   - TransparentFX

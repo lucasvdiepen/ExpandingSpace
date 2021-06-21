@@ -357,7 +357,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5327780361412924477}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6571e00aa8dfe284c88ae5e87df387d2, type: 3}
+  m_Script: {fileID: 11500000, guid: 68b7ca947c9e3054e8c122579a7eae57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 4769039730548899530, guid: ed62c5b2f775fb44abc3135cfe254987, type: 3}
@@ -659,9 +659,9 @@ GameObject:
   - component: {fileID: 9167914381259909250}
   - component: {fileID: 9167914381259909248}
   - component: {fileID: -8734558003916101479}
-  - component: {fileID: -6935874102794586714}
   - component: {fileID: 8898425497549706981}
   - component: {fileID: 3328072233485427725}
+  - component: {fileID: 8757108344470064913}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -701,10 +701,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 776139a5a56d96a4a8e1053fb1cc7760, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointer: {fileID: 516363935861735194}
   maxIndicatorDistance: 1
   maxDigDistance: 0.3
   minVibrationStrength: 0
   maxVibrationStrength: 0.5
+  rotationTime: 0.75
+  digDownDepth: 2.2
+  digMovingTime: 2
+  dirt: {fileID: 500489804642560409}
 --- !u!50 &9167914381259909250
 Rigidbody2D:
   serializedVersion: 4
@@ -753,24 +758,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d82c000cf8f0c374f8f503eb8e320aca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-6935874102794586714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9167914381259909254}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d08c7e99e6bc35459a2ec3d51a1d906, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementSpeed: 120
-  jumpPower: 6
-  grounded: 0
-  groundDistance: 1
-  digDownPosition: -6.5
-  dirt: {fileID: 3583459681998921649, guid: 8f51768fb9bfb8442a697680370bf900, type: 3}
 --- !u!70 &8898425497549706981
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -801,6 +788,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawnPoint: {fileID: 0}
   lowestY: -10
+--- !u!114 &8757108344470064913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9167914381259909254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82d403df34c58d4cbb8045b6a86e678, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 120
+  jumpPower: 6
+  grounded: 0
+  groundDistance: 1
+  digDownPosition: -6.5
 --- !u!1001 &3983743155820721704
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -861,5 +865,10 @@ PrefabInstance:
 --- !u!4 &2752045127783773144 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1258794842502399472, guid: 8f51768fb9bfb8442a697680370bf900, type: 3}
+  m_PrefabInstance: {fileID: 3983743155820721704}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &500489804642560409 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3583459681998921649, guid: 8f51768fb9bfb8442a697680370bf900, type: 3}
   m_PrefabInstance: {fileID: 3983743155820721704}
   m_PrefabAsset: {fileID: 0}

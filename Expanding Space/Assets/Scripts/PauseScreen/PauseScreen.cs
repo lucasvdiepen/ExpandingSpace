@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class PauseScreen : MonoBehaviour
 {
     public GameObject pauseScreenHolder;
-    public Button resumeButton;
-    public Button quitButton;
+    public UnityEngine.UI.Button resumeButton;
+    public UnityEngine.UI.Button quitButton;
 
     public GameObject[] checkmarks;
 
