@@ -18,7 +18,6 @@ public class WeaponControls : MonoBehaviour
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
         playerCollider = playerObject.GetComponent<Collider2D>();
         GameObject[] shootThroughWall = GameObject.FindGameObjectsWithTag("ShootThroughWall");
-        Debug.Log("shoot through wall " + shootThroughWall.Length);
         foreach (GameObject wall in shootThroughWall)
         {
             shootThroughWallColliders.Add(wall.GetComponent<Collider2D>());

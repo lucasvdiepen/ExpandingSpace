@@ -9,21 +9,8 @@ public class DestroyBullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.tag == "MovableObject")
+        if (collision.collider)
         {   
-            FindObjectOfType<SoundManager>().PlayExplosionSound();
-            Destroy(bullet);
-            Instantiate(destroyEffect, transform.position, Quaternion.identity);
-        }
-
-        if (collision.collider.tag == "noneMovableObject")
-        {   
-            FindObjectOfType<SoundManager>().PlayExplosionSound();
-            Destroy(bullet);
-            Instantiate(destroyEffect, transform.position, Quaternion.identity);
-        }
-        if (collision.collider.tag == "Ground")
-        {
             FindObjectOfType<SoundManager>().PlayExplosionSound();
             Destroy(bullet);
             Instantiate(destroyEffect, transform.position, Quaternion.identity);

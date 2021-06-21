@@ -5,21 +5,19 @@ using UnityEngine;
 public class Button : MonoBehaviour
 {
     public GameObject buttons;
-    public GameObject apearingBlock1;
-    public GameObject apearingBlock2;
+    public GameObject[] apearingBlocks;
     private float time;
     public float startTime;
     public bool minTime;
     public void Start()
     {
         time = 0.1f;
-        apearingBlock1.SetActive(true);
-        apearingBlock2.SetActive(true);
+        ApearingBlocksSetActive(true);
         time = startTime;
     }
     void Update()
     {
-        if (minTime == true)
+        if (minTime)
         {
             time -= Time.deltaTime;
             if (time <= 0)
@@ -34,13 +32,19 @@ public class Button : MonoBehaviour
 
         if (collision.collider.tag == "MovableObject")
         {
-            apearingBlock1.SetActive(false);
-            apearingBlock2.SetActive(false);
+            ApearingBlocksSetActive(false);
             transform.localScale = new Vector3(1, 0.25f, 1);
             transform.position = new Vector3(3.98f , -3.1f, 0);
             minTime = true;
         }
 
+    }
+    private void ApearingBlocksSetActive(bool active)
+    {
+        foreach (GameObject block in apearingBlocks)
+        {
+            block.SetActive(active);
+        }
     }
 
 }

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 644959090254529022}
   - component: {fileID: 644959090254529017}
   - component: {fileID: 644959090254529020}
-  - component: {fileID: 644959090254529016}
   - component: {fileID: 644959090254529021}
   m_Layer: 0
   m_Name: Button
@@ -110,27 +109,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!50 &644959090254529016
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 644959090254529019}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &644959090254529021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,7 +122,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttons: {fileID: 644959090254529019}
-  apearingBlock1: {fileID: 0}
-  apearingBlock2: {fileID: 0}
-  startTime: 0
+  apearingBlocks:
+  - {fileID: 0}
+  - {fileID: 0}
+  startTime: 0.1
   minTime: 0
