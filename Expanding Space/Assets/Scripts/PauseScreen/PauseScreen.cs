@@ -17,7 +17,7 @@ public class PauseScreen : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        if(pauseScreen == null)
+        if (pauseScreen == null)
         {
             DontDestroyOnLoad(gameObject);
             pauseScreen = this;
