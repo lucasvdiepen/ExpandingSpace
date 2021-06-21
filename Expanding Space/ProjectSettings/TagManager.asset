@@ -12,6 +12,7 @@ TagManager:
   - Ground
   - DigPlace
   - Dialog
+  - GameManager
   layers:
   - Default
   - TransparentFX

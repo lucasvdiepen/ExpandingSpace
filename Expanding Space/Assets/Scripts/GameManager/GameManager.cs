@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 
     PlayerControls playerControls;
 
-    bool isPaused = false;
+    [HideInInspector] public bool isPaused = false;
 
     private void Awake()
     {
