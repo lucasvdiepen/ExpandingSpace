@@ -6,7 +6,6 @@ public class Bullets : MonoBehaviour
 {
     public float speed;
     public float lifeTime;
-    public GameObject destroyEffect;
 
     void Start()
     {
@@ -21,7 +20,6 @@ public class Bullets : MonoBehaviour
     void Destroybullets()
     {   
         FindObjectOfType<SoundManager>().PlayExplosionSound();
-        Instantiate(destroyEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }
