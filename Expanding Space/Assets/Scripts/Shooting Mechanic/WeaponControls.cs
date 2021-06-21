@@ -12,11 +12,16 @@ public class WeaponControls : MonoBehaviour
     PlayerControls playerControls;
     public float lightTime;
     Collider2D playerCollider;
-
+    List<Collider2D> shootThroughWallColliders = new List<Collider2D>();
     private void Start()
     {
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
         playerCollider = playerObject.GetComponent<Collider2D>();
+        GameObject[] shootThroughWall = GameObject.FindGameObjectsWithTag("ShootThroughWall");
+        foreach (GameObject wall in shootThroughWall)
+        {
+            shootThroughWallColliders.Add(wall.GetComponent<Collider2D>());
+        }
     }
     private void Awake()
     {
@@ -47,6 +52,10 @@ public class WeaponControls : MonoBehaviour
         {
             GameObject newBullet = Instantiate(projectile, shotpoint.position, transform.rotation);
             Physics2D.IgnoreCollision(playerCollider, newBullet.GetComponent<Collider2D>());
+            foreach (Collider2D collider in shootThroughWallColliders)
+            {
+                Physics2D.IgnoreCollision(collider, newBullet.GetComponent<Collider2D>());
+            }
             FindObjectOfType<SoundManager>().PlayLaserSound();
             StartCoroutine(FindObjectOfType<AntenneLighting>().Shoot(lightTime));
             timeBtwShots = startTime;
