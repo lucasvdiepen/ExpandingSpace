@@ -64,9 +64,9 @@ public class SaveManager : MonoBehaviour
         return gameSaveData.items;
     }
 
-    public void AddToInventory(AllItems item)
+    public void SetInventory(List<AllItems> items)
     {
-        gameSaveData.items.Add(item);
+        gameSaveData.items = items;
 
         SaveGameData();
     }
