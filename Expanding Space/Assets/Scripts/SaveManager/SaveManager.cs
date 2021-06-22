@@ -9,17 +9,18 @@ public class SaveManager : MonoBehaviour
 {
     private string path = "";
 
+    [System.Serializable]
     public class GameSaveData
     {
         public PlanetSelection.Planets planet;
-        /*public List<AllItems> items;
-        public Dictionary<string, bool> digPlaces;
+        public List<AllItems> items;
+        public List<string> dugPlaces;
 
         public GameSaveData()
         {
             items = new List<AllItems>();
-            digPlaces = new Dictionary<string, bool>();
-        }*/
+            dugPlaces = new List<string>();
+        }
     }
 
     private GameSaveData gameSaveData;
@@ -30,12 +31,6 @@ public class SaveManager : MonoBehaviour
 
         //Get all save data
         LoadGameData();
-
-        //AddToInventory(AllItems.World1Emerald1);
-
-        SetPlanet(PlanetSelection.Planets.Earth);
-
-        SaveGameData();
     }
 
     private void LoadGameData()
@@ -64,23 +59,43 @@ public class SaveManager : MonoBehaviour
         stream.Close();
     }
 
-    public PlanetSelection.Planets GetLevel()
+    public List<AllItems> GetInventory()
     {
-        return gameSaveData.planet;
+        return gameSaveData.items;
     }
 
     public void AddToInventory(AllItems item)
     {
         gameSaveData.items.Add(item);
+
+        SaveGameData();
     }
 
+    public PlanetSelection.Planets GetPlanet()
+    {
+        return gameSaveData.planet;
+    }
     public void SetPlanet(PlanetSelection.Planets _planet)
     {
         gameSaveData.planet = _planet;
+
+        SaveGameData();
     }
 
-    public void ChangeDigPlace(string name, bool isDug)
+    public bool GetDug(string name)
     {
-        
+        if (gameSaveData.dugPlaces.Contains(name)) return true;
+        return false;
+    }
+
+    public void SetDug(string name)
+    {
+        if(!string.IsNullOrEmpty(name))
+        {
+            if(!gameSaveData.dugPlaces.Contains(name))
+            {
+                gameSaveData.dugPlaces.Add(name);
+            }
+        }
     }
 }
