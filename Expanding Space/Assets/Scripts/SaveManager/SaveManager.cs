@@ -74,6 +74,13 @@ public class SaveManager : MonoBehaviour
         stream.Close();
     }
 
+    public void RemoveAllData()
+    {
+        gameSaveData = new GameSaveData();
+
+        SaveGameData();
+    }
+
     public List<AllItems> GetInventory()
     {
         return gameSaveData.items;
