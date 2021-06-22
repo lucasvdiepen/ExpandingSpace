@@ -6,8 +6,15 @@ public class SideScrollerCameraMovement : MonoBehaviour
 {
     private GameObject target;
 
+    public bool freezeX = false;
     public float xMin = 0;
     public float xMax = 0;
+
+    public bool freezeY = false;
+    public float yMin = 0;
+    public float yMax = 0;
+
+    public float yOffset = 0;
 
     public float moveToPositionTime = 2f;
 
@@ -25,10 +32,18 @@ public class SideScrollerCameraMovement : MonoBehaviour
     {
         if(moveToPosition)
         {
-            float x = Mathf.Clamp(Mathf.Lerp(oldPosition.x, movePosition.x, timeElapsed / moveToPositionTime), xMin, xMax);
-            transform.position = new Vector3(x, transform.position.y, transform.position.z);
+            float newX = 0;
+            float newY = 0;
 
-            if (timeElapsed >= moveToPositionTime || (x >= xMax && movePosition.x >= oldPosition.x) || (x <= xMin && movePosition.x <= oldPosition.x))
+            if (freezeX) newX = transform.position.x;
+            else newX = Mathf.Clamp(Mathf.Lerp(oldPosition.x, movePosition.x, timeElapsed / moveToPositionTime), xMin, xMax);
+
+            if (freezeY) newY = transform.position.y;
+            else newY = Mathf.Clamp(Mathf.Lerp(oldPosition.y, movePosition.y, timeElapsed / moveToPositionTime), yMin, yMax);
+
+            transform.position = new Vector3(newX, newY, transform.position.z);
+
+            if (timeElapsed >= moveToPositionTime || (newX >= xMax && movePosition.x >= oldPosition.x) || (newX <= xMin && movePosition.x <= oldPosition.x))
             {
                 moveToPosition = false;
                 FindObjectOfType<PlayerRespawn>().RespawnPlayer();
@@ -38,15 +53,22 @@ public class SideScrollerCameraMovement : MonoBehaviour
         }
         else
         {
-            float x = Mathf.Clamp(target.transform.position.x, xMin, xMax);
+            float newX = 0;
+            float newY = 0;
 
-            transform.position = new Vector3(x, transform.position.y, transform.position.z);
+            if (freezeX) newX = transform.position.x;
+            else newX = Mathf.Clamp(target.transform.position.x, xMin, xMax);
+
+            if (freezeY) newY = transform.position.y;
+            else newY = Mathf.Clamp(target.transform.position.y + yOffset, yMin, yMax);
+
+            transform.position = new Vector3(newX, newY, transform.position.z);
         }
     }
 
     public void GoToPosition(Vector3 position)
     {
-        movePosition = position;
+        movePosition = position + new Vector3(0, yOffset, 0);
         oldPosition = transform.position;
         timeElapsed = 0;
         moveToPosition = true;
