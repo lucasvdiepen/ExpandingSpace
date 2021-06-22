@@ -1,16 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Inventory;
 
 public class MapManager : MonoBehaviour
 {
     public UnityEngine.UI.Button[] planetButtons;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public AllItems[] itemsLevel2, itemsLevel3, itemsLevel4, itemsLevel5, itemsLevel6, itemsLevel7, itemsLevel8, itemsLevel9;
 
     private void OnEnable()
     {
@@ -18,16 +15,6 @@ public class MapManager : MonoBehaviour
         {
             AddOnclickListener(i);
         }
-
-        /*planet1Button.onClick.AddListener(() => PlanetClicked(1));
-        planet2Button.onClick.AddListener(() => PlanetClicked(2));
-        planet3Button.onClick.AddListener(() => PlanetClicked(3));
-        planet4Button.onClick.AddListener(() => PlanetClicked(4));
-        planet5Button.onClick.AddListener(() => PlanetClicked(5));
-        planet6Button.onClick.AddListener(() => PlanetClicked(6));
-        planet7Button.onClick.AddListener(() => PlanetClicked(7));
-        planet8Button.onClick.AddListener(() => PlanetClicked(8));
-        planet9Button.onClick.AddListener(() => PlanetClicked(9));*/
     }
 
     private void OnDisable()
@@ -36,16 +23,6 @@ public class MapManager : MonoBehaviour
         {
             planetButtons[i].onClick.RemoveAllListeners();
         }
-
-        /*planet1Button.onClick.RemoveAllListeners();
-        planet2Button.onClick.RemoveAllListeners();
-        planet3Button.onClick.RemoveAllListeners();
-        planet4Button.onClick.RemoveAllListeners();
-        planet5Button.onClick.RemoveAllListeners();
-        planet6Button.onClick.RemoveAllListeners();
-        planet7Button.onClick.RemoveAllListeners();
-        planet8Button.onClick.RemoveAllListeners();
-        planet9Button.onClick.RemoveAllListeners();*/
     }
 
     public void AddOnclickListener(int i)
