@@ -12,6 +12,8 @@ TagManager:
   - Ground
   - DigPlace
   - Dialog
+  - GameManager
+  - ShootThroughWall
   layers:
   - Default
   - TransparentFX

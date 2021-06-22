@@ -6,9 +6,11 @@ MonoImporter:
   defaultReferences:
   - sfxAudioSource: {instanceID: 0}
   - dialogTickAudioSource: {instanceID: 0}
+  - backgroundSource: {instanceID: 0}
   - laser: {fileID: 8300000, guid: 5262adab29d27c24c8a86cbb63c536ff, type: 3}
-  - dialogPopup: {instanceID: 0}
+  - dialogPopup: {fileID: 8300000, guid: 8647c9359d140fe4784e67bc8436e06e, type: 3}
   - explosion: {fileID: 8300000, guid: 18b773fb0f2aad14c860002c5954455a, type: 3}
+  - buttonclick: {fileID: 8300000, guid: dfd67bc3ceaa188489de3291b32781af, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
