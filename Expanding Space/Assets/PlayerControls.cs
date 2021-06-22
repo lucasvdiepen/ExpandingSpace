@@ -367,6 +367,44 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Base"",
+            ""id"": ""725fafbb-330b-4ecc-9bf4-0ae443742d25"",
+            ""actions"": [
+                {
+                    ""name"": ""EnterBase"",
+                    ""type"": ""Button"",
+                    ""id"": ""0b997afb-87dd-46f0-be4d-33df5225f1fb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""7253e11a-6758-4b22-b37e-381f1a42478a"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EnterBase"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""374d0b54-6f49-4cf3-b796-10de2bcdf0d3"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EnterBase"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -389,6 +427,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
+        // Base
+        m_Base = asset.FindActionMap("Base", throwIfNotFound: true);
+        m_Base_EnterBase = m_Base.FindAction("EnterBase", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -614,6 +655,39 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         }
     }
     public UIActions @UI => new UIActions(this);
+
+    // Base
+    private readonly InputActionMap m_Base;
+    private IBaseActions m_BaseActionsCallbackInterface;
+    private readonly InputAction m_Base_EnterBase;
+    public struct BaseActions
+    {
+        private @PlayerControls m_Wrapper;
+        public BaseActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @EnterBase => m_Wrapper.m_Base_EnterBase;
+        public InputActionMap Get() { return m_Wrapper.m_Base; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(BaseActions set) { return set.Get(); }
+        public void SetCallbacks(IBaseActions instance)
+        {
+            if (m_Wrapper.m_BaseActionsCallbackInterface != null)
+            {
+                @EnterBase.started -= m_Wrapper.m_BaseActionsCallbackInterface.OnEnterBase;
+                @EnterBase.performed -= m_Wrapper.m_BaseActionsCallbackInterface.OnEnterBase;
+                @EnterBase.canceled -= m_Wrapper.m_BaseActionsCallbackInterface.OnEnterBase;
+            }
+            m_Wrapper.m_BaseActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @EnterBase.started += instance.OnEnterBase;
+                @EnterBase.performed += instance.OnEnterBase;
+                @EnterBase.canceled += instance.OnEnterBase;
+            }
+        }
+    }
+    public BaseActions @Base => new BaseActions(this);
     public interface IGameplayActions
     {
         void OnJump(InputAction.CallbackContext context);
@@ -635,5 +709,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     public interface IUIActions
     {
         void OnPause(InputAction.CallbackContext context);
+    }
+    public interface IBaseActions
+    {
+        void OnEnterBase(InputAction.CallbackContext context);
     }
 }

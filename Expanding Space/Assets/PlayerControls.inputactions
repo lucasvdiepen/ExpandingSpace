@@ -354,6 +354,44 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Base",
+            "id": "725fafbb-330b-4ecc-9bf4-0ae443742d25",
+            "actions": [
+                {
+                    "name": "EnterBase",
+                    "type": "Button",
+                    "id": "0b997afb-87dd-46f0-be4d-33df5225f1fb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "7253e11a-6758-4b22-b37e-381f1a42478a",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "EnterBase",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "374d0b54-6f49-4cf3-b796-10de2bcdf0d3",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "EnterBase",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
