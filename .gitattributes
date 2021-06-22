@@ -4,13 +4,3 @@
 *.meta linguist-generated
 *.prefab linguist-generated
 *.unity linguist-generated
-
-#For GitMergeTool
-
-# .gitattributes
-
-*.unity binary
-*.prefab binary
-*.asset binary
-
-# etc.

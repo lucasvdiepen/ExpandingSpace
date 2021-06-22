@@ -8,6 +8,13 @@ public class Pointer : MonoBehaviour
 
     public float offset = -90;
 
+    private GameManager gameManager;
+
+    private void Start()
+    {
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+    }
+
     private void Awake()
     {
         playerControls = new PlayerControls();
@@ -31,16 +38,19 @@ public class Pointer : MonoBehaviour
 
     private void Aiming(Vector2 position, bool isController)
     {
-        Vector2 newPosition;
-
-        if (!isController)
+        if(!gameManager.isPaused)
         {
-            Vector2 worldPosition = Camera.main.ScreenToWorldPoint(position);
-            newPosition = worldPosition - new Vector2(transform.position.x, transform.position.y);
-        }
-        else newPosition = position;
+            Vector2 newPosition;
 
-        float rotZ = Mathf.Atan2(newPosition.y, newPosition.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, rotZ + offset);
+            if (!isController)
+            {
+                Vector2 worldPosition = Camera.main.ScreenToWorldPoint(position);
+                newPosition = worldPosition - new Vector2(transform.position.x, transform.position.y);
+            }
+            else newPosition = position;
+
+            float rotZ = Mathf.Atan2(newPosition.y, newPosition.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, rotZ + offset);
+        }
     }
 }

@@ -58,8 +58,3 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
-
-# For Unity GitMerge
-*.unity binary
-*.prefab binary
-*.asset binary

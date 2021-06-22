@@ -48,7 +48,7 @@ public class WeaponControls : MonoBehaviour
 
     public void Shoot()
     {
-        if (timeBtwShots <= 0)
+        if (timeBtwShots <= 0 && !FindObjectOfType<GameManager>().isPaused)
         {
             GameObject newBullet = Instantiate(projectile, shotpoint.position, transform.rotation);
             Physics2D.IgnoreCollision(playerCollider, newBullet.GetComponent<Collider2D>());
@@ -59,7 +59,6 @@ public class WeaponControls : MonoBehaviour
             FindObjectOfType<SoundManager>().PlayLaserSound();
             StartCoroutine(FindObjectOfType<AntenneLighting>().Shoot(lightTime));
             timeBtwShots = startTime;
-
         }
     }
 
