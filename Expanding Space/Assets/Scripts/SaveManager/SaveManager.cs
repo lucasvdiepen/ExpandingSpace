@@ -21,6 +21,19 @@ public class SaveManager : MonoBehaviour
             items = new List<AllItems>();
             dugPlaces = new List<string>();
         }
+
+        public void SetLists()
+        {
+            if (items == null) items = new List<AllItems>();
+            if (dugPlaces == null) dugPlaces = new List<string>();
+        }
+
+        public void Reset()
+        {
+            planet = (PlanetSelection.Planets)0;
+            items = new List<AllItems>();
+            dugPlaces = new List<string>();
+        }
     }
 
     private GameSaveData gameSaveData;
@@ -41,6 +54,8 @@ public class SaveManager : MonoBehaviour
             FileStream stream = new FileStream(path, FileMode.Open);
 
             gameSaveData = formatter.Deserialize(stream) as GameSaveData;
+
+            gameSaveData.SetLists();
 
             stream.Close();
         }
@@ -75,6 +90,7 @@ public class SaveManager : MonoBehaviour
     {
         return gameSaveData.planet;
     }
+
     public void SetPlanet(PlanetSelection.Planets _planet)
     {
         gameSaveData.planet = _planet;
@@ -84,7 +100,10 @@ public class SaveManager : MonoBehaviour
 
     public bool GetDug(string name)
     {
-        if (gameSaveData.dugPlaces.Contains(name)) return true;
+        if(!string.IsNullOrEmpty(name))
+        {
+            if (gameSaveData.dugPlaces.Contains(name)) return true;
+        }
         return false;
     }
 
@@ -95,6 +114,8 @@ public class SaveManager : MonoBehaviour
             if(!gameSaveData.dugPlaces.Contains(name))
             {
                 gameSaveData.dugPlaces.Add(name);
+
+                SaveGameData();
             }
         }
     }

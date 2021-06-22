@@ -11,6 +11,8 @@ public class DigPlace : MonoBehaviour
         Teleport
     }
 
+    public string digPlaceName = "";
+
     public DigAction digAction;
 
     public GameObject[] rewards;
@@ -29,6 +31,8 @@ public class DigPlace : MonoBehaviour
     private void Start()
     {
         dirt = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<ParticleSystem>();
+
+        isDug = FindObjectOfType<SaveManager>().GetDug(digPlaceName);
     }
 
     public void Dig()
@@ -44,6 +48,8 @@ public class DigPlace : MonoBehaviour
             {
                 FindObjectOfType<Inventory>().AddToInventory(reward);
             }
+
+            FindObjectOfType<SaveManager>().SetDug(digPlaceName);
         }
         else if(digAction == DigAction.Teleport)
         {
