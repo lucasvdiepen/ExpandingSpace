@@ -73,4 +73,8 @@ MonoBehaviour:
   digAction: 0
   rewards: []
   endTeleportPoint: {fileID: 0}
+  rgb1: 0
+  rgb2: 0
+  rgb3: 0
+  dirt: {fileID: 3583459681998921649, guid: 8f51768fb9bfb8442a697680370bf900, type: 3}
   isDug: 0

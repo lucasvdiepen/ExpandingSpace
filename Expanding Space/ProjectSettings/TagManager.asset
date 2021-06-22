@@ -13,6 +13,7 @@ TagManager:
   - DigPlace
   - Dialog
   - ShootThroughWall
+  - Rock
   layers:
   - Default
   - TransparentFX
