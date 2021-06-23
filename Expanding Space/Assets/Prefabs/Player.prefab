@@ -662,6 +662,7 @@ GameObject:
   - component: {fileID: 8898425497549706981}
   - component: {fileID: 3328072233485427725}
   - component: {fileID: 8757108344470064913}
+  - component: {fileID: 5362439029821422215}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -709,7 +710,6 @@ MonoBehaviour:
   rotationTime: 0.75
   digDownDepth: 2.2
   digMovingTime: 2
-  dirt: {fileID: 500489804642560409}
 --- !u!50 &9167914381259909250
 Rigidbody2D:
   serializedVersion: 4
@@ -805,6 +805,18 @@ MonoBehaviour:
   grounded: 0
   groundDistance: 1
   digDownPosition: -6.5
+--- !u!114 &5362439029821422215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9167914381259909254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffc05f334980f244c8e4b447cea52fb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3983743155820721704
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -865,10 +877,5 @@ PrefabInstance:
 --- !u!4 &2752045127783773144 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1258794842502399472, guid: 8f51768fb9bfb8442a697680370bf900, type: 3}
-  m_PrefabInstance: {fileID: 3983743155820721704}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &500489804642560409 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 3583459681998921649, guid: 8f51768fb9bfb8442a697680370bf900, type: 3}
   m_PrefabInstance: {fileID: 3983743155820721704}
   m_PrefabAsset: {fileID: 0}
