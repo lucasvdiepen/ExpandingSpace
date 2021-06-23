@@ -45,7 +45,7 @@ public class MapManager : MonoBehaviour
 
     public void OpenMap()
     {
-        if(!mapCanvas.activeSelf)
+        if(!mapCanvas.activeSelf && !FindObjectOfType<GameManager>().isPaused)
         {
             FindObjectOfType<WeaponControls>().ToggleShooting(false);
             FindObjectOfType<PlayerMovement>().FreezeMovement(true);

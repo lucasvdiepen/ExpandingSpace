@@ -46,17 +46,18 @@ public class GameManager : MonoBehaviour
 
     public void OpenPauseScreen()
     {
-        Time.timeScale = 0f;
-        isPaused = true;
-        FindObjectOfType<WeaponControls>().ToggleShooting(false);
-        FindObjectOfType<PauseScreen>().OpenPauseScreen();
+        if(!FindObjectOfType<MapManager>().mapCanvas.activeSelf)
+        {
+            Time.timeScale = 0f;
+            isPaused = true;
+            FindObjectOfType<PauseScreen>().OpenPauseScreen();
+        }
     }
 
     public void ClosePauseScreen()
     {
         Time.timeScale = 1f;
         isPaused = false;
-        FindObjectOfType<WeaponControls>().ToggleShooting(false);
         FindObjectOfType<PauseScreen>().ClosePauseScreen();
     }
 }

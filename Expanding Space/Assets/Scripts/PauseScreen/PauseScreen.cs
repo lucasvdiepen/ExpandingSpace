@@ -37,6 +37,8 @@ public class PauseScreen : MonoBehaviour
 
     public void OpenPauseScreen()
     {
+        FindObjectOfType<WeaponControls>().ToggleShooting(false);
+
         pauseScreenHolder.SetActive(true);
 
         //Set all checkmarks visibility here
@@ -67,6 +69,8 @@ public class PauseScreen : MonoBehaviour
 
     public void ClosePauseScreen()
     {
+        FindObjectOfType<WeaponControls>().ToggleShooting(true);
+
         pauseScreenHolder.SetActive(false);
     }
 }
