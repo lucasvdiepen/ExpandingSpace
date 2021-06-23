@@ -405,6 +405,44 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Map"",
+            ""id"": ""2550fa94-505f-4097-9c30-6d3c286fe384"",
+            ""actions"": [
+                {
+                    ""name"": ""MapExit"",
+                    ""type"": ""Button"",
+                    ""id"": ""18d5a7ed-a987-49ce-9d96-5431428592c6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""759c6c1c-3ba4-409f-88e4-e659de2b1625"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MapExit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ab2cf6dc-e28a-4338-9cab-1ef442dc67c7"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MapExit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -430,6 +468,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         // Base
         m_Base = asset.FindActionMap("Base", throwIfNotFound: true);
         m_Base_EnterBase = m_Base.FindAction("EnterBase", throwIfNotFound: true);
+        // Map
+        m_Map = asset.FindActionMap("Map", throwIfNotFound: true);
+        m_Map_MapExit = m_Map.FindAction("MapExit", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -688,6 +729,39 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         }
     }
     public BaseActions @Base => new BaseActions(this);
+
+    // Map
+    private readonly InputActionMap m_Map;
+    private IMapActions m_MapActionsCallbackInterface;
+    private readonly InputAction m_Map_MapExit;
+    public struct MapActions
+    {
+        private @PlayerControls m_Wrapper;
+        public MapActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @MapExit => m_Wrapper.m_Map_MapExit;
+        public InputActionMap Get() { return m_Wrapper.m_Map; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MapActions set) { return set.Get(); }
+        public void SetCallbacks(IMapActions instance)
+        {
+            if (m_Wrapper.m_MapActionsCallbackInterface != null)
+            {
+                @MapExit.started -= m_Wrapper.m_MapActionsCallbackInterface.OnMapExit;
+                @MapExit.performed -= m_Wrapper.m_MapActionsCallbackInterface.OnMapExit;
+                @MapExit.canceled -= m_Wrapper.m_MapActionsCallbackInterface.OnMapExit;
+            }
+            m_Wrapper.m_MapActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @MapExit.started += instance.OnMapExit;
+                @MapExit.performed += instance.OnMapExit;
+                @MapExit.canceled += instance.OnMapExit;
+            }
+        }
+    }
+    public MapActions @Map => new MapActions(this);
     public interface IGameplayActions
     {
         void OnJump(InputAction.CallbackContext context);
@@ -713,5 +787,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     public interface IBaseActions
     {
         void OnEnterBase(InputAction.CallbackContext context);
+    }
+    public interface IMapActions
+    {
+        void OnMapExit(InputAction.CallbackContext context);
     }
 }

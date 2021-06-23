@@ -30,6 +30,7 @@ public class PlayerBase : MonoBehaviour
         if(isNearBase)
         {
             Debug.Log("Show map");
+            FindObjectOfType<MapManager>().OpenMap();
         }
     }
 

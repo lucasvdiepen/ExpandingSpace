@@ -392,6 +392,44 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Map",
+            "id": "2550fa94-505f-4097-9c30-6d3c286fe384",
+            "actions": [
+                {
+                    "name": "MapExit",
+                    "type": "Button",
+                    "id": "18d5a7ed-a987-49ce-9d96-5431428592c6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "759c6c1c-3ba4-409f-88e4-e659de2b1625",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MapExit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ab2cf6dc-e28a-4338-9cab-1ef442dc67c7",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MapExit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

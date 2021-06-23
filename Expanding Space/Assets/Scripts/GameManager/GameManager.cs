@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0f;
         isPaused = true;
+        FindObjectOfType<WeaponControls>().ToggleShooting(false);
         FindObjectOfType<PauseScreen>().OpenPauseScreen();
     }
 
@@ -55,6 +56,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         isPaused = false;
+        FindObjectOfType<WeaponControls>().ToggleShooting(false);
         FindObjectOfType<PauseScreen>().ClosePauseScreen();
     }
 }

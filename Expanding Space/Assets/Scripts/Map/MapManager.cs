@@ -5,11 +5,30 @@ using static Inventory;
 
 public class MapManager : MonoBehaviour
 {
+    public UnityEngine.UI.Button exitButton;
     public UnityEngine.UI.Button[] planetButtons;
 
     public AllItems[] itemsLevel2, itemsLevel3, itemsLevel4, itemsLevel5, itemsLevel6, itemsLevel7, itemsLevel8, itemsLevel9;
 
     private List<AllItems[]> requiredLevelItems;
+
+    public GameObject mapCanvas;
+
+    public static MapManager mapManager;
+
+    PlayerControls playerControls;
+
+    private void Awake()
+    {
+        if (mapManager == null)
+        {
+            DontDestroyOnLoad(gameObject);
+            mapManager = this;
+            playerControls = new PlayerControls();
+            playerControls.Map.MapExit.performed += ctx => CloseMap();
+        }
+        else Destroy(gameObject);
+    }
 
     private void Start()
     {
@@ -26,6 +45,10 @@ public class MapManager : MonoBehaviour
 
     private void OnEnable()
     {
+        playerControls.Map.Enable();
+
+        exitButton.onClick.AddListener(CloseMap);
+
         for(int i = 0; i < planetButtons.Length; i++)
         {
             AddOnClickListener(i);
@@ -34,10 +57,28 @@ public class MapManager : MonoBehaviour
 
     private void OnDisable()
     {
+        playerControls.Map.Disable();
+
+        exitButton.onClick.RemoveAllListeners();
+
         for (int i = 0; i < planetButtons.Length; i++)
         {
             planetButtons[i].onClick.RemoveAllListeners();
         }
+    }
+
+    public void OpenMap()
+    {
+        FindObjectOfType<WeaponControls>().ToggleShooting(false);
+        FindObjectOfType<PlayerMovement>().FreezeMovement(true);
+        mapCanvas.SetActive(true);
+    }
+
+    public void CloseMap()
+    {
+        FindObjectOfType<WeaponControls>().ToggleShooting(true);
+        FindObjectOfType<PlayerMovement>().FreezeMovement(false);
+        mapCanvas.SetActive(false);
     }
 
     public void AddOnClickListener(int i)
