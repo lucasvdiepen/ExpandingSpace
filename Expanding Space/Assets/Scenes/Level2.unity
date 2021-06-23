@@ -1189,14 +1189,14 @@ MonoBehaviour:
   - {fileID: 514363993}
   - {fileID: 175971053}
   - {fileID: 261953146}
-  itemsLevel2: 
-  itemsLevel3: 
-  itemsLevel4: 
-  itemsLevel5: 
-  itemsLevel6: 
-  itemsLevel7: 
-  itemsLevel8: 
-  itemsLevel9: 
+  itemsLevel2: 0000000001000000
+  itemsLevel3: 0200000003000000
+  itemsLevel4: 0400000005000000
+  itemsLevel5: 0600000007000000
+  itemsLevel6: 0800000009000000
+  itemsLevel7: 0a0000000b000000
+  itemsLevel8: 0c0000000d000000
+  itemsLevel9: 0e0000000f000000
 --- !u!4 &682945083
 Transform:
   m_ObjectHideFlags: 0
