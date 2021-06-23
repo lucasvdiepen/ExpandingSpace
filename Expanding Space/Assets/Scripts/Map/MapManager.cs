@@ -17,7 +17,6 @@ public class MapManager : MonoBehaviour
 
     public GameObject mapCanvas;
 
-
     public static MapManager mapManager;
 
     PlayerControls playerControls;
@@ -54,6 +53,23 @@ public class MapManager : MonoBehaviour
             FindObjectOfType<WeaponControls>().ToggleShooting(false);
             FindObjectOfType<PlayerMovement>().FreezeMovement(true);
             mapCanvas.SetActive(true);
+
+            //Check all unlocked planets
+            for(int i = 0; i < locks.Length; i++)
+            {
+                //Set all locks active
+                locks[i].SetActive(true);
+
+                if (IsPlanetUnLocked(i)) locks[i].SetActive(false);
+            }
+
+            //Set all players false
+            for (int i = 0; i < players.Length; i++) players[i].SetActive(false);
+
+            //Get current planet
+            PlanetSelection.Planets currentPlanet = FindObjectOfType<SaveManager>().GetPlanet();
+            //Set current planet player true
+            players[(int)currentPlanet].SetActive(true);
 
             playerControls.Map.Enable();
 
