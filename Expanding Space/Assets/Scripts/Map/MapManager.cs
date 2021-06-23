@@ -14,6 +14,9 @@ public class MapManager : MonoBehaviour
 
     public GameObject mapCanvas;
 
+    public GameObject[] players;
+    public GameObject[] locks;
+
     public static MapManager mapManager;
 
     PlayerControls playerControls;
