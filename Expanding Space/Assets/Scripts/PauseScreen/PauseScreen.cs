@@ -55,29 +55,29 @@ public class PauseScreen : MonoBehaviour
         pauseScreenHolder.SetActive(true);
 
         //Set all checkmarks visibility here
-        checkmarks[0].SetActive(FindObjectOfType<Inventory>().HasItem(Inventory.AllItems.World1Emerald1));
-        checkmarks[1].SetActive(FindObjectOfType<Inventory>().HasItem(Inventory.AllItems.World1Emerald2));
+        checkmarks[0].SetActive(FindObjectOfType<Inventory>().HasItem(Inventory.AllItems.Level1Emerald1));
+        checkmarks[1].SetActive(FindObjectOfType<Inventory>().HasItem(Inventory.AllItems.Level1Emerald2));
 
-        checkmarks[2].SetActive(FindObjectOfType<Inventory>().HasItem(Inventory.AllItems.World2Emerald1));
-        checkmarks[3].SetActive(FindObjectOfType<Inventory>().HasItem(Inventory.AllItems.World2Emerald2));
+        checkmarks[2].SetActive(FindObjectOfType<Inventory>().HasItem(Inventory.AllItems.Level2Emerald1));
+        checkmarks[3].SetActive(FindObjectOfType<Inventory>().HasItem(Inventory.AllItems.Level2Emerald2));
 
-        checkmarks[4].SetActive(FindObjectOfType<Inventory>().HasItem(Inventory.AllItems.World3Emerald1));
-        checkmarks[5].SetActive(FindObjectOfType<Inventory>().HasItem(Inventory.AllItems.World3Emerald2));
+        checkmarks[4].SetActive(FindObjectOfType<Inventory>().HasItem(Inventory.AllItems.Level3Emerald1));
+        checkmarks[5].SetActive(FindObjectOfType<Inventory>().HasItem(Inventory.AllItems.Level3Emerald2));
 
-        checkmarks[6].SetActive(FindObjectOfType<Inventory>().HasItem(Inventory.AllItems.World4Emerald1));
-        checkmarks[7].SetActive(FindObjectOfType<Inventory>().HasItem(Inventory.AllItems.World4Emerald2));
+        checkmarks[6].SetActive(FindObjectOfType<Inventory>().HasItem(Inventory.AllItems.Level4Emerald1));
+        checkmarks[7].SetActive(FindObjectOfType<Inventory>().HasItem(Inventory.AllItems.Level4Emerald2));
 
-        checkmarks[8].SetActive(FindObjectOfType<Inventory>().HasItem(Inventory.AllItems.World5Emerald1));
-        checkmarks[9].SetActive(FindObjectOfType<Inventory>().HasItem(Inventory.AllItems.World5Emerald2));
+        checkmarks[8].SetActive(FindObjectOfType<Inventory>().HasItem(Inventory.AllItems.Level5Emerald1));
+        checkmarks[9].SetActive(FindObjectOfType<Inventory>().HasItem(Inventory.AllItems.Level5Emerald2));
 
-        checkmarks[10].SetActive(FindObjectOfType<Inventory>().HasItem(Inventory.AllItems.World6Emerald1));
-        checkmarks[11].SetActive(FindObjectOfType<Inventory>().HasItem(Inventory.AllItems.World6Emerald2));
+        checkmarks[10].SetActive(FindObjectOfType<Inventory>().HasItem(Inventory.AllItems.Level6Emerald1));
+        checkmarks[11].SetActive(FindObjectOfType<Inventory>().HasItem(Inventory.AllItems.Level6Emerald2));
 
-        checkmarks[12].SetActive(FindObjectOfType<Inventory>().HasItem(Inventory.AllItems.World7Emerald1));
-        checkmarks[13].SetActive(FindObjectOfType<Inventory>().HasItem(Inventory.AllItems.World7Emerald2));
+        checkmarks[12].SetActive(FindObjectOfType<Inventory>().HasItem(Inventory.AllItems.Level7Emerald1));
+        checkmarks[13].SetActive(FindObjectOfType<Inventory>().HasItem(Inventory.AllItems.Level7Emerald2));
 
-        checkmarks[14].SetActive(FindObjectOfType<Inventory>().HasItem(Inventory.AllItems.World8Emerald1));
-        checkmarks[15].SetActive(FindObjectOfType<Inventory>().HasItem(Inventory.AllItems.World8Emerald2));
+        checkmarks[14].SetActive(FindObjectOfType<Inventory>().HasItem(Inventory.AllItems.Level8Emerald1));
+        checkmarks[15].SetActive(FindObjectOfType<Inventory>().HasItem(Inventory.AllItems.Level8Emerald2));
     }
 
     public void ClosePauseScreen()
