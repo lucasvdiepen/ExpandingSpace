@@ -8,14 +8,15 @@ public class MapManager : MonoBehaviour
     public UnityEngine.UI.Button exitButton;
     public UnityEngine.UI.Button[] planetButtons;
 
+    public GameObject[] players;
+    public GameObject[] locks;
+
     public AllItems[] itemsLevel2, itemsLevel3, itemsLevel4, itemsLevel5, itemsLevel6, itemsLevel7, itemsLevel8, itemsLevel9;
 
     private List<AllItems[]> requiredLevelItems;
 
     public GameObject mapCanvas;
 
-    public GameObject[] players;
-    public GameObject[] locks;
 
     public static MapManager mapManager;
 
