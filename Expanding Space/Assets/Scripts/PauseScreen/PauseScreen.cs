@@ -12,22 +12,6 @@ public class PauseScreen : MonoBehaviour
 
     public GameObject[] checkmarks;
 
-    public static PauseScreen pauseScreen;
-
-    // Start is called before the first frame update
-    private void Awake()
-    {
-        if (pauseScreen == null)
-        {
-            DontDestroyOnLoad(gameObject);
-            pauseScreen = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
     private void OnEnable()
     {
         resumeButton.onClick.AddListener(ResumeButtonClicked);
@@ -47,6 +31,7 @@ public class PauseScreen : MonoBehaviour
 
     public void QuitButtonClicked()
     {
+        FindObjectOfType<GameManager>().ClosePauseScreen();
         SceneManager.LoadScene("MainMenu");
     }
 

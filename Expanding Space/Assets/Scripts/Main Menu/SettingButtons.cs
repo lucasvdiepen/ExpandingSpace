@@ -12,6 +12,8 @@ public class SettingButtons : MonoBehaviour
 
     public AudioSource backgroundVolume;
 
+    public GameObject removeSaveDataCanvas;
+
     Resolution[] resolutions;
     void Start()
     {
@@ -70,6 +72,22 @@ public class SettingButtons : MonoBehaviour
     public void GetFullScreen()
     {
         fullScreen.isOn = Screen.fullScreen;
+    }
+
+    public void RemoveSaveDataCanvas()
+    {
+        removeSaveDataCanvas.SetActive(true);
+    }
+
+    public void SureYesButton()
+    {
+        FindObjectOfType<SaveManager>().RemoveAllData();
+        removeSaveDataCanvas.SetActive(false);
+    }
+
+    public void SureNoButton()
+    {
+        removeSaveDataCanvas.SetActive(false);
     }
 
     public void SetResolution(int resolutionIndex)
