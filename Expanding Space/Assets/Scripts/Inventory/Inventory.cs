@@ -42,6 +42,8 @@ public class Inventory : MonoBehaviour
     public void AddToInventory(AllItems item)
     {
         items.Add(item);
+
+        FindObjectOfType<SaveManager>().SetInventory(items);
     }
 
     public bool HasItem(AllItems item)
