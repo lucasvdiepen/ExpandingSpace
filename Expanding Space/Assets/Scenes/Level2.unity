@@ -1258,7 +1258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4feb7feb083f6ce46949f664881e863f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  exitButton: {fileID: 0}
+  exitButton: {fileID: 696415511}
   planetButtons:
   - {fileID: 1327474089}
   - {fileID: 982372582}

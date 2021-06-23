@@ -43,42 +43,42 @@ public class MapManager : MonoBehaviour
         requiredLevelItems.Add(itemsLevel9);
     }
 
-    private void OnEnable()
-    {
-        playerControls.Map.Enable();
-
-        exitButton.onClick.AddListener(CloseMap);
-
-        for(int i = 0; i < planetButtons.Length; i++)
-        {
-            AddOnClickListener(i);
-        }
-    }
-
-    private void OnDisable()
-    {
-        playerControls.Map.Disable();
-
-        exitButton.onClick.RemoveAllListeners();
-
-        for (int i = 0; i < planetButtons.Length; i++)
-        {
-            planetButtons[i].onClick.RemoveAllListeners();
-        }
-    }
-
     public void OpenMap()
     {
-        FindObjectOfType<WeaponControls>().ToggleShooting(false);
-        FindObjectOfType<PlayerMovement>().FreezeMovement(true);
-        mapCanvas.SetActive(true);
+        if(!mapCanvas.activeSelf)
+        {
+            FindObjectOfType<WeaponControls>().ToggleShooting(false);
+            FindObjectOfType<PlayerMovement>().FreezeMovement(true);
+            mapCanvas.SetActive(true);
+
+            playerControls.Map.Enable();
+
+            exitButton.onClick.AddListener(CloseMap);
+
+            for (int i = 0; i < planetButtons.Length; i++)
+            {
+                AddOnClickListener(i);
+            }
+        }
     }
 
     public void CloseMap()
     {
-        FindObjectOfType<WeaponControls>().ToggleShooting(true);
-        FindObjectOfType<PlayerMovement>().FreezeMovement(false);
-        mapCanvas.SetActive(false);
+        if(mapCanvas.activeSelf)
+        {
+            FindObjectOfType<WeaponControls>().ToggleShooting(true);
+            FindObjectOfType<PlayerMovement>().FreezeMovement(false);
+            mapCanvas.SetActive(false);
+
+            playerControls.Map.Disable();
+
+            exitButton.onClick.RemoveAllListeners();
+
+            for (int i = 0; i < planetButtons.Length; i++)
+            {
+                planetButtons[i].onClick.RemoveAllListeners();
+            }
+        }
     }
 
     public void AddOnClickListener(int i)
@@ -105,6 +105,8 @@ public class MapManager : MonoBehaviour
             //Check if player has all items
             if (!IsPlanetUnLocked(planetId - 1)) return;
         }
+
+        CloseMap();
 
         PlanetSelection.LoadTravelGame((PlanetSelection.Planets)planetId);
     }
