@@ -14,6 +14,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip explosion;
     public AudioClip buttonclick;
     public AudioClip itemObtained;
+    public AudioClip jump;
 
     public void PlayLaserSound()
     {
@@ -53,8 +54,13 @@ public class SoundManager : MonoBehaviour
     
     public void PlayGetItemSounds()
     {
-        sfxAudioSource.PlayOneShot(itemObtained);;
+        sfxAudioSource.PlayOneShot(itemObtained);
     }
+
+    public void PlayJumpSound()
+    {
+        sfxAudioSource.PlayOneShot(jump);
+    }    
 
     public void PlayButtonClickSound()
     {

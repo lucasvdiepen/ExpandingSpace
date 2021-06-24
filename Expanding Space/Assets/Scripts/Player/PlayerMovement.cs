@@ -62,8 +62,9 @@ public class PlayerMovement : MonoBehaviour
 
         if (grounded)
         {
+            FindObjectOfType<SoundManager>().PlayJumpSound();
             rb.velocity = new Vector3(rb.velocity.x, jumpPower, 0);
-            grounded = false;
+            grounded = false;            
         }
     }
 
