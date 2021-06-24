@@ -13,22 +13,22 @@ public class Inventory : MonoBehaviour
 
     public enum AllItems
     {
-        World1Emerald1,
-        World1Emerald2,
-        World2Emerald1,
-        World2Emerald2,
-        World3Emerald1,
-        World3Emerald2,
-        World4Emerald1,
-        World4Emerald2,
-        World5Emerald1,
-        World5Emerald2,
-        World6Emerald1,
-        World6Emerald2,
-        World7Emerald1,
-        World7Emerald2,
-        World8Emerald1,
-        World8Emerald2
+        Level1Emerald1,
+        Level1Emerald2,
+        Level2Emerald1,
+        Level2Emerald2,
+        Level3Emerald1,
+        Level3Emerald2,
+        Level4Emerald1,
+        Level4Emerald2,
+        Level5Emerald1,
+        Level5Emerald2,
+        Level6Emerald1,
+        Level6Emerald2,
+        Level7Emerald1,
+        Level7Emerald2,
+        Level8Emerald1,
+        Level8Emerald2
     }
 
     public void AddToInventory(GameObject item)
