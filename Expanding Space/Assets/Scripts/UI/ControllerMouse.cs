@@ -7,10 +7,7 @@ using UnityEngine.UI;
 
 public class ControllerMouse : MonoBehaviour
 {
-    //For clicking buttons with controller
-    //https://stackoverflow.com/questions/46198428/generate-clickmousebutton0-anywhere-on-display
-
-    public float mouseSpeed = 5f;
+    public float mouseSpeed = 1000f;
 
     private GraphicRaycaster graphicsRaycaster;
 
