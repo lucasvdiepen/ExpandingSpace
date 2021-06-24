@@ -16,10 +16,13 @@ public class SoundManager : MonoBehaviour
     public AudioClip itemObtained;
     public AudioClip jump;
 
+    public float laserVolume;
+
     public void PlayLaserSound()
     {
-        sfxAudioSource.volume = 0.1f;
+        sfxAudioSource.volume = laserVolume;
         sfxAudioSource.PlayOneShot(laser);
+        sfxAudioSource.volume = 1.0f;
     }
 
     public void PlayExplosionSound()

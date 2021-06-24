@@ -57,6 +57,7 @@ MonoBehaviour:
   buttonclick: {fileID: 8300000, guid: dfd67bc3ceaa188489de3291b32781af, type: 3}
   itemObtained: {fileID: 8300000, guid: 7af9a8b9b64aab0448e69ba3de41f942, type: 3}
   jump: {fileID: 8300000, guid: 1046332562d446744b90f58c6d79d1ea, type: 3}
+  laserVolume: 0.1
 --- !u!82 &8911186979798210807
 AudioSource:
   m_ObjectHideFlags: 0
