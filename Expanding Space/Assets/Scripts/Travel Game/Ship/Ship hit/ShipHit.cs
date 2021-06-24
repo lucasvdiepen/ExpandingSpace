@@ -59,6 +59,7 @@ public class ShipHit : MonoBehaviour
         gameObject.GetComponent<MovementShip>().enabled = false;
 
         // load scene
+        FindObjectOfType<SaveManager>().SetPlanet(planet);
         SceneManager.LoadScene(planet.ToString());
     }
 }

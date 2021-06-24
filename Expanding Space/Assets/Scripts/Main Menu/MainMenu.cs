@@ -15,6 +15,8 @@ public class MainMenu : MonoBehaviour
     public void Play()
     {
         Debug.Log("Play the Game");
+
+        SceneManager.LoadScene(FindObjectOfType<SaveManager>().GetPlanet().ToString());
     }
 
     public void Options()
