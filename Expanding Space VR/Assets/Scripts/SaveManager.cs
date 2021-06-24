@@ -91,7 +91,6 @@ public class SaveManager : MonoBehaviour
         path = Application.persistentDataPath + "/../Expanding Space/GameData.ex";
         Cubes[15].SetActive(false);
         Textboxes[15].gameObject.SetActive(false);
-        ShowStuff();
     }
 
     // Update is called once per frame
