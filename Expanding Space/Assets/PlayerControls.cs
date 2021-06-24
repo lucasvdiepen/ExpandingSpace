@@ -341,6 +341,22 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""ControllerMouse"",
+                    ""type"": ""Value"",
+                    ""id"": ""765e5007-0299-47ef-89b9-b5bffc33427c"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""ControllerClick"",
+                    ""type"": ""Button"",
+                    ""id"": ""ddce8323-4d1f-44ac-976d-c6f5fb341fab"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -363,6 +379,94 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e236a9bf-a829-424a-a83b-c300d5079f0f"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ControllerMouse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Keyboard"",
+                    ""id"": ""97b689a3-c504-4b5c-ba22-26cbdf80df75"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ControllerMouse"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""0b79666c-5174-413a-80d6-b08c7c59f030"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ControllerMouse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""2b80d000-6f83-4a9c-b50a-d2dd880a1211"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ControllerMouse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""cea05d03-a355-4bc8-b717-8758cdb86f40"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ControllerMouse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""34a9aa10-f41f-4b32-a27e-2c6ceac3791f"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ControllerMouse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""037f3b13-359e-481a-90df-5287c70f1e4c"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ControllerClick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""df687ba7-36f9-4338-bd41-b5ec2fc4d73c"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ControllerClick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -465,6 +569,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
+        m_UI_ControllerMouse = m_UI.FindAction("ControllerMouse", throwIfNotFound: true);
+        m_UI_ControllerClick = m_UI.FindAction("ControllerClick", throwIfNotFound: true);
         // Base
         m_Base = asset.FindActionMap("Base", throwIfNotFound: true);
         m_Base_EnterBase = m_Base.FindAction("EnterBase", throwIfNotFound: true);
@@ -668,11 +774,15 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputActionMap m_UI;
     private IUIActions m_UIActionsCallbackInterface;
     private readonly InputAction m_UI_Pause;
+    private readonly InputAction m_UI_ControllerMouse;
+    private readonly InputAction m_UI_ControllerClick;
     public struct UIActions
     {
         private @PlayerControls m_Wrapper;
         public UIActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Pause => m_Wrapper.m_UI_Pause;
+        public InputAction @ControllerMouse => m_Wrapper.m_UI_ControllerMouse;
+        public InputAction @ControllerClick => m_Wrapper.m_UI_ControllerClick;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -685,6 +795,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Pause.started -= m_Wrapper.m_UIActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnPause;
+                @ControllerMouse.started -= m_Wrapper.m_UIActionsCallbackInterface.OnControllerMouse;
+                @ControllerMouse.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnControllerMouse;
+                @ControllerMouse.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnControllerMouse;
+                @ControllerClick.started -= m_Wrapper.m_UIActionsCallbackInterface.OnControllerClick;
+                @ControllerClick.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnControllerClick;
+                @ControllerClick.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnControllerClick;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
@@ -692,6 +808,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @ControllerMouse.started += instance.OnControllerMouse;
+                @ControllerMouse.performed += instance.OnControllerMouse;
+                @ControllerMouse.canceled += instance.OnControllerMouse;
+                @ControllerClick.started += instance.OnControllerClick;
+                @ControllerClick.performed += instance.OnControllerClick;
+                @ControllerClick.canceled += instance.OnControllerClick;
             }
         }
     }
@@ -783,6 +905,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     public interface IUIActions
     {
         void OnPause(InputAction.CallbackContext context);
+        void OnControllerMouse(InputAction.CallbackContext context);
+        void OnControllerClick(InputAction.CallbackContext context);
     }
     public interface IBaseActions
     {

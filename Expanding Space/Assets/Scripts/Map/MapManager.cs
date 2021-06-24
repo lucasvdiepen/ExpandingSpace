@@ -17,20 +17,12 @@ public class MapManager : MonoBehaviour
 
     public GameObject mapCanvas;
 
-    public static MapManager mapManager;
-
     PlayerControls playerControls;
 
     private void Awake()
     {
-        if (mapManager == null)
-        {
-            DontDestroyOnLoad(gameObject);
-            mapManager = this;
-            playerControls = new PlayerControls();
-            playerControls.Map.MapExit.performed += ctx => CloseMap();
-        }
-        else Destroy(gameObject);
+        playerControls = new PlayerControls();
+        playerControls.Map.MapExit.performed += ctx => CloseMap();
     }
 
     private void Start()
@@ -52,6 +44,7 @@ public class MapManager : MonoBehaviour
         {
             FindObjectOfType<WeaponControls>().ToggleShooting(false);
             FindObjectOfType<PlayerMovement>().FreezeMovement(true);
+            FindObjectOfType<ControllerMouse>().SetControllerMouse(true);
             mapCanvas.SetActive(true);
 
             //Check all unlocked planets
@@ -88,6 +81,7 @@ public class MapManager : MonoBehaviour
         {
             FindObjectOfType<WeaponControls>().ToggleShooting(true);
             FindObjectOfType<PlayerMovement>().FreezeMovement(false);
+            FindObjectOfType<ControllerMouse>().SetControllerMouse(false);
             mapCanvas.SetActive(false);
 
             playerControls.Map.Disable();

@@ -257,7 +257,7 @@ GameObject:
   - component: {fileID: 1373541300797586416}
   m_Layer: 5
   m_Name: Planet3Button
-  m_TagString: Untagged
+  m_TagString: UIButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -506,7 +506,7 @@ GameObject:
   - component: {fileID: 7128938442133679945}
   m_Layer: 5
   m_Name: Planet8Button
-  m_TagString: Untagged
+  m_TagString: UIButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -649,6 +649,80 @@ RectTransform:
   m_AnchoredPosition: {x: -107.4, y: 108.9}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1094997137712835253
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8389784187212035072}
+  - component: {fileID: 8244416845337781578}
+  - component: {fileID: 8715737525946877442}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8389784187212035072
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094997137712835253}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8088553412257787873}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8244416845337781578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094997137712835253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!114 &8715737525946877442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094997137712835253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_PointAction: {fileID: 1054132383583890850, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MoveAction: {fileID: 3710738434707379630, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_SubmitAction: {fileID: 2064916234097673511, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_CancelAction: {fileID: -1967631576421560919, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_LeftClickAction: {fileID: 8056856818456041789, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MiddleClickAction: {fileID: 3279352641294131588, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_RightClickAction: {fileID: 3837173908680883260, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_ScrollWheelAction: {fileID: 4502412055082496612, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDevicePositionAction: {fileID: 4754684134866288074, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 1025543830046995696, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
 --- !u!1 &1133626689812267874
 GameObject:
   m_ObjectHideFlags: 0
@@ -755,7 +829,7 @@ GameObject:
   - component: {fileID: 3500705465834439375}
   m_Layer: 5
   m_Name: Planet6Button
-  m_TagString: Untagged
+  m_TagString: UIButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -955,7 +1029,7 @@ GameObject:
   - component: {fileID: 4096541827260852647}
   m_Layer: 5
   m_Name: Planet7Button
-  m_TagString: Untagged
+  m_TagString: UIButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1306,7 +1380,7 @@ GameObject:
   - component: {fileID: 5897853393257800219}
   m_Layer: 5
   m_Name: Planet2Button
-  m_TagString: Untagged
+  m_TagString: UIButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1699,7 +1773,7 @@ GameObject:
   - component: {fileID: 4296336795454941099}
   m_Layer: 5
   m_Name: Planet5Button
-  m_TagString: Untagged
+  m_TagString: UIButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2095,7 +2169,7 @@ Transform:
   m_Children:
   - {fileID: 3469041531805910319}
   m_Father: {fileID: 8088553412257787873}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6221259530107862370
 MonoBehaviour:
@@ -2690,7 +2764,7 @@ GameObject:
   - component: {fileID: 3752402332008301321}
   m_Layer: 5
   m_Name: Planet1Button
-  m_TagString: Untagged
+  m_TagString: UIButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3107,6 +3181,7 @@ GameObject:
   - component: {fileID: 8088553412257787874}
   - component: {fileID: 2752729817977554427}
   - component: {fileID: -5993457125099748294}
+  - component: {fileID: 2808877938174811319}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -3125,6 +3200,7 @@ Transform:
   m_LocalPosition: {x: -4.189388, y: 0.7378658, z: -1.8383819}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 8389784187212035072}
   - {fileID: 6725034210221126969}
   - {fileID: 6445065375383065296}
   - {fileID: 3111847571056393490}
@@ -3168,6 +3244,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03a2a2fe8e2cd204b83944b6a1806a52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2808877938174811319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8088553412257787875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9916826cca461d4c9a567734c0e821c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseSpeed: 1000
+  graphicRaycasters:
+  - {fileID: 6725034210475907511}
+  - {fileID: 6814527166028082446}
 --- !u!1 &8110164839876977847
 GameObject:
   m_ObjectHideFlags: 0
@@ -3254,7 +3346,7 @@ GameObject:
   - component: {fileID: 705608115755885112}
   m_Layer: 5
   m_Name: Planet9Button
-  m_TagString: Untagged
+  m_TagString: UIButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3789,7 +3881,7 @@ GameObject:
   - component: {fileID: 1956588397734495692}
   m_Layer: 5
   m_Name: Planet4Button
-  m_TagString: Untagged
+  m_TagString: UIButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4096,7 +4188,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7611094444596922229, guid: 7d3120ef81167f14c99c40c86c91f83f, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7611094444596922229, guid: 7d3120ef81167f14c99c40c86c91f83f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4158,7 +4250,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1398397610091132707, guid: c026be231888203468045de1193bea8c, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1398397610091132707, guid: c026be231888203468045de1193bea8c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4202,6 +4294,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c026be231888203468045de1193bea8c, type: 3}
+--- !u!114 &6725034210475907511 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1398397610413054893, guid: c026be231888203468045de1193bea8c, type: 3}
+  m_PrefabInstance: {fileID: 5637387209014821402}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6725034210221126969 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1398397610091132707, guid: c026be231888203468045de1193bea8c, type: 3}
