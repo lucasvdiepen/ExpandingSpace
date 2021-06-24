@@ -125,6 +125,7 @@ public class DialogManager : MonoBehaviour
     {
         if (!dialogStarted)
         {
+            FindObjectOfType<PlayerMovement>().FreezeMovement(true);
             sentences = _sentences;
             dialogStarted = true;
             dialogContinue = true;
