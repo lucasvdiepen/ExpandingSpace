@@ -189,6 +189,8 @@ public class Dig : MonoBehaviour
 
             dirt.Play();
 
+            FindObjectOfType<SoundManager>().PlayDigSound();
+
             //Move down
             MoveToPosition(CalculatePositionDown(digPlacePosition), 1.5f);
 
@@ -211,6 +213,8 @@ public class Dig : MonoBehaviour
             isDigging = false;
 
             dirt.Stop();
+
+            FindObjectOfType<SoundManager>().StopDigSound();
 
             FindObjectOfType<SoundManager>().PlayGetItemSounds();
         }
@@ -240,6 +244,8 @@ public class Dig : MonoBehaviour
             yield return new WaitUntil(() => !movingToPosition && !isRotating);
 
             dirt.Play();
+
+            FindObjectOfType<SoundManager>().PlayDigSound();
 
             //Move down
             MoveToPosition(CalculatePositionDown(digPlacePosition), 1f);
@@ -275,6 +281,8 @@ public class Dig : MonoBehaviour
             isDigging = false;
 
             dirt.Stop();
+
+            FindObjectOfType<SoundManager>().StopDigSound();
         }
     }
 

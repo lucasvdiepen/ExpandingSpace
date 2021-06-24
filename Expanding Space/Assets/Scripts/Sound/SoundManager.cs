@@ -7,6 +7,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource sfxAudioSource;
     public AudioSource dialogTickAudioSource;
     public AudioSource backgroundSource;
+    public AudioSource digSounds;
 
     public AudioClip laser;
     public AudioClip dialogPopup;
@@ -30,6 +31,16 @@ public class SoundManager : MonoBehaviour
         sfxAudioSource.PlayOneShot(dialogPopup);
     }
 
+    public void PlayDigSound()
+    {
+        digSounds.Play();
+    }
+
+    public void StopDigSound()
+    {
+        digSounds.Stop();
+    }
+
     public void PlayPopupTextSound()
     {
         dialogTickAudioSource.Play();
@@ -42,9 +53,7 @@ public class SoundManager : MonoBehaviour
     
     public void PlayGetItemSounds()
     {
-        sfxAudioSource.PlayOneShot(itemObtained);
-
-        Debug.Log("Sound played");
+        sfxAudioSource.PlayOneShot(itemObtained);;
     }
 
     public void PlayButtonClickSound()
