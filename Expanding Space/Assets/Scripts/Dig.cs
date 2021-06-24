@@ -211,6 +211,8 @@ public class Dig : MonoBehaviour
             isDigging = false;
 
             dirt.Stop();
+
+            FindObjectOfType<SoundManager>().PlayGetItemSounds();
         }
     }
 

@@ -53,6 +53,7 @@ MonoBehaviour:
   dialogPopup: {fileID: 8300000, guid: 8647c9359d140fe4784e67bc8436e06e, type: 3}
   explosion: {fileID: 8300000, guid: 18b773fb0f2aad14c860002c5954455a, type: 3}
   buttonclick: {fileID: 8300000, guid: dfd67bc3ceaa188489de3291b32781af, type: 3}
+  itemObtained: {fileID: 8300000, guid: 168ae569e3db11a41a3a64d56033c7b9, type: 3}
 --- !u!82 &8911186979798210807
 AudioSource:
   m_ObjectHideFlags: 0
