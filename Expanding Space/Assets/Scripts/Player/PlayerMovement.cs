@@ -93,6 +93,16 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!freezeMovement)
         {
+
+            if (direction < 0)
+            {
+                transform.rotation = Quaternion.Euler(transform.rotation.x, 180f, transform.rotation.z);
+            }
+            else if (direction > 0)
+            {
+                transform.rotation = Quaternion.Euler(transform.rotation.x, 0f, transform.rotation.z);
+            }
+
             rb.velocity = new Vector2(direction * movementSpeed * Time.fixedDeltaTime, rb.velocity.y);
         }
         else rb.velocity = Vector2.zero;
