@@ -38,7 +38,6 @@ public class PauseScreen : MonoBehaviour
     public void OpenPauseScreen()
     {
         FindObjectOfType<WeaponControls>().ToggleShooting(false);
-        FindObjectOfType<ControllerMouse>().SetControllerMouse(true);
 
         pauseScreenHolder.SetActive(true);
 
@@ -71,7 +70,6 @@ public class PauseScreen : MonoBehaviour
     public void ClosePauseScreen()
     {
         FindObjectOfType<WeaponControls>().ToggleShooting(true);
-        FindObjectOfType<ControllerMouse>().SetControllerMouse(false);
 
         pauseScreenHolder.SetActive(false);
     }

@@ -44,7 +44,6 @@ public class MapManager : MonoBehaviour
         {
             FindObjectOfType<WeaponControls>().ToggleShooting(false);
             FindObjectOfType<PlayerMovement>().FreezeMovement(true);
-            FindObjectOfType<ControllerMouse>().SetControllerMouse(true);
             mapCanvas.SetActive(true);
 
             //Check all unlocked planets
@@ -81,7 +80,6 @@ public class MapManager : MonoBehaviour
         {
             FindObjectOfType<WeaponControls>().ToggleShooting(true);
             FindObjectOfType<PlayerMovement>().FreezeMovement(false);
-            FindObjectOfType<ControllerMouse>().SetControllerMouse(false);
             mapCanvas.SetActive(false);
 
             playerControls.Map.Disable();
