@@ -6,16 +6,9 @@ public class Inventory : MonoBehaviour
 {
     private List<AllItems> items = new List<AllItems>();
 
-    public static Inventory inventoryScript;
-
-    private void Awake()
+    private void Start()
     {
-        if (inventoryScript == null)
-        {
-            DontDestroyOnLoad(gameObject);
-            inventoryScript = this;
-        }
-        else Destroy(gameObject);
+        items = FindObjectOfType<SaveManager>().GetInventory();
     }
 
     public enum AllItems
@@ -42,11 +35,15 @@ public class Inventory : MonoBehaviour
     {
         Item itemScript = item.GetComponent<Item>();
         items.Add(itemScript.item);
+
+        FindObjectOfType<SaveManager>().SetInventory(items);
     }
 
     public void AddToInventory(AllItems item)
     {
         items.Add(item);
+
+        FindObjectOfType<SaveManager>().SetInventory(items);
     }
 
     public bool HasItem(AllItems item)
