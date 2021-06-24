@@ -112,14 +112,17 @@ public class MapManager : MonoBehaviour
     {
         Debug.Log("Planet clicked " + planetId);
 
-        if(planetId > 0)
+        if ((PlanetSelection.Planets)planetId != FindObjectOfType<SaveManager>().GetPlanet())
         {
-            //Check if player has all items
-            if (!IsPlanetUnLocked(planetId - 1)) return;
+            if (planetId > 0)
+            {
+                //Check if player has all items
+                if (!IsPlanetUnLocked(planetId - 1)) return;
+            }
+
+            CloseMap();
+
+            PlanetSelection.LoadTravelGame((PlanetSelection.Planets)planetId);
         }
-
-        CloseMap();
-
-        PlanetSelection.LoadTravelGame((PlanetSelection.Planets)planetId);
     }
 }
