@@ -30,7 +30,7 @@ public class Dig : MonoBehaviour
 
     private bool isDigging = false;
 
-    public ParticleSystem dirt;
+    private ParticleSystem dirt;
 
     PlayerControls playerControls;
 
@@ -107,6 +107,7 @@ public class Dig : MonoBehaviour
     {
         antenneLighting = GetComponent<AntenneLighting>();
         playerCollider = GetComponent<Collider2D>();
+        dirt = GetComponentInChildren<ParticleSystem>();
     }
 
     private void OnApplicationQuit()

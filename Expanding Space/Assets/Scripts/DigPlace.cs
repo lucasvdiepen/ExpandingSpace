@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,9 +22,14 @@ public class DigPlace : MonoBehaviour
     public int rgb2;
     public int rgb3;
 
-    public ParticleSystem dirt;
+    private ParticleSystem dirt;
 
     [HideInInspector] public bool isDug = false;
+
+    private void Start()
+    {
+        dirt = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<ParticleSystem>();
+    }
 
     public void Dig()
     {
@@ -51,7 +57,8 @@ public class DigPlace : MonoBehaviour
 
         if (dirt)
         {
-            main.startColor = new Color(rgb1, rgb2, rgb3, 255);
+            Color newColor = new Color32(Convert.ToByte(rgb1), Convert.ToByte(rgb2), Convert.ToByte(rgb3), 255);
+            main.startColor = newColor;
         }
     }
 }
