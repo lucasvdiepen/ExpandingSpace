@@ -89,8 +89,7 @@ public class DialogManager : MonoBehaviour
 
                 if (sentenceCount >= sentences.Length)
                 {
-                    dialogEnded = true;
-                    soundManager.StopPopupTextSound();
+                    EndDialog();
                 }
             }
         }
@@ -104,6 +103,15 @@ public class DialogManager : MonoBehaviour
     private void ResetText()
     {
         dialogText.text = "";
+    }
+
+    public void EndDialog()
+    {
+        FindObjectOfType<PlayerMovement>().FreezeMovement(false);
+        FindObjectOfType<WeaponControls>().ToggleShooting(true);
+
+        dialogEnded = true;
+        soundManager.StopPopupTextSound();
     }
 
     public void ContinueDialog()
@@ -125,6 +133,8 @@ public class DialogManager : MonoBehaviour
     {
         if (!dialogStarted)
         {
+            FindObjectOfType<PlayerMovement>().FreezeMovement(true);
+            FindObjectOfType<WeaponControls>().ToggleShooting(false);
             sentences = _sentences;
             dialogStarted = true;
             dialogContinue = true;
