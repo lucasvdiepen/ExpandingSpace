@@ -15,6 +15,9 @@ TagManager:
   - GameManager
   - ShootThroughWall
   - Rock
+  - Base
+  - EventSystem
+  - UIButton
   layers:
   - Default
   - TransparentFX

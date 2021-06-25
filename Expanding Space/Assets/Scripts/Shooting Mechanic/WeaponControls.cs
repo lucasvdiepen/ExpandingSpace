@@ -13,6 +13,9 @@ public class WeaponControls : MonoBehaviour
     public float lightTime;
     Collider2D playerCollider;
     List<Collider2D> shootThroughWallColliders = new List<Collider2D>();
+
+    private bool canShoot = true;
+
     private void Start()
     {
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
@@ -43,12 +46,16 @@ public class WeaponControls : MonoBehaviour
     public void Update()
     {
         timeBtwShots -= Time.deltaTime;
+    }
 
+    public void ToggleShooting(bool _canShoot)
+    {
+        canShoot = _canShoot;
     }
 
     public void Shoot()
     {
-        if (timeBtwShots <= 0 && !FindObjectOfType<GameManager>().isPaused)
+        if (timeBtwShots <= 0 && canShoot)
         {
             GameObject newBullet = Instantiate(projectile, shotpoint.position, transform.rotation);
             Physics2D.IgnoreCollision(playerCollider, newBullet.GetComponent<Collider2D>());

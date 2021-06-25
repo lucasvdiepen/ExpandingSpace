@@ -62,8 +62,9 @@ public class PlayerMovement : MonoBehaviour
 
         if (grounded)
         {
+            FindObjectOfType<SoundManager>().PlayJumpSound();
             rb.velocity = new Vector3(rb.velocity.x, jumpPower, 0);
-            grounded = false;
+            grounded = false;            
         }
     }
 
@@ -92,6 +93,16 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!freezeMovement)
         {
+
+            if (direction < 0)
+            {
+                transform.rotation = Quaternion.Euler(transform.rotation.x, 180f, transform.rotation.z);
+            }
+            else if (direction > 0)
+            {
+                transform.rotation = Quaternion.Euler(transform.rotation.x, 0f, transform.rotation.z);
+            }
+
             rb.velocity = new Vector2(direction * movementSpeed * Time.fixedDeltaTime, rb.velocity.y);
         }
         else rb.velocity = Vector2.zero;

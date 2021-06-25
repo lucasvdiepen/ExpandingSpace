@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -36,15 +37,21 @@ public class GameManager : MonoBehaviour
 
     public void Pause()
     {
-        if (isPaused) ClosePauseScreen();
-        else OpenPauseScreen();
+        if(SceneManager.GetActiveScene().name != "MainMenu")
+        {
+            if (isPaused) ClosePauseScreen();
+            else OpenPauseScreen();
+        }
     }
 
     public void OpenPauseScreen()
     {
-        Time.timeScale = 0f;
-        isPaused = true;
-        FindObjectOfType<PauseScreen>().OpenPauseScreen();
+        if(!FindObjectOfType<MapManager>().mapCanvas.activeSelf)
+        {
+            Time.timeScale = 0f;
+            isPaused = true;
+            FindObjectOfType<PauseScreen>().OpenPauseScreen();
+        }
     }
 
     public void ClosePauseScreen()
