@@ -32,7 +32,6 @@ public class AntenneLighting : MonoBehaviour
 
     public void DisableLight()
     {
-        Debug.Log("Disable light");
         antenneLight.gameObject.SetActive(false);
     }
 }
