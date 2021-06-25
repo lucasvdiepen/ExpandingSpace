@@ -58,6 +58,7 @@ public class Dig : MonoBehaviour
 
                 if (IsControllerAvailable()) InputSystem.ResumeHaptics();
             }
+            else isNear = false;
         }
 
         public bool isDug()
@@ -75,7 +76,7 @@ public class Dig : MonoBehaviour
 
             antenneLighting.DisableLight();
 
-            if (IsControllerAvailable()) InputSystem.ResumeHaptics();
+            if (IsControllerAvailable()) InputSystem.ResetHaptics();
         }
 
         public void Dig()
