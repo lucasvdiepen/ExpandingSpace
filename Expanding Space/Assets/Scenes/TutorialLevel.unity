@@ -469,6 +469,24 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 644959090254529019, guid: bdd996786d3b8c245aecad2ec1b06ba7, type: 3}
   m_PrefabInstance: {fileID: 395637355}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &395637357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395637356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c77e920b065e75147ad9075b14c7adf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttons: {fileID: 0}
+  apearingBlocks:
+  - {fileID: 1896776937}
+  - {fileID: 395637356}
+  startTime: 0
+  minTime: 0
 --- !u!1001 &451205301
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1770,7 +1788,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7768975159740133175, guid: bfd1cf73e02a80b47a8f32be3a2ac317, type: 3}
       propertyPath: rewards.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfd1cf73e02a80b47a8f32be3a2ac317, type: 3}
@@ -2399,8 +2417,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6898d2010f50450439082aa6f0216544, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  freezeX: 0
   xMin: 0
   xMax: 65.06
+  freezeY: 0
+  yMin: 0
+  yMax: 0
+  yOffset: 0
   moveToPositionTime: 2
 --- !u!1001 &1896776936
 PrefabInstance:
