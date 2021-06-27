@@ -534,6 +534,66 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "TravelGame",
+            "id": "f61485ca-3e81-42f0-9007-cab798c08d78",
+            "actions": [
+                {
+                    "name": "Retry",
+                    "type": "Button",
+                    "id": "4106f4b5-ba2a-466d-8fec-af091bc7194f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "da3bbc9b-a0af-4cf0-9ca7-9bb57620e07e",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Retry",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b1721af9-5f33-409d-b7d6-9b63369f211e",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Retry",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "43ec1c9f-6e57-4966-b0b6-c71ecf1f15e7",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Retry",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "64f6fcb9-472f-4169-9270-91f619509de3",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Retry",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
