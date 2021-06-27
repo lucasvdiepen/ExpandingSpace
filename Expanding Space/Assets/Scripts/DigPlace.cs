@@ -15,7 +15,7 @@ public class DigPlace : MonoBehaviour
 
     public DigAction digAction;
 
-    public GameObject[] rewards;
+    public Inventory.AllItems[] rewards;
 
     public Transform endTeleportPoint;
 
@@ -44,7 +44,7 @@ public class DigPlace : MonoBehaviour
             StartCoroutine(FindObjectOfType<Dig>().DigLoot(transform));
 
             //Give items to inventory here
-            foreach (GameObject reward in rewards)
+            foreach (Inventory.AllItems reward in rewards)
             {
                 FindObjectOfType<Inventory>().AddToInventory(reward);
             }

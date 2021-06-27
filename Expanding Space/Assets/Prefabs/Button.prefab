@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 644959090254529022}
   - component: {fileID: 644959090254529017}
   - component: {fileID: 644959090254529020}
-  - component: {fileID: 644959090254529021}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -109,21 +108,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &644959090254529021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 644959090254529019}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c77e920b065e75147ad9075b14c7adf7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buttons: {fileID: 644959090254529019}
-  apearingBlocks:
-  - {fileID: 0}
-  - {fileID: 0}
-  startTime: 0.1
-  minTime: 0
