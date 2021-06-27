@@ -297,7 +297,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93be5e49b3a192443a28bad330eb8da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sentences: []
+  sentences:
+  - Hey! You finally made it to your base.
+  - Here you can travel to other planets if you have the required emeralds.
 --- !u!61 &319729832
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1311,7 +1313,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93be5e49b3a192443a28bad330eb8da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sentences: []
+  sentences:
+  - Hey you there! You need to help me.
+  - Some obstacles can be controlled if you hit them.
+  - Try to shoot the big obstacle and move it on the button.
 --- !u!61 &1101123425
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1592,7 +1597,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93be5e49b3a192443a28bad330eb8da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sentences: []
+  sentences:
+  - Hey! The road is blocked by a wall.
+  - I think that some dig places can also be used to go to other dig places
+  - You should try it out!
 --- !u!61 &1289293639
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2484,7 +2492,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sentences:
   - 'Press to continue. Keyboard: E. Controller: A'
-  - Beer dialog
+  - Hey! I found a dig place behind me.
+  - You can find it with the anntenne on your helmet.
+  - The light is brighter when you are closer to a dig place.
+  - There might be something valuable.
 --- !u!61 &1898082872
 BoxCollider2D:
   m_ObjectHideFlags: 0
