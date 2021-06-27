@@ -300,6 +300,10 @@ MonoBehaviour:
   sentences:
   - Hey! You finally made it to your base.
   - Here you can travel to other planets if you have the required emeralds.
+  - If you want to check what emeralds you have press ESC on keyboard
+  - or START on controller.
+  - There are more emeralds to be researched. You should try to fly to another planet.
+  - Good luck!
 --- !u!61 &319729832
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1314,7 +1318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sentences:
-  - Hey you there! You need to help me.
+  - Hey you there! Could you please help me with moving the obstacle.
   - Some obstacles can be controlled if you hit them.
   - Try to shoot the big obstacle and move it on the button.
 --- !u!61 &1101123425
@@ -1600,6 +1604,7 @@ MonoBehaviour:
   sentences:
   - Hey! The road is blocked by a wall.
   - I think that some dig places can also be used to go to other dig places
+  - There is a dig place near the wall.
   - You should try it out!
 --- !u!61 &1289293639
 BoxCollider2D:
@@ -2493,9 +2498,10 @@ MonoBehaviour:
   sentences:
   - 'Press to continue. Keyboard: E. Controller: A'
   - Hey! I found a dig place behind me.
-  - You can find it with the anntenne on your helmet.
-  - The light is brighter when you are closer to a dig place.
+  - You can find it with the antenna on your helmet.
+  - The light gets brighter when you are closer to a dig place.
   - There might be something valuable.
+  - You should check it out.
 --- !u!61 &1898082872
 BoxCollider2D:
   m_ObjectHideFlags: 0
