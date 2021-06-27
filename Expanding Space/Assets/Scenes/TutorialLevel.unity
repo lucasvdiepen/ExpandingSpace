@@ -543,6 +543,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7768975159740133175, guid: bfd1cf73e02a80b47a8f32be3a2ac317, type: 3}
+      propertyPath: rgb1
+      value: 170
+      objectReference: {fileID: 0}
+    - target: {fileID: 7768975159740133175, guid: bfd1cf73e02a80b47a8f32be3a2ac317, type: 3}
+      propertyPath: rgb2
+      value: 173
+      objectReference: {fileID: 0}
+    - target: {fileID: 7768975159740133175, guid: bfd1cf73e02a80b47a8f32be3a2ac317, type: 3}
+      propertyPath: rgb3
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 7768975159740133175, guid: bfd1cf73e02a80b47a8f32be3a2ac317, type: 3}
       propertyPath: digAction
       value: 1
       objectReference: {fileID: 0}
@@ -2197,6 +2209,18 @@ PrefabInstance:
     - target: {fileID: 7768975159740133169, guid: bfd1cf73e02a80b47a8f32be3a2ac317, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7768975159740133175, guid: bfd1cf73e02a80b47a8f32be3a2ac317, type: 3}
+      propertyPath: rgb1
+      value: 170
+      objectReference: {fileID: 0}
+    - target: {fileID: 7768975159740133175, guid: bfd1cf73e02a80b47a8f32be3a2ac317, type: 3}
+      propertyPath: rgb2
+      value: 173
+      objectReference: {fileID: 0}
+    - target: {fileID: 7768975159740133175, guid: bfd1cf73e02a80b47a8f32be3a2ac317, type: 3}
+      propertyPath: rgb3
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 7768975159740133175, guid: bfd1cf73e02a80b47a8f32be3a2ac317, type: 3}
       propertyPath: digAction
