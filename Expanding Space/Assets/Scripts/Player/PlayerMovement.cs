@@ -93,10 +93,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!freezeMovement)
         {
-
             if (direction < 0)
             {
                 transform.rotation = Quaternion.Euler(transform.rotation.x, 180f, transform.rotation.z);
+
             }
             else if (direction > 0)
             {
