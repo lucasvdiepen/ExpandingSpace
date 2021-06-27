@@ -25,19 +25,25 @@ public class Button : MonoBehaviour
                 Destroy(buttons);
             }
         }
-        
+
     }
     public void OnCollisionEnter2D(Collision2D collision)
-    { 
+    {
 
         if (collision.collider.tag == "MovableObject")
         {
             ApearingBlocksSetActive(false);
             transform.localScale = new Vector3(1, 0.25f, 1);
-            transform.position = new Vector3(3.98f , -3.1f, 0);
+            transform.position = new Vector3(3.98f, -3.1f, 0);
             minTime = true;
         }
-
+        if (collision.collider.tag == "Rock")
+        {
+            ApearingBlocksSetActive(false);
+            transform.localScale = new Vector3(1, 0.25f, 1);
+            transform.position = new Vector3(3.98f, -3.1f, 0);
+            minTime = true;
+        }
     }
     private void ApearingBlocksSetActive(bool active)
     {
