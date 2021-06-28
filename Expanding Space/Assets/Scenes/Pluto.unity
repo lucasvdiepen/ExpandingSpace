@@ -633,10 +633,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 516363935861735194, guid: 151e6298d73e1144e85d8a3def47a889, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 1952999753829323815, guid: 151e6298d73e1144e85d8a3def47a889, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -653,21 +649,9 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 5327780361412924477, guid: 151e6298d73e1144e85d8a3def47a889, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5480232239903622439, guid: 151e6298d73e1144e85d8a3def47a889, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 5480232239903622439, guid: 151e6298d73e1144e85d8a3def47a889, type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6746235792605153882, guid: 151e6298d73e1144e85d8a3def47a889, type: 3}
-      propertyPath: m_Layer
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7142842177806796354, guid: 151e6298d73e1144e85d8a3def47a889, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
@@ -708,14 +692,6 @@ PrefabInstance:
     - target: {fileID: 8757108344470064913, guid: 151e6298d73e1144e85d8a3def47a889, type: 3}
       propertyPath: directionalLightFlippedRotation.z
       value: 340.3405
-      objectReference: {fileID: 0}
-    - target: {fileID: 9167914379813863769, guid: 151e6298d73e1144e85d8a3def47a889, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 9167914380726643825, guid: 151e6298d73e1144e85d8a3def47a889, type: 3}
-      propertyPath: m_Layer
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9167914381259909253, guid: 151e6298d73e1144e85d8a3def47a889, type: 3}
       propertyPath: m_RootOrder
@@ -764,10 +740,6 @@ PrefabInstance:
     - target: {fileID: 9167914381259909254, guid: 151e6298d73e1144e85d8a3def47a889, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 9167914381259909254, guid: 151e6298d73e1144e85d8a3def47a889, type: 3}
-      propertyPath: m_Layer
-      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 151e6298d73e1144e85d8a3def47a889, type: 3}
