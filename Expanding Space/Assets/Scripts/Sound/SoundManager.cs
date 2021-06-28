@@ -17,9 +17,6 @@ public class SoundManager : MonoBehaviour
     public AudioClip itemObtained;
     public AudioClip jump;
 
-    public float laserVolume;
-    public float jumpVolume = 0.3f;
-
     private void OnLevelWasLoaded(int level)
     {
         Scene loadedScene = SceneManager.GetSceneByBuildIndex(level);
@@ -35,9 +32,7 @@ public class SoundManager : MonoBehaviour
 
     public void PlayLaserSound()
     {
-        sfxAudioSource.volume = laserVolume;
         sfxAudioSource.PlayOneShot(laser);
-        sfxAudioSource.volume = 1.0f;
     }
 
     public void PlayExplosionSound()
@@ -77,9 +72,7 @@ public class SoundManager : MonoBehaviour
 
     public void PlayJumpSound()
     {
-        sfxAudioSource.volume = jumpVolume;
         sfxAudioSource.PlayOneShot(jump);
-        sfxAudioSource.volume = 1f;
     }
 
     public void PlayButtonClickSound()
