@@ -26,11 +26,13 @@ public class PauseScreen : MonoBehaviour
 
     public void ResumeButtonClicked()
     {
+        FindObjectOfType<SoundManager>().PlayButtonClickSound();
         FindObjectOfType<GameManager>().ClosePauseScreen();
     }
 
     public void QuitButtonClicked()
     {
+        FindObjectOfType<SoundManager>().PlayButtonClickSound();
         FindObjectOfType<GameManager>().ClosePauseScreen();
         SceneManager.LoadScene("MainMenu");
     }
