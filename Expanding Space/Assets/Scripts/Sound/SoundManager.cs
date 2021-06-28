@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SoundManager : MonoBehaviour
 {
@@ -18,6 +19,19 @@ public class SoundManager : MonoBehaviour
 
     public float laserVolume;
     public float jumpVolume = 0.3f;
+
+    private void OnLevelWasLoaded(int level)
+    {
+        Scene loadedScene = SceneManager.GetSceneByBuildIndex(level);
+        if(loadedScene.name == "TravelGame")
+        {
+            if (backgroundSource.isPlaying) backgroundSource.Stop();
+        }
+        else
+        {
+            if (!backgroundSource.isPlaying) backgroundSource.Play();
+        }
+    }
 
     public void PlayLaserSound()
     {
