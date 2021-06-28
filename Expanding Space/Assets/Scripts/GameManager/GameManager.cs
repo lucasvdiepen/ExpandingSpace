@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     {
         if (gameManager == null)
         {
+            Debug.Log("Dont destroy game object");
             DontDestroyOnLoad(gameObject);
             gameManager = this;
         }

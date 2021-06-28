@@ -261,6 +261,7 @@ MonoBehaviour:
   continueImage: {fileID: 251665115120405671}
   dialogHolder: {fileID: 5655759274015584333}
   letterDelay: 0.05
+  dialogDelay: 0.5
 --- !u!1 &373940848807928551
 GameObject:
   m_ObjectHideFlags: 0

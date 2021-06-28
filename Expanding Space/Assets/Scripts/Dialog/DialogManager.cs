@@ -12,6 +12,8 @@ public class DialogManager : MonoBehaviour
 
     public float letterDelay = 0.05f;
 
+    public float dialogDelay = 0.5f;
+
     private string[] sentences;
 
     private int sentenceCount = 0;
@@ -22,6 +24,8 @@ public class DialogManager : MonoBehaviour
     private bool dialogEnded = false;
 
     private float lastLetterTime = 0f;
+
+    private float lastDialogTime = 0f;
 
     PlayerControls playerControls;
 
@@ -110,6 +114,7 @@ public class DialogManager : MonoBehaviour
         FindObjectOfType<PlayerMovement>().FreezeMovement(false);
         FindObjectOfType<WeaponControls>().ToggleShooting(true);
 
+        lastDialogTime = Time.time;
         dialogEnded = true;
         soundManager.StopPopupTextSound();
     }
@@ -131,7 +136,7 @@ public class DialogManager : MonoBehaviour
 
     public void StartDialog(string[] _sentences)
     {
-        if (!dialogStarted)
+        if (!dialogStarted && Time.time >= (lastDialogTime + dialogDelay))
         {
             FindObjectOfType<PlayerMovement>().FreezeMovement(true);
             FindObjectOfType<WeaponControls>().ToggleShooting(false);
