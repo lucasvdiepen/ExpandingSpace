@@ -112,6 +112,8 @@ public class MapManager : MonoBehaviour
     {
         Debug.Log("Planet clicked " + planetId);
 
+        FindObjectOfType<SoundManager>().PlayButtonClickSound();
+
         if ((PlanetSelection.Planets)planetId != FindObjectOfType<SaveManager>().GetPlanet())
         {
             if (planetId > 0)
