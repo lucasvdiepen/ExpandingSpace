@@ -29,22 +29,10 @@ public class DialogManager : MonoBehaviour
 
     PlayerControls playerControls;
 
-    public static DialogManager dialogManager = null;
-
     SoundManager soundManager;
 
     private void Awake()
     {
-        if(dialogManager == null)
-        {
-            DontDestroyOnLoad(gameObject);
-            dialogManager = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-
         playerControls = new PlayerControls();
 
         playerControls.Dialog.ContinueDialog.performed += ctx => ContinueDialog();
