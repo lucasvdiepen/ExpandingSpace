@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +15,8 @@ public class SettingButtons : MonoBehaviour
     public AudioSource backgroundVolume;
 
     public GameObject removeSaveDataCanvas;
+
+    public TextMeshProUGUI volumeText;
 
     Resolution[] resolutions;
     void Start()
@@ -41,7 +45,15 @@ public class SettingButtons : MonoBehaviour
         resolution.AddOptions(options);
         resolution.value = currentResolutionIndex;
         resolution.RefreshShownValue();
+
+        volume.onValueChanged.AddListener(VolumeScrollBarChanged);
     }
+
+    private void VolumeScrollBarChanged(float arg0)
+    {
+        Debug.Log(arg0);
+    }
+    
     private void Awake()
     {
         GetVolumeValue();
@@ -52,6 +64,7 @@ public class SettingButtons : MonoBehaviour
     public void GetVolumeValue()
     {
         volume.value = backgroundVolume.volume;
+        volumeText.text = Mathf.RoundToInt(volume.value * 100).ToString();
     }
 
     public void SetQuality(int qualityIndex)

@@ -17,6 +17,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip jump;
 
     public float laserVolume;
+    public float jumpVolume = 0.3f;
 
     public void PlayLaserSound()
     {
@@ -62,8 +63,10 @@ public class SoundManager : MonoBehaviour
 
     public void PlayJumpSound()
     {
+        sfxAudioSource.volume = jumpVolume;
         sfxAudioSource.PlayOneShot(jump);
-    }    
+        sfxAudioSource.volume = 1f;
+    }
 
     public void PlayButtonClickSound()
     {

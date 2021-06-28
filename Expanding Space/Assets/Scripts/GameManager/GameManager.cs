@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
             gameManager = this;
         }
-        else Destroy(gameObject);
+        else DestroyImmediate(gameObject);
 
         playerControls = new PlayerControls();
 
