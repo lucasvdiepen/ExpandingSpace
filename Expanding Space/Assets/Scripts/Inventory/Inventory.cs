@@ -6,33 +6,44 @@ public class Inventory : MonoBehaviour
 {
     private List<AllItems> items = new List<AllItems>();
 
-    public static Inventory inventoryScript;
-
-    private void Awake()
+    private void Start()
     {
-        if (inventoryScript == null)
-        {
-            DontDestroyOnLoad(gameObject);
-            inventoryScript = this;
-        }
-        else Destroy(gameObject);
+        items = FindObjectOfType<SaveManager>().GetInventory();
     }
 
     public enum AllItems
     {
-        Diamond = 0,
-        Emerald = 1
+        Level1Emerald1,
+        Level1Emerald2,
+        Level2Emerald1,
+        Level2Emerald2,
+        Level3Emerald1,
+        Level3Emerald2,
+        Level4Emerald1,
+        Level4Emerald2,
+        Level5Emerald1,
+        Level5Emerald2,
+        Level6Emerald1,
+        Level6Emerald2,
+        Level7Emerald1,
+        Level7Emerald2,
+        Level8Emerald1,
+        Level8Emerald2
     }
 
     public void AddToInventory(GameObject item)
     {
         Item itemScript = item.GetComponent<Item>();
         items.Add(itemScript.item);
+
+        FindObjectOfType<SaveManager>().SetInventory(items);
     }
 
     public void AddToInventory(AllItems item)
     {
         items.Add(item);
+
+        FindObjectOfType<SaveManager>().SetInventory(items);
     }
 
     public bool HasItem(AllItems item)

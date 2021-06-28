@@ -6,7 +6,34 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/GameScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/MainMenu.unity
+    guid: 588fb3e9acb7b824aab0515f739c29db
+  - enabled: 1
+    path: Assets/Scenes/Mercury.unity
+    guid: 941664c7b63e01c4a833921431e2ffa6
+  - enabled: 1
+    path: Assets/Scenes/TravelGame.unity
+    guid: 4bb2516dc03d88f4d944ad944298c2ad
+  - enabled: 1
+    path: Assets/Scenes/Jupiter.unity
+    guid: 76541113264afda47af56751cf05386c
+  - enabled: 1
+    path: Assets/Scenes/Mars.unity
+    guid: 6308b45b53b8a0849b012015a1ae9da8
+  - enabled: 1
+    path: Assets/Scenes/Neptune.unity
+    guid: 38114746778b3a9408d405f8e9afa190
+  - enabled: 1
+    path: Assets/Scenes/Pluto.unity
+    guid: e47f652e0d679f644ab2129fd8c56036
+  - enabled: 1
+    path: Assets/Scenes/Saturn.unity
+    guid: 6e7dbcf241ab4c141875be9fd3f6469b
+  - enabled: 1
+    path: Assets/Scenes/Uranus.unity
+    guid: 2112aa82b238bc64bb669ffcdcb42c19
+  - enabled: 1
+    path: Assets/Scenes/Venus.unity
+    guid: dd02ad716395c3047b0d9e0bf557e604
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: f3d891ec4a3a10c4a910aa4f5cf106fd, type: 2}
