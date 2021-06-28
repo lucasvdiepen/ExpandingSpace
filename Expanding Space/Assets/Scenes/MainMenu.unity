@@ -4358,6 +4358,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2841405529714395171, guid: b037cb0625dcf674c8f77a6a741d86b0, type: 3}
+      propertyPath: laserVolume
+      value: 0.001
+      objectReference: {fileID: 0}
     - target: {fileID: 8088553412257787873, guid: b037cb0625dcf674c8f77a6a741d86b0, type: 3}
       propertyPath: m_RootOrder
       value: 3
