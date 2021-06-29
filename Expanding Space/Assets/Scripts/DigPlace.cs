@@ -67,12 +67,4 @@ public class DigPlace : MonoBehaviour
             main.startColor = newColor;
         }
     }
-
-    public void PlayPickAnimation(Vector3 startPosition, Vector3 startRotation)
-    {
-        foreach(GameObject reward in rewards)
-        {
-            Instantiate(reward, startPosition, Quaternion.Euler(startRotation));
-        }
-    }
 }
