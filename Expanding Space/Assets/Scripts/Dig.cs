@@ -83,6 +83,11 @@ public class Dig : MonoBehaviour
         {
             script.Dig();
         }
+
+        public void PlayPickAnimation()
+        {
+            script.PlayPickAnimation(position, rotation);
+        }
     }
 
     private DigPlaceInfo digInfo = new DigPlaceInfo();
@@ -209,8 +214,6 @@ public class Dig : MonoBehaviour
 
             yield return new WaitUntil(() => !isRotating);
 
-            PlayerDig(false);
-
             isDigging = false;
 
             dirt.Stop();
@@ -218,6 +221,10 @@ public class Dig : MonoBehaviour
             FindObjectOfType<SoundManager>().StopDigSound();
 
             FindObjectOfType<SoundManager>().PlayGetItemSounds();
+
+            digInfo.PlayPickAnimation();
+
+            PlayerDig(false);
         }
     }
 
