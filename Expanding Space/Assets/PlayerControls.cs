@@ -394,75 +394,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""Keyboard"",
-                    ""id"": ""97b689a3-c504-4b5c-ba22-26cbdf80df75"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ControllerMouse"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""0b79666c-5174-413a-80d6-b08c7c59f030"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ControllerMouse"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""2b80d000-6f83-4a9c-b50a-d2dd880a1211"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ControllerMouse"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""cea05d03-a355-4bc8-b717-8758cdb86f40"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ControllerMouse"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""34a9aa10-f41f-4b32-a27e-2c6ceac3791f"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ControllerMouse"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
                     ""name"": """",
                     ""id"": ""037f3b13-359e-481a-90df-5287c70f1e4c"",
                     ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ControllerClick"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""df687ba7-36f9-4338-bd41-b5ec2fc4d73c"",
-                    ""path"": ""<Keyboard>/x"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -547,6 +481,66 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""TravelGame"",
+            ""id"": ""f61485ca-3e81-42f0-9007-cab798c08d78"",
+            ""actions"": [
+                {
+                    ""name"": ""Retry"",
+                    ""type"": ""Button"",
+                    ""id"": ""4106f4b5-ba2a-466d-8fec-af091bc7194f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""da3bbc9b-a0af-4cf0-9ca7-9bb57620e07e"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Retry"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b1721af9-5f33-409d-b7d6-9b63369f211e"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Retry"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""43ec1c9f-6e57-4966-b0b6-c71ecf1f15e7"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Retry"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""64f6fcb9-472f-4169-9270-91f619509de3"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Retry"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -577,6 +571,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         // Map
         m_Map = asset.FindActionMap("Map", throwIfNotFound: true);
         m_Map_MapExit = m_Map.FindAction("MapExit", throwIfNotFound: true);
+        // TravelGame
+        m_TravelGame = asset.FindActionMap("TravelGame", throwIfNotFound: true);
+        m_TravelGame_Retry = m_TravelGame.FindAction("Retry", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -884,6 +881,39 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         }
     }
     public MapActions @Map => new MapActions(this);
+
+    // TravelGame
+    private readonly InputActionMap m_TravelGame;
+    private ITravelGameActions m_TravelGameActionsCallbackInterface;
+    private readonly InputAction m_TravelGame_Retry;
+    public struct TravelGameActions
+    {
+        private @PlayerControls m_Wrapper;
+        public TravelGameActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Retry => m_Wrapper.m_TravelGame_Retry;
+        public InputActionMap Get() { return m_Wrapper.m_TravelGame; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(TravelGameActions set) { return set.Get(); }
+        public void SetCallbacks(ITravelGameActions instance)
+        {
+            if (m_Wrapper.m_TravelGameActionsCallbackInterface != null)
+            {
+                @Retry.started -= m_Wrapper.m_TravelGameActionsCallbackInterface.OnRetry;
+                @Retry.performed -= m_Wrapper.m_TravelGameActionsCallbackInterface.OnRetry;
+                @Retry.canceled -= m_Wrapper.m_TravelGameActionsCallbackInterface.OnRetry;
+            }
+            m_Wrapper.m_TravelGameActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Retry.started += instance.OnRetry;
+                @Retry.performed += instance.OnRetry;
+                @Retry.canceled += instance.OnRetry;
+            }
+        }
+    }
+    public TravelGameActions @TravelGame => new TravelGameActions(this);
     public interface IGameplayActions
     {
         void OnJump(InputAction.CallbackContext context);
@@ -915,5 +945,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     public interface IMapActions
     {
         void OnMapExit(InputAction.CallbackContext context);
+    }
+    public interface ITravelGameActions
+    {
+        void OnRetry(InputAction.CallbackContext context);
     }
 }

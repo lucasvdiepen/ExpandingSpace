@@ -15,10 +15,11 @@ public class GameManager : MonoBehaviour
     {
         if (gameManager == null)
         {
+            Debug.Log("Dont destroy game object");
             DontDestroyOnLoad(gameObject);
             gameManager = this;
         }
-        else Destroy(gameObject);
+        else DestroyImmediate(gameObject);
 
         playerControls = new PlayerControls();
 

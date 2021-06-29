@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7155595169633997764}
   - component: {fileID: 5081660927939001557}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PointerHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 6779906891368038010}
   - component: {fileID: 3982328435725369120}
   - component: {fileID: 6012019590696006181}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -388,7 +388,7 @@ GameObject:
   m_Component:
   - component: {fileID: 502083125789935857}
   - component: {fileID: 8741510078028334953}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Directional Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -481,7 +481,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9167914379813863768}
   - component: {fileID: 9167914379813863751}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -574,7 +574,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9167914380726643824}
   - component: {fileID: 9167914380726643839}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mol_normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -663,7 +663,8 @@ GameObject:
   - component: {fileID: 3328072233485427725}
   - component: {fileID: 8757108344470064913}
   - component: {fileID: 5362439029821422215}
-  m_Layer: 0
+  - component: {fileID: 390182084320338099}
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -817,6 +818,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffc05f334980f244c8e4b447cea52fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &390182084320338099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9167914381259909254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e818771fa9e1b634bafc36408f0e812d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3983743155820721704
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -871,6 +884,10 @@ PrefabInstance:
     - target: {fileID: 7698456056562187378, guid: 8f51768fb9bfb8442a697680370bf900, type: 3}
       propertyPath: m_Name
       value: DigParticleSystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 7698456056562187378, guid: 8f51768fb9bfb8442a697680370bf900, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f51768fb9bfb8442a697680370bf900, type: 3}

@@ -261,6 +261,7 @@ MonoBehaviour:
   continueImage: {fileID: 251665115120405671}
   dialogHolder: {fileID: 5655759274015584333}
   letterDelay: 0.05
+  dialogDelay: 0.5
 --- !u!1 &373940848807928551
 GameObject:
   m_ObjectHideFlags: 0
@@ -1078,7 +1079,7 @@ GameObject:
   - component: {fileID: 8715737525946877442}
   m_Layer: 0
   m_Name: EventSystem
-  m_TagString: Untagged
+  m_TagString: EventSystem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4193,7 +4194,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 26badcb0220a9b646942fac0556b29a4, type: 3}
+  m_Texture: {fileID: 2800000, guid: 2672f91021a3d6b46807c5b807d248df, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
