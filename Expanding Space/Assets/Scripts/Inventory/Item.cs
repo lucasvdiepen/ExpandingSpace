@@ -6,8 +6,13 @@ public class Item : MonoBehaviour
 {
     public Inventory.AllItems item;
 
+    public bool isInWorld = false;
+
     private void Start()
     {
-        if (FindObjectOfType<Inventory>().HasItem(item)) Destroy(gameObject);
+        if(isInWorld)
+        {
+            if (FindObjectOfType<Inventory>().HasItem(item)) Destroy(gameObject);
+        }
     }
 }

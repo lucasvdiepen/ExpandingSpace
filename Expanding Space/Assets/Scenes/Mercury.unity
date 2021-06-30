@@ -1030,8 +1030,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7768975159740133175, guid: bfd1cf73e02a80b47a8f32be3a2ac317, type: 3}
       propertyPath: rewards.Array.data[0]
-      value: 3
-      objectReference: {fileID: 0}
+      value: 
+      objectReference: {fileID: 2037845653453835556, guid: 03914a8e2e1b4f34296ea1265821f06e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfd1cf73e02a80b47a8f32be3a2ac317, type: 3}
 --- !u!1 &1465394707
@@ -1177,8 +1177,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7768975159740133175, guid: bfd1cf73e02a80b47a8f32be3a2ac317, type: 3}
       propertyPath: rewards.Array.data[0]
-      value: 2
-      objectReference: {fileID: 0}
+      value: 
+      objectReference: {fileID: 7990832375652185165, guid: 4e598b9d3633099488a9d20aa40e3bf8, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfd1cf73e02a80b47a8f32be3a2ac317, type: 3}
 --- !u!1 &1534821245
