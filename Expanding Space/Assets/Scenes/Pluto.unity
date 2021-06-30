@@ -661,10 +661,6 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
       objectReference: {fileID: 0}
-    - target: {fileID: 8741510078028334953, guid: 151e6298d73e1144e85d8a3def47a889, type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
     - target: {fileID: 8757108344470064913, guid: 151e6298d73e1144e85d8a3def47a889, type: 3}
       propertyPath: directionalLight
       value: 

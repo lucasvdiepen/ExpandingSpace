@@ -66,8 +66,11 @@ public class ShipHit : MonoBehaviour
     }
     public void Retry()
     {
-        // reloads this scene
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        if(canvas.activeSelf)
+        {
+            // reloads this scene
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 
     void ShipEntersPlanet(PlanetSelection.Planets planet)
