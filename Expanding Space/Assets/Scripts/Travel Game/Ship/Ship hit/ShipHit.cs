@@ -12,6 +12,25 @@ public class ShipHit : MonoBehaviour
     public GameObject meteorite;
 
     public GameObject canvas;
+
+    public PlayerControls playerControls;
+
+    private void Awake()
+    {
+        playerControls = new PlayerControls();
+        playerControls.TravelGame.Retry.performed += ctx => Retry();
+    }
+
+    private void OnEnable()
+    {
+        playerControls.TravelGame.Enable();
+    }
+
+    private void OnDisable()
+    {
+        playerControls.TravelGame.Disable();
+    }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         // compares if the ship hits a meteorite
@@ -59,6 +78,7 @@ public class ShipHit : MonoBehaviour
         gameObject.GetComponent<MovementShip>().enabled = false;
 
         // load scene
+        FindObjectOfType<SaveManager>().SetPlanet(planet);
         SceneManager.LoadScene(planet.ToString());
     }
 }

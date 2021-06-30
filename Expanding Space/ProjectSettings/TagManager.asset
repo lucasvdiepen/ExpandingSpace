@@ -12,6 +12,13 @@ TagManager:
   - Ground
   - DigPlace
   - Dialog
+  - GameManager
+  - ShootThroughWall
+  - Rock
+  - Base
+  - EventSystem
+  - UIButton
+  - Emerald
   layers:
   - Default
   - TransparentFX
@@ -19,7 +26,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Player
   - 
   - 
   - 

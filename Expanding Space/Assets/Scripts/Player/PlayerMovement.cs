@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     PlayerControls playerControls;
     Vector2 move;
 
+    private bool freezeMovement = false;
+
     public float groundDistance = 1f;
 
     public float digDownPosition = -6.5f;
@@ -21,12 +23,6 @@ public class PlayerMovement : MonoBehaviour
     private float digMoveTime = 0f;
 
     private float timeElapsed = 0;
-
-    private bool freezeMovement = false;
-
-    private bool isDigging = false;
-
-    public ParticleSystem dirt;
 
     void Awake()
     {
@@ -66,8 +62,9 @@ public class PlayerMovement : MonoBehaviour
 
         if (grounded)
         {
+            FindObjectOfType<SoundManager>().PlayJumpSound();
             rb.velocity = new Vector3(rb.velocity.x, jumpPower, 0);
-            grounded = false;
+            grounded = false;            
         }
     }
 
@@ -92,106 +89,37 @@ public class PlayerMovement : MonoBehaviour
         Move(move.x);
     }
 
-    public IEnumerator DigLoot(Transform digPlacePosition)
-    {
-        if(!isDigging)
-        {
-            dirt.Play();
-
-            isDigging = true;
-
-            freezeMovement = true;
-
-            //Move to center
-            MoveToPosition(digPlacePosition.position, 0.4f);
-
-            //Move down animation here
-
-            //Move down
-            yield return new WaitUntil(() => !movingToPosition);
-
-            MoveToPosition(new Vector3(digPlacePosition.position.x, digDownPosition, digPlacePosition.position.z), 1.5f);
-            dirt.Stop();
-
-            //Move up animation here
-
-            //Move up
-            yield return new WaitUntil(() => !movingToPosition);
-
-            MoveToPosition(digPlacePosition.position, 1f);
-            dirt.Play();
-
-            yield return new WaitUntil(() => !movingToPosition);
-
-            freezeMovement = false;
-            
-            isDigging = false;
-            dirt.Stop();
-        }
-
-
-    }
-
-    public IEnumerator DigTeleport(Transform digPlacePosition, Transform digEndPlacePosition)
-    {
-        if(!isDigging)
-        {
-            dirt.Play();
-
-            isDigging = true;
-
-            freezeMovement = true;
-
-            //Move to center
-            MoveToPosition(digPlacePosition.position, 0.4f);
-
-            // Move down animation here
-
-            //Move down
-            yield return new WaitUntil(() => !movingToPosition);
-
-            MoveToPosition(new Vector3(digPlacePosition.position.x, digDownPosition, digPlacePosition.position.z), 1f);
-
-            dirt.Stop();
-
-            //Move sideways
-            yield return new WaitUntil(() => !movingToPosition);
-
-            MoveToPosition(new Vector3(digEndPlacePosition.position.x, digDownPosition, digPlacePosition.position.z), 2f);
-
-            //Move up animation here
-
-            //Move up
-            yield return new WaitUntil(() => !movingToPosition);
-
-            dirt.Play();
-
-            MoveToPosition(new Vector3(digEndPlacePosition.position.x, digEndPlacePosition.position.y, digEndPlacePosition.position.z), 1f);
-
-            yield return new WaitUntil(() => !movingToPosition);
-            freezeMovement = false;
-
-            isDigging = false;
-            dirt.Stop();
-        }
-    }
-
-    public void MoveToPosition(Vector3 position, float moveTime)
-    {
-        timeElapsed = 0;
-        movingToPosition = true;
-        digPosition = position;
-        digOldPosition = transform.position;
-        digMoveTime = moveTime;
-    }
-
     public void Move(float direction)
     {
         if (!freezeMovement)
         {
+            if (direction < 0)
+            {
+                transform.rotation = Quaternion.Euler(transform.rotation.x, 180f, transform.rotation.z);
+
+            }
+            else if (direction > 0)
+            {
+                transform.rotation = Quaternion.Euler(transform.rotation.x, 0f, transform.rotation.z);
+            }
+
             rb.velocity = new Vector2(direction * movementSpeed * Time.fixedDeltaTime, rb.velocity.y);
         }
         else rb.velocity = Vector2.zero;
+    }
+
+    public void FreezeMovement(bool freeze)
+    {
+        if(freeze)
+        {
+            freezeMovement = true;
+            rb.gravityScale = 0;
+        }
+        else
+        {
+            freezeMovement = false;
+            rb.gravityScale = 1;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

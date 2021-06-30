@@ -11,11 +11,11 @@ public class PlanetSelection : MonoBehaviour
         Mercury,
         Mars,
         Venus,
-        Earth,
+        Jupiter,
         Neptune,
         Uranus,
         Saturn,
-        Jupiter
+        Earth
     }
 
     public static Planets nameOfPlanet;

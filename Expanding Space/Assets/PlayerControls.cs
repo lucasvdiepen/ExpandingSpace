@@ -329,6 +329,218 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""UI"",
+            ""id"": ""6bea5eef-2265-400d-83fe-80a9b30330f8"",
+            ""actions"": [
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""506c6e38-7f87-41f0-98dd-0ba8b8d639f8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""ControllerMouse"",
+                    ""type"": ""Value"",
+                    ""id"": ""765e5007-0299-47ef-89b9-b5bffc33427c"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""ControllerClick"",
+                    ""type"": ""Button"",
+                    ""id"": ""ddce8323-4d1f-44ac-976d-c6f5fb341fab"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""35360cae-13bc-4399-9056-56bc367fe302"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7f5f9c13-9a69-414d-926e-55b05bd95d0d"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e236a9bf-a829-424a-a83b-c300d5079f0f"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ControllerMouse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""037f3b13-359e-481a-90df-5287c70f1e4c"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ControllerClick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Base"",
+            ""id"": ""725fafbb-330b-4ecc-9bf4-0ae443742d25"",
+            ""actions"": [
+                {
+                    ""name"": ""EnterBase"",
+                    ""type"": ""Button"",
+                    ""id"": ""0b997afb-87dd-46f0-be4d-33df5225f1fb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""7253e11a-6758-4b22-b37e-381f1a42478a"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EnterBase"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""374d0b54-6f49-4cf3-b796-10de2bcdf0d3"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EnterBase"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Map"",
+            ""id"": ""2550fa94-505f-4097-9c30-6d3c286fe384"",
+            ""actions"": [
+                {
+                    ""name"": ""MapExit"",
+                    ""type"": ""Button"",
+                    ""id"": ""18d5a7ed-a987-49ce-9d96-5431428592c6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""759c6c1c-3ba4-409f-88e4-e659de2b1625"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MapExit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ab2cf6dc-e28a-4338-9cab-1ef442dc67c7"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MapExit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""TravelGame"",
+            ""id"": ""f61485ca-3e81-42f0-9007-cab798c08d78"",
+            ""actions"": [
+                {
+                    ""name"": ""Retry"",
+                    ""type"": ""Button"",
+                    ""id"": ""4106f4b5-ba2a-466d-8fec-af091bc7194f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""da3bbc9b-a0af-4cf0-9ca7-9bb57620e07e"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Retry"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b1721af9-5f33-409d-b7d6-9b63369f211e"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Retry"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""43ec1c9f-6e57-4966-b0b6-c71ecf1f15e7"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Retry"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""64f6fcb9-472f-4169-9270-91f619509de3"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Retry"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -348,6 +560,20 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Shooting_Aiming = m_Shooting.FindAction("Aiming", throwIfNotFound: true);
         m_Shooting_AimingMouse = m_Shooting.FindAction("AimingMouse", throwIfNotFound: true);
         m_Shooting_AimingController = m_Shooting.FindAction("AimingController", throwIfNotFound: true);
+        // UI
+        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
+        m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
+        m_UI_ControllerMouse = m_UI.FindAction("ControllerMouse", throwIfNotFound: true);
+        m_UI_ControllerClick = m_UI.FindAction("ControllerClick", throwIfNotFound: true);
+        // Base
+        m_Base = asset.FindActionMap("Base", throwIfNotFound: true);
+        m_Base_EnterBase = m_Base.FindAction("EnterBase", throwIfNotFound: true);
+        // Map
+        m_Map = asset.FindActionMap("Map", throwIfNotFound: true);
+        m_Map_MapExit = m_Map.FindAction("MapExit", throwIfNotFound: true);
+        // TravelGame
+        m_TravelGame = asset.FindActionMap("TravelGame", throwIfNotFound: true);
+        m_TravelGame_Retry = m_TravelGame.FindAction("Retry", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -540,6 +766,154 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         }
     }
     public ShootingActions @Shooting => new ShootingActions(this);
+
+    // UI
+    private readonly InputActionMap m_UI;
+    private IUIActions m_UIActionsCallbackInterface;
+    private readonly InputAction m_UI_Pause;
+    private readonly InputAction m_UI_ControllerMouse;
+    private readonly InputAction m_UI_ControllerClick;
+    public struct UIActions
+    {
+        private @PlayerControls m_Wrapper;
+        public UIActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Pause => m_Wrapper.m_UI_Pause;
+        public InputAction @ControllerMouse => m_Wrapper.m_UI_ControllerMouse;
+        public InputAction @ControllerClick => m_Wrapper.m_UI_ControllerClick;
+        public InputActionMap Get() { return m_Wrapper.m_UI; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
+        public void SetCallbacks(IUIActions instance)
+        {
+            if (m_Wrapper.m_UIActionsCallbackInterface != null)
+            {
+                @Pause.started -= m_Wrapper.m_UIActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnPause;
+                @ControllerMouse.started -= m_Wrapper.m_UIActionsCallbackInterface.OnControllerMouse;
+                @ControllerMouse.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnControllerMouse;
+                @ControllerMouse.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnControllerMouse;
+                @ControllerClick.started -= m_Wrapper.m_UIActionsCallbackInterface.OnControllerClick;
+                @ControllerClick.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnControllerClick;
+                @ControllerClick.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnControllerClick;
+            }
+            m_Wrapper.m_UIActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
+                @ControllerMouse.started += instance.OnControllerMouse;
+                @ControllerMouse.performed += instance.OnControllerMouse;
+                @ControllerMouse.canceled += instance.OnControllerMouse;
+                @ControllerClick.started += instance.OnControllerClick;
+                @ControllerClick.performed += instance.OnControllerClick;
+                @ControllerClick.canceled += instance.OnControllerClick;
+            }
+        }
+    }
+    public UIActions @UI => new UIActions(this);
+
+    // Base
+    private readonly InputActionMap m_Base;
+    private IBaseActions m_BaseActionsCallbackInterface;
+    private readonly InputAction m_Base_EnterBase;
+    public struct BaseActions
+    {
+        private @PlayerControls m_Wrapper;
+        public BaseActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @EnterBase => m_Wrapper.m_Base_EnterBase;
+        public InputActionMap Get() { return m_Wrapper.m_Base; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(BaseActions set) { return set.Get(); }
+        public void SetCallbacks(IBaseActions instance)
+        {
+            if (m_Wrapper.m_BaseActionsCallbackInterface != null)
+            {
+                @EnterBase.started -= m_Wrapper.m_BaseActionsCallbackInterface.OnEnterBase;
+                @EnterBase.performed -= m_Wrapper.m_BaseActionsCallbackInterface.OnEnterBase;
+                @EnterBase.canceled -= m_Wrapper.m_BaseActionsCallbackInterface.OnEnterBase;
+            }
+            m_Wrapper.m_BaseActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @EnterBase.started += instance.OnEnterBase;
+                @EnterBase.performed += instance.OnEnterBase;
+                @EnterBase.canceled += instance.OnEnterBase;
+            }
+        }
+    }
+    public BaseActions @Base => new BaseActions(this);
+
+    // Map
+    private readonly InputActionMap m_Map;
+    private IMapActions m_MapActionsCallbackInterface;
+    private readonly InputAction m_Map_MapExit;
+    public struct MapActions
+    {
+        private @PlayerControls m_Wrapper;
+        public MapActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @MapExit => m_Wrapper.m_Map_MapExit;
+        public InputActionMap Get() { return m_Wrapper.m_Map; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MapActions set) { return set.Get(); }
+        public void SetCallbacks(IMapActions instance)
+        {
+            if (m_Wrapper.m_MapActionsCallbackInterface != null)
+            {
+                @MapExit.started -= m_Wrapper.m_MapActionsCallbackInterface.OnMapExit;
+                @MapExit.performed -= m_Wrapper.m_MapActionsCallbackInterface.OnMapExit;
+                @MapExit.canceled -= m_Wrapper.m_MapActionsCallbackInterface.OnMapExit;
+            }
+            m_Wrapper.m_MapActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @MapExit.started += instance.OnMapExit;
+                @MapExit.performed += instance.OnMapExit;
+                @MapExit.canceled += instance.OnMapExit;
+            }
+        }
+    }
+    public MapActions @Map => new MapActions(this);
+
+    // TravelGame
+    private readonly InputActionMap m_TravelGame;
+    private ITravelGameActions m_TravelGameActionsCallbackInterface;
+    private readonly InputAction m_TravelGame_Retry;
+    public struct TravelGameActions
+    {
+        private @PlayerControls m_Wrapper;
+        public TravelGameActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Retry => m_Wrapper.m_TravelGame_Retry;
+        public InputActionMap Get() { return m_Wrapper.m_TravelGame; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(TravelGameActions set) { return set.Get(); }
+        public void SetCallbacks(ITravelGameActions instance)
+        {
+            if (m_Wrapper.m_TravelGameActionsCallbackInterface != null)
+            {
+                @Retry.started -= m_Wrapper.m_TravelGameActionsCallbackInterface.OnRetry;
+                @Retry.performed -= m_Wrapper.m_TravelGameActionsCallbackInterface.OnRetry;
+                @Retry.canceled -= m_Wrapper.m_TravelGameActionsCallbackInterface.OnRetry;
+            }
+            m_Wrapper.m_TravelGameActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Retry.started += instance.OnRetry;
+                @Retry.performed += instance.OnRetry;
+                @Retry.canceled += instance.OnRetry;
+            }
+        }
+    }
+    public TravelGameActions @TravelGame => new TravelGameActions(this);
     public interface IGameplayActions
     {
         void OnJump(InputAction.CallbackContext context);
@@ -557,5 +931,23 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnAiming(InputAction.CallbackContext context);
         void OnAimingMouse(InputAction.CallbackContext context);
         void OnAimingController(InputAction.CallbackContext context);
+    }
+    public interface IUIActions
+    {
+        void OnPause(InputAction.CallbackContext context);
+        void OnControllerMouse(InputAction.CallbackContext context);
+        void OnControllerClick(InputAction.CallbackContext context);
+    }
+    public interface IBaseActions
+    {
+        void OnEnterBase(InputAction.CallbackContext context);
+    }
+    public interface IMapActions
+    {
+        void OnMapExit(InputAction.CallbackContext context);
+    }
+    public interface ITravelGameActions
+    {
+        void OnRetry(InputAction.CallbackContext context);
     }
 }

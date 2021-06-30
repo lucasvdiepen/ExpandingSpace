@@ -67,7 +67,7 @@ public class MeteoriteSpawner : MonoBehaviour
         meteorite.transform.localScale = meteoriteScale;
 
         // makes the meteorite
-        Instantiate(meteorite, new Vector3(spawnPositionMeterorite, meteoriteSpawnPositionY, 0), Quaternion.identity);
+        Instantiate(meteorite, new Vector3(spawnPositionMeterorite, meteoriteSpawnPositionY, -0.43f), Quaternion.identity);
 
         // chack if it can spawn a meteorite
         if (canSpawnMeteorite)

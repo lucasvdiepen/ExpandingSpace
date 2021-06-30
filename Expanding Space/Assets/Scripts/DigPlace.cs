@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,20 +11,29 @@ public class DigPlace : MonoBehaviour
         Teleport
     }
 
+    public string digPlaceName = "";
+
     public DigAction digAction;
 
-    public GameObject[] rewards;
+    public Inventory.AllItems[] rewards;
 
     public Transform endTeleportPoint;
 
-    //string voor in de inspector
+    //values voor in de inspector
     public int rgb1;
     public int rgb2;
     public int rgb3;
 
-    public ParticleSystem dirt;
+    private ParticleSystem dirt;
 
     [HideInInspector] public bool isDug = false;
+
+    private void Start()
+    {
+        dirt = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<ParticleSystem>();
+
+        isDug = FindObjectOfType<SaveManager>().GetDug(digPlaceName);
+    }
 
     public void Dig()
     {
@@ -31,24 +41,30 @@ public class DigPlace : MonoBehaviour
         {
             isDug = true;
 
-            StartCoroutine(FindObjectOfType<PlayerMovement>().DigLoot(transform));
+            StartCoroutine(FindObjectOfType<Dig>().DigLoot(transform));
+
             //Give items to inventory here
-            foreach (GameObject reward in rewards)
+            foreach (Inventory.AllItems reward in rewards)
             {
                 FindObjectOfType<Inventory>().AddToInventory(reward);
             }
+
+            FindObjectOfType<SaveManager>().SetDug(digPlaceName);
         }
         else if(digAction == DigAction.Teleport)
         {
-            FindObjectOfType<PlayerMovement>().DigTeleport(transform, endTeleportPoint);
-            StartCoroutine(FindObjectOfType<PlayerMovement>().DigTeleport(transform, endTeleportPoint));
+            Debug.Log("Digging teleport");
+
+            StartCoroutine(FindObjectOfType<Dig>().DigTeleport(transform, endTeleportPoint));
         }
-    //particle system color
-    var main = dirt.main;
+
+        //particle system color
+        var main = dirt.main;
 
         if (dirt)
         {
-            main.startColor = new Color(rgb1, rgb2, rgb3, 255);
+            Color newColor = new Color32(Convert.ToByte(rgb1), Convert.ToByte(rgb2), Convert.ToByte(rgb3), 255);
+            main.startColor = newColor;
         }
     }
 }

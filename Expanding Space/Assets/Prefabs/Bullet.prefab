@@ -99,7 +99,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   lifeTime: 2
-  destroyEffect: {fileID: 2932539514152982183, guid: 2789edc6475da9d48b4fdd25d714f4e1, type: 3}
 --- !u!58 &7816048863902266119
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -151,3 +150,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyEffect: {fileID: 2932539514152982183, guid: 2789edc6475da9d48b4fdd25d714f4e1, type: 3}
   bullet: {fileID: 4769039730548899530}
+  explosionEffectTime: 2
