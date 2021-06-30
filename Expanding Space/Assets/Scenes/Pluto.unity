@@ -1562,6 +1562,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: 1
+  isInWorld: 0
 --- !u!1 &1277471551
 GameObject:
   m_ObjectHideFlags: 0
@@ -1864,6 +1865,10 @@ PrefabInstance:
       propertyPath: rewards.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7768975159740133175, guid: bfd1cf73e02a80b47a8f32be3a2ac317, type: 3}
+      propertyPath: rewards.Array.data[0]
+      value: 
+      objectReference: {fileID: 558051991936280219, guid: 76f269606762cf84ca177a5350d9a56b, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfd1cf73e02a80b47a8f32be3a2ac317, type: 3}
 --- !u!1 &1473557229
