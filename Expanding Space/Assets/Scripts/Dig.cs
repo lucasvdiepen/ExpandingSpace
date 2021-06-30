@@ -153,7 +153,7 @@ public class Dig : MonoBehaviour
 
         if (movingToPosition)
         {
-            transform.position = Vector3.Lerp(digOldPosition, digPosition, movingTimeElapsed / digMoveTime);
+            transform.position = new Vector3(Mathf.Lerp(digOldPosition.x, digPosition.x, movingTimeElapsed / digMoveTime), Mathf.Lerp(digOldPosition.y, digPosition.y, movingTimeElapsed / digMoveTime), transform.position.z);
 
             if (movingTimeElapsed >= digMoveTime)
             {
