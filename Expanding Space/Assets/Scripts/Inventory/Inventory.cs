@@ -8,7 +8,7 @@ public class Inventory : MonoBehaviour
 
     private void Start()
     {
-        items = FindObjectOfType<SaveManager>().GetInventory();
+        LoadInventory();
     }
 
     public enum AllItems
@@ -44,6 +44,11 @@ public class Inventory : MonoBehaviour
         items.Add(item);
 
         FindObjectOfType<SaveManager>().SetInventory(items);
+    }
+
+    public void LoadInventory()
+    {
+        items = FindObjectOfType<SaveManager>().GetInventory();
     }
 
     public bool HasItem(AllItems item)
