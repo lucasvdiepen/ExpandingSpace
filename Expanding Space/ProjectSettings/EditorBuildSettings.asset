@@ -35,5 +35,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Venus.unity
     guid: dd02ad716395c3047b0d9e0bf557e604
+  - enabled: 1
+    path: Assets/Scenes/Earth.unity
+    guid: d64dece447ada424aabb4469f7a16c91
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: f3d891ec4a3a10c4a910aa4f5cf106fd, type: 2}

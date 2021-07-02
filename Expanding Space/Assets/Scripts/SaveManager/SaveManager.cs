@@ -79,6 +79,8 @@ public class SaveManager : MonoBehaviour
         gameSaveData = new GameSaveData();
 
         SaveGameData();
+
+        FindObjectOfType<Inventory>().LoadInventory();
     }
 
     public List<AllItems> GetInventory()

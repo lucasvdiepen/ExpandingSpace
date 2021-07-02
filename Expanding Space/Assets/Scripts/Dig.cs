@@ -44,6 +44,7 @@ public class Dig : MonoBehaviour
         public Vector2 position { get; private set; }
         public Vector3 rotation { get; private set; }
         private DigPlace script { get; set; }
+        private GameObject[] rewards { get; set; }
 
         public void SetDigPlace(Vector2 _position, Vector3 _rotation, DigPlace _script)
         {
@@ -51,6 +52,7 @@ public class Dig : MonoBehaviour
             position = _position;
             rotation = _rotation;
             script = _script;
+            rewards = script.rewards;
 
             if(!isDug())
             {
@@ -71,7 +73,6 @@ public class Dig : MonoBehaviour
         public void Reset()
         {
             isNear = false;
-            position = Vector2.zero;
             script = null;
 
             antenneLighting.DisableLight();
@@ -82,6 +83,14 @@ public class Dig : MonoBehaviour
         public void Dig()
         {
             script.Dig();
+        }
+
+        public void PlayPickAnimation()
+        {
+            foreach (GameObject reward in rewards)
+            {
+                Instantiate(reward, position, Quaternion.Euler(rotation));
+            }
         }
     }
 
@@ -153,7 +162,7 @@ public class Dig : MonoBehaviour
 
         if (movingToPosition)
         {
-            transform.position = Vector3.Lerp(digOldPosition, digPosition, movingTimeElapsed / digMoveTime);
+            transform.position = new Vector3(Mathf.Lerp(digOldPosition.x, digPosition.x, movingTimeElapsed / digMoveTime), Mathf.Lerp(digOldPosition.y, digPosition.y, movingTimeElapsed / digMoveTime), transform.position.z);
 
             if (movingTimeElapsed >= digMoveTime)
             {
@@ -209,7 +218,7 @@ public class Dig : MonoBehaviour
 
             yield return new WaitUntil(() => !isRotating);
 
-            PlayerDig(false);
+            digInfo.PlayPickAnimation();
 
             isDigging = false;
 
@@ -218,6 +227,9 @@ public class Dig : MonoBehaviour
             FindObjectOfType<SoundManager>().StopDigSound();
 
             FindObjectOfType<SoundManager>().PlayGetItemSounds();
+
+
+            PlayerDig(false);
         }
     }
 
